@@ -1,0 +1,32 @@
+---
+title: "wrangle"
+author: "Wonjun Choi"
+date: "2022-09-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list=ls())
+
+# modify this when making .R
+dir_root <- "~/Dropbox/Emory/Assistant/RA/Ian/aha-data"
+setwd(dir_root)
+```
+
+```{r Import Package, results = FALSE}
+library(tidyverse, haven)
+```
+
+```{r Import Data}
+dat_cooper <- read_csv(paste0(dir_root,'/data/cooper-et-al/HC_ext_mergerdata_public.csv'))
+```
+
+```{r}
+dat_cooper %>% names()
+```
+```{r}
+dat_cooper %>% select("id", "sysid", "id_defunct", "id_parent")
+```
+
+
