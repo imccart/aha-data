@@ -15,11 +15,30 @@ setwd(dir_root)
 ```
 
 ```{r Import Package, results = FALSE}
-library(tidyverse, haven)
+pacman::p_load(tidyverse, haven)
 ```
+
+```{r}
+Sys.setenv("VROOM_CONNECTION_SIZE" = 99999999)
+```
+
+TO DO:
+
 
 ```{r Import Data}
 dat_cooper <- read_csv(paste0(dir_root,'/data/cooper-et-al/HC_ext_mergerdata_public.csv'))
+```
+
+```{r}
+y <- 2007
+
+# f <- paste0(dir_root,'/data/input/AHA FY ',y,'/FLAT/pubas',substring(as.character(y),3,4))
+# df_2007 <- read.csv(f)
+```
+
+```{r}
+a <- 2007
+str(a)
 ```
 
 ```{r}
