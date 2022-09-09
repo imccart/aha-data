@@ -1,0 +1,69 @@
+ID,REASON FOR DELETION,HOSPITAL NAME,CITY,STATE
+6040270,Closed,Hospital Episcopol San Lucas,Ponce,PR
+6140645,Merged into 6140570,Brockton VA Medical Center,Brockton,MA
+6212720,Inpatient care other than hospital (hospice),Cabrini Medical Center,New York,NY
+6220440,Status changed from registered to nonregistered,LibertyHealth-Greenville Hospital,Jersey City,NJ
+6220760,Merged into 6220890,Columbus Hospital,Newark,NJ
+6220880,Outpatient,Saint James Hospital of Newark,Newark,NJ
+6221090,Closed,Barnert Hospital,Paterson,NJ
+6221528,Closed,Union Hospital,Union,NJ
+6221618,Closed,Pasack Valley Hospital,Westwood,NJ
+6230056,Status changed from registered to nonregistered,Temple Univ Children's Med Center,Philadelphia,PA
+6232330,Outpatient,Willis Eye Hospital,Philadelphia,PA
+6233305,Outpatient,Warminster Hospital,Warminster,PA
+6340045,Closed,Northern Virginia Comm Hosp,Arlington,VA
+6340250,Outpatient,McDonald Army Comm Hosp,Fort Eustis,VA
+6350670,Status changed from registered to nonregistered,Richwood Area Comm Hosp,Richwood,WV
+6360345,Outpatient,Naval Hospital,Cherry Point,NC
+6370155,Outpatient,Midlands Center,Columbia,SC
+6370200,Status changed from registered to nonregistered,South Carolina State Hospital,Columbia,SC
+6370490,Outpatient,Naval Hospital,North Charleston,SC
+6390013,Merged into 6390573,Jackson North Medical Center,North Miami Beach,FL
+6390195,Merged into 6390230,North Ridge Medical Center,Fort Lauderdale,FL
+6390260,Merged into 6390283,Shands AGH,Gainesville,FL
+6390271,Merged into 6390283,Shands Rehab Hospital,Gainesville,FL
+6390560,Merged into 6390573,Jackson South Comm Hospital,Miami,FL
+6410330,Closed,Windsor Hospital,Chagrin Falls,OH
+6420005,Demerged-Merger dissolved -6420605&6420728&6420008,Community Health Network,Indianapolis,IN
+6420010,Closed,Healthsouth Hospital,Terre Haute,IN
+6420028,Closed,St Elizabeth Ann Seton Hosp,Evansville,IN
+6430820,Outpatient,Naval Hospital,Great Lakes,IL
+6440525,Outpatient,St John Detroit Riverview Hosp,Detroit,MI
+6441675,Merged into 6440027,Michigan Ortho Specialty Hosp,Madison Heights,MI
+6540003,Status changed from registered to nonregistered,Gulf Coast Medical Center,Biloxi,MS
+6631125,Merged into 6630995,SSM Rehab,Saint Louis,MO
+6631340,Outpatient,Med Center for Fed Prisoners,Springfield,MO
+6650240,Inpatient care other than hospital (Nursing Home),Five Counties Hospital,Lemmon,SD
+6650434,Outpatient,PHS Indian Hospital,Sisseton,SD
+6660365,Merged into 6660002,Richard H Young Hospital,Kearney,NE
+6720096,Closed,Acadia Rehab Hospital,Crowley,LA
+6720455,Merged into 6720460,St Francis North Hospital,Monroe,LA
+6730106,Merged into 6731215,St Francis Hospital South,Broken Arrow,OK
+6730945,Closed,Pawnee Municipal Hospital,Pawnee,OK
+6740021,Status changed from registered to nonregistered,Austin Lakes Hospital,Austin,TX
+6740051,Merged to form 6740415,North Central Baptist Hospital,San Antonio,TX
+6740081,Merged into 6741315,Las Palmas Rehab Hospital,El Paso,TX
+6740142,Status changed from registered to nonregistered,River Oaks Hospital,Houston,TX
+6740247,Status changed from registered to nonregistered,Healthsouth Rehab Hospital,Odessa,TX
+6741310,Closed,Southwestern General Hospital,El Paso,TX
+6741455,Merged into 6741390,Baylor Medical Center,Fort Worth,TX
+6741969,Merged to form 6740413,Doctors Hospital Parkway,Houston,TX
+6742215,Closed,Medical Center at Lancaster,Lancaster,TX
+6743005,Merged to form 6740415,Baptist Medical Center,San Antonio,TX
+6743010,Merged to form 6740415,Northeast Baptist Hospital,San Antonio,TX
+6743015,Merged to form 6740415,Southeast Baptist Hospital,San Antonio,TX
+6743035,Merged to form 6740415,St Luke's Baptist Hospital,San Antonio,TX
+6743147,Closed,Dolly Vinsant Mem Hospital,San Benito,TX
+6749310,Merged to form 674043,Doctors Hospital-Tidwell,Houston,TX
+6850020,Outpatient,PHS Indian Hospital,Albuquerque,NM
+6850270,Merged to form 6850037,Carrie Tingley Hospital,Albuquerque,NM
+6860162,Closed,Mesa General Hospital,Mesa,AZ
+6860165,Status changed from registered to nonregistered,Banner Mesa Medical Center,Mesa,AZ
+6880080,Outpatient,Owyhee Community Health Facility,Owyhee,NV
+6910223,Status changed from registered to nonregistered,Deer Park Hospital,Deer Park,WA
+6930800,Merged into 6930790,University Medical Center,Fresno,CA
+6931060,Closed,Centinela Freeman Med Center,Inglewood,CA
+6931788,Merged into 6932470,Eastern Plumas Health Care,Loyalton,CA
+6933386,Merged into 6933375,Rehab Inst at Santa Barbara,Santa Barbara,CA
+6933896,Outpatient,Public Health Service Indian Hosp,Winterhaven,CA
+6938521,Outpatient,LAC-Martin Luther King Hosp,Los Angeles,CA
