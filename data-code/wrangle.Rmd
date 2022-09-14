@@ -8,10 +8,6 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 rm(list=ls())
-
-# modify this when making .R
-dir_root <- "~/Dropbox/Emory/Assistant/RA/Ian/aha-data"
-setwd(dir_root)
 ```
 
 ```{r Import Package, results = FALSE}
@@ -19,12 +15,17 @@ pacman::p_load(tidyverse, haven)
 ```
 
 ```{r}
-# Sys.setenv("VROOM_CONNECTION_SIZE" = 99999999)
+dir_root <- "/home/wonjun/Dropbox/Emory/Assistant/RA/Ian/aha-data"
 ```
+
 
 ```{r Import data}
 dat_cooper <- read_csv(paste0(dir_root,'/data/cooper-et-al/HC_ext_mergerdata_public.csv'))
 ```
+```{r}
+dat_cooper %>% filter(id==6740415)
+```
+
 
 ```{r Import data}
 y <- 2007
@@ -42,6 +43,11 @@ print(dat_cooper %>% filter(year==2006) %>% nrow())
 ```{r select}
 df_tmp <- df_2007 %>% select(ID, year, REG,STCD,HOSPN,SYSID, LAT,LONG)
 ```
+
+```{r}
+df_tmp %>% filter(ID == 6740051)
+```
+
 
 ```{r check each variable}
 for (v in variable.names(df_tmp)){
