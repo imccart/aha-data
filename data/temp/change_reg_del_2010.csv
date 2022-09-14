@@ -1,0 +1,75 @@
+ID,REASON FOR DELETION,HOSPITAL NAME,CITY,STATE
+6140784,Outpatient,M. I. T. Medical Department,Cambridge,MA
+6140786,Outpatient,"Stillman Infirmary, Harvard Univ",Cambridge,MA
+6160447,Closed,Cedarcrest Hospital,Newington,CT
+6210003,Merged into 6213100,Montefiore Medical Center - North,Bronx,NY
+6211740,Closed,Tri-County Memorial Hospital,Gowanda,NY
+6212250,Merged to form 6210263,Eastern Niagara Hosp-Lockport,Lockport,NY
+6212585,Merged to form 6210263,Eastern Niagara Hospital Inter,Newfane,NY
+6212890,Merged into 6212925,Hospital for Joint Diseases at,New York,NY
+6220008,Closed,Mt. Carmel Behavioral Hlthcare,Newark,NJ
+6221110,Merged into 6221120,St. Joseph's Wayne Hospital,Wayne,NJ
+6230530,Closed,Altoona Center,Altoona,PA
+6320470,Closed,Memorial Hospital & Med Center,Cumberland,MD
+6320475,Closed,WMHS Braddock Hospital,Cumberland,MD
+6330260,Closed,Walter Reed Army Med Center,Washington,DC
+6340415,Not a hosp-Behavioral Health,North Springs Behavioral Health,Leesburg,VA
+6340880,Merged into 6340012,Retreat Doctors' Hospital,Richmond,VA
+6360975,Closed,McCain Correctional Hospital,Raeford,NC
+6370006,Merged into 6370232,Summerville Medical Center,Summerville,SC
+6370081,Closed,Charleston Memorial Hospital,Charleston,SC
+6380135,Not a hosp - Psych Facility,Hillside Hospital,Atlanta,GA
+6390026,Not a hosp - Behavioral Health,Sandypines,Tequesta,FL
+6394015,Merged into 6390081,Pinecrest Rehabilitation Hospital,Delray Beach,FL
+6410033,Status changed to nonregistered,Regency Hospital of Akron,Barberton,OH
+6410044,Merged into 6410139,Regency Hospital of Ravenna,Ravenna,OH
+6410470,Closed,Deaconess Hospital,Cincinnati,OH
+6419015,Merged/Closed into 6411290,Amherst Hospital,Amherst,OH
+6420062,Merged into 6420042,Regency Hosp of Porter County,Portage,IN
+6430210,Merged  into 6432810,Northwest Suburb Comm Hosp,Belvidere,IL
+6441270,Closed,Henry Ford Cottage Hospital,Grosse Pointe Fa,mMsI
+6441835,Closed/Merged into 6440805,St. John North Shores Hospital,Harrison Townshi,MI
+6450070,Closed,Franciscan Skemp Hlthcare-Aradia,Arcadia,WI
+6450970,Merged to form 6450244,Columbia St. Mary's Colum Hosp,Milwaukee,WI
+6451180,Merged to form 6450244,Columbia St. Mary's Milwaukee,Milwaukee,WI
+6520026,Merged  into  6520025,Mercy Medical Center West,Knoxville,TN
+6520465,Closed,Johnson City Specialty Hosp,Johnson City,TN
+6521002,Closed,Nashville Rehabilitation Hospital,Nashville,TN
+6530187,Outpatient,Callahan Eye Foundation Hosp,Birmingham,AL
+6530290,Merged into 6530304,UAB Highlands,Birmingham,AL
+6530802,Closed,Randolph Medical Center,Roanoke,AL
+6540015,Status changed to nonregistered,Choctaw County Hospital,Ackerman,MS
+6612060,Closed,Willmar Adult Mental Health Pr,Willmar,MN
+6629025,Closed,Mercy Capitol,Des Moines,IA
+6630335,Merged into 6630435,Research Medical Center - Brook,Kansas City,MO
+6639040,Closed,Mid-Missouri Mental Hlth Center,Columbia,MO
+6650200,Closed,Holy Infant Hospital,Hoven,SD
+6670315,Outpatient,Central Kansas Medical Center,Great Bend,KS
+6710027,Merged into 6710026,Regency Hospital of Springdale,Springdale,AR
+6719130,Closed,Pike County Memorial Hospital,Murfreesboro,AR
+6720078,Closed,St. Patrick's Psychiatric Hosp,Monroe,LA
+6720235,Merged into 6720409,Acadian Medical Center,Eunice,LA
+6720252,Merged into 6720631,Ochsner Medical Center - West,Gretna,LA
+6720345,Merged into 6720334,Women's and Children's Hospital,Lafayette,LA
+6720710,Merged into6720708,Doctor's Hospital of Opelousas,Opelousas,LA
+6730018,Merged into 6730026,Continuous Care Hospital,Tulsa,OK
+6730305,Merged into 6730024,OU Medical Center Edmond,Edmond,OK
+6730730,Merged into 6730830,Bone and Joint Hospital,Oklahoma City,OK
+6740031,Closed,Mission Vista Behavioral Health,San Antonio,TX
+6740087,Status changed to nonregistered,Spring Branch Medical Center,Houston,TX
+6740106,Closed,Compass Hospital,San Antonio,TX
+6740118,Merged into 6740149,Mainland Medical Center,Texas City,TX
+6740193,Merged into 6740162,Lifecare Hosp of Fort Worth,Fort Worth,TX
+6740231,Merged into 6740162,LifeCare Hospitals of Plano,Plano,TX
+6741200,Merged to form 6740646,Edinburg Regional Med Center,Edinburg,TX
+6741225,Merged into 6741315,Del Sol Medical Center,El Paso,TX
+6742460,Merged to form 6740646,McAllen Medical Center,McAllen,TX
+6743410,Merged into 6743413,King's Daughters Hospital,Temple,TX
+6870320,Not a hosp - Behavioral Health,Copper Hills Youth Center,West Jordan,UT
+6879345,Not a hosp - Behavioral Health,Benchmark Behavioral Hlth Syst,Woods Cross,UT
+6930736,Merged to form 6930403,NorthBay Medical Center,Fairfield,CA
+6931101,Closed,Kingsburg Medical Center,Kingsburg,CA
+6932070,Merged to form 6930403,NorthBay VacaValley Hospital,Vacaville,CA
+6932200,Merged into 6930275,Alameda County Medical Center,Oakland,CA
+6933702,Closed,Tustin Hospital and Med Center,Tustin,CA
+6933840,Closed,Veterans Home of California,Yountville,CA

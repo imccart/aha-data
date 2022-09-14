@@ -1,11 +1,11 @@
 ID,REASON FOR DELETION,HOSPITAL NAME,CITY,STATE
-6350011,nonregistered to registered,Peterson Rehab Hospital,Wheeling,WV
+6350011,Status changed from nonregistered to registered,Peterson Rehab Hospital,Wheeling,WV
 6350460,Outpatient,Guyan Valley Hospital,Logan,WV
 6360024,Closed,Frye Regional Medical Center,Taylorsville,NC
-6380030,nonregistered to registered,Sumter Regional Hospital East,Americus,GA
+6380030,Status changed from nonregistered to registered,Sumter Regional Hospital East,Americus,GA
 6390127,Outpatient,Baptist Medical Center South,Jacksonville,FL
-6390480,nonregistered to registered,Lake Wales Medical Center,Lake Wales,FL
-6391122,nonregistered to registered,Florida Hospital Wauchula,Wauchula,FL
+6390480,Status changed from nonregistered to registered,Lake Wales Medical Center,Lake Wales,FL
+6391122,Status changed from nonregistered to registered,Florida Hospital Wauchula,Wauchula,FL
 6410011,Closed,Fox Run Hospital,Saint Clairsville,OH
 6411170,Closed,Twin Valley Behavioral Health,Dayton,OH
 6420052,Closed,Select Specialty Hospital,Bloomington,IN
@@ -13,10 +13,10 @@ ID,REASON FOR DELETION,HOSPITAL NAME,CITY,STATE
 6450025,Closed,LifeCare Hosp of Milwaukee,Milwaukee,WI
 6451190,Closed,St Michael Hospital,Milwaukee,WI
 6510011,Closed,Gateway Rehab Hospital,Louisville,KY
-6520025,nonregistered to registered,Baptist Hospital West,Knoxville,TN
-6520026,nonregistered to registered,Baptist Hosital for Women,Knoxville,TN
-6540014,nonregistered to registered,Scott Regional Hospital,Morton,MS
-6540030,nonregistered to registered,Greene County Hospital,Leakesville,MS
+6520025,Status changed from nonregistered to registered,Baptist Hospital West,Knoxville,TN
+6520026,Status changed from nonregistered to registered,Baptist Hosital for Women,Knoxville,TN
+6540014,Status changed from nonregistered to registered,Scott Regional Hospital,Morton,MS
+6540030,Status changed from nonregistered to registered,Greene County Hospital,Leakesville,MS
 6710018,Closed,Select Specialty Hospital,Little Rock,AR
 6720077,Closed,Comm Specialty Hospital,Minden,LA
 6720083,Closed,St Johns Specialty Hospital,New Orleans,LA
@@ -29,13 +29,13 @@ ID,REASON FOR DELETION,HOSPITAL NAME,CITY,STATE
 6720187,Closed,Sherlington Rehab Hospital,Bernice,LA
 6720202,Closed,Behavioral Hosp of Shreveport,Shreveport,LA
 6730042,Closed,Centris,Oklahoma City,OK
-6730063,hospital,Kindred Hospital-Oklahoma City,Oklahoma City,OK
+6730063,Inpatient care other than hospital,Kindred Hospital-Oklahoma City,Oklahoma City,OK
 6740054,Closed,Daybreak Residential Center,Beaumont,TX
 6740114,Closed,Mental Health Connections,Dallas,TX
-6740148,nonregistered to registered,Seton Northwest Hospital,Austin,TX
+6740148,Status changed from nonregistered to registered,Seton Northwest Hospital,Austin,TX
 6740174,Closed,Cornerstone Hosp of Central TX,Austin,TX
 6740229,Merged into 6740079,Cornerstone Hosp of Houston,Webster,TX
-6740233,nonregistered to registered,Seton Southwest Healthcare Center,Austin,TX
+6740233,Status changed from nonregistered to registered,Seton Southwest Healthcare Center,Austin,TX
 6740270,Closed,West Texas Medical Center,Midland,TX
 6740315,Closed,LifeCare Hosp of South Texas,McAllen,TX
 6740337,Closed,West Texas Hospital,Abilene,TX
@@ -43,5 +43,5 @@ ID,REASON FOR DELETION,HOSPITAL NAME,CITY,STATE
 6741952,Merged into 6741950,Memorial Hermann NW Hosp,Houston,TX
 6850045,Closed,Memorial Hospital,Albuquerque,NM
 6860039,Closed,Select Specialty Hospital-Mesa,Mesa,AZ
-6880031,nonregistered to registered,Renown South Meadows Center,Reno,NV
-6930116,nonregistered to registered,Continental Rehab Hospital,San Diego,CA
+6880031,Status changed from nonregistered to registered,Renown South Meadows Center,Reno,NV
+6930116,Status changed from nonregistered to registered,Continental Rehab Hospital,San Diego,CA

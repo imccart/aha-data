@@ -1,0 +1,76 @@
+ID HOSPITAL NAME,Unnamed: 0,CITY,STATE,MERGER INFORMATION,PARENT HOSPITAL NAME,ID,HOSPITAL NAME
+6210263 Eastern Niagara Health System,,Lockport,NY,,,,
+6212250 Eastern Niagara Hospital Lockport,,Lockport,NY,Merged to form 6210263,,,
+6212585 Eastern Niagara Hospital Inter,,Newfane,NY,Merged to form 6210263,,,
+6450244 Columbia St. Mary's Hospital Milwaukee,,Milwaukee,WI,,,,
+6450970 Columbia St. Mary's Columbia Hosp,,Milwaukee,WI,Merged to form 6450244,,,
+6451180 Columbia St. Mary's Milwaukee,,Milwaukee,WI,Merged to form 6450244,,,
+6740646 South Texas Health System,,Edinburg,TX,,,,
+6741200 Edinburg Regional Medical Center,,,TX,Merged to form 6740646,,,
+6742460 McAllen Medical Center,,McAllen,TX,Merged to form 6740646,,,
+6930403 NorthBay Medical Center,,Fairfield,CA,,,,
+6930736 NorthBay Medical Center,,Fairfield,CA,Merged to form 6930403,,,
+6932070 NorthBay VacaValley Hospital,,Vacaville,CA,Merged to form 6930403,,,
+Merged into a hospital already on file:,,,,,,,
+ID NAME,,CITY,STATE,MERGER INFORMATION,PARENT HOSPITAL NAME,,
+6210003 Montefiore Medical Center - North,,Bronx,NY,Merged into 6213100,"Montefiore Medical Center - Bronx,",,
+,,,,,NY,,
+6212890 Hospital for Joint Diseases at,,New York,NY,Merged into 6212925,NYU Langone Medical Center - New,,
+,,,,,"York, NY",,
+6221110 St. Joseph's Wayne Hospital,,Wayne,NJ,Merged into 6221120,St. Joseph's Regional Med Center -,,
+,,,,,"Paterson, NJ",,
+6340880 Retreat Doctors' Hospital,,Richmond,VA,Merged into 6340012,Henrico Doctors' Hospital -,,
+,,,,,"Richmond, VA",,
+6370006 Summerville Medical Center,,Summerville,SC,Merged into 6370232,"Trident Medical Center - Charleston,",,
+,,,,,SC,,
+6394015 Pinecrest Rehabilitation Hospital,,Delray Beach,FL,Merged into 6390081,Delray Medical Center - Delray,,
+,,,,,"Beach, FL",,
+6410044 Regency Hospital of Ravenna,,Ravenna,OH,Merged into 6410139,Regency Hospital Cleveland East -,,
+,,,,,"Cleveland, OH",,
+6419015 Amherst Hospital,,Amherst,OH,Merged/    Closed into 6411290,"EMH Elyria Medical Center - Elyria,",,
+,,,,,OH,,
+6420062 Regency Hospital of Porter County,,Portage,IN,Merged into 6420042,Regency Hospital of Northwest,,
+,,,,,"Indiana - East Chicago, IN",,
+6430210 Northwest Suburban Community Hosp,,Belvidere,IL,Merged into 6432810 (now,SwedishAmerican Hospital -,,
+,,,,outpatient),"Rockford, IL",,
+6441835 St. John North Shores Hospital,,Harrison,MI,Closed/    Merged into 6440805,St. John Hospital and Medical,,
+,,Township,,,"Center - Detroit, MI",,
+6520026 Mercy Medical Center West,,Knoxville,TN,Merged into 6520025,Mercy Medical Center West -,,
+,,,,,"Knoxville, TN",,
+6530290 UAB Highlands,,Birmingham,AL,Merged into 6530304,University of Alabama Hospital -,,
+,,,,,"Birmington, AL",,
+6630335 Research Medical Center - Brook,,Kansas City,MO,Merged into 6630435 (now,Research Medical Center - Kansas,,
+,,,,outpatient),"City, MO",,
+6710019 Healthpark Hospital,,Hot Springs,AR,Merged  into 6710300,St. Joseph's Mercy Health Center -,,
+,,National,,,"Hot Springs National, AR",,
+6710027 Regency Hospital of Springdale,,Springdale,AR,Merged into 6710026,Regency Hospital of Northwest,,
+,,,,,"Arkansas - Fayetteville, AR",,
+6720102 River Oaks Child and Adolescence,,New Orleans,LA,Merged into 6720639,"River Oaks Hospital - New Orleans,",,
+,,,,,LA,,
+,,New Orleans,LA,Merged into 6720670,"Touro Infirmary - New Orleans, LA",6720103.0,Touro Rehabilitation Center
+,,,,,,,
+,,Eunice,LA,Merged into 6720409,"Mercy Regional Medical Center -Ville Platte, LA",6720235.0,Acadian Medical Center
+,,,,,,,
+,,Gretna,LA,Merged into 6720631,"Ochsner Medical Center - NewOrleans, LA",6720252.0,Ochsner Medical Center - West
+,,,,,,,
+,,Lafayette,LA,Merged into 6720334,"Regional Medical Center ofAcadiana - Lafayette, LA",6720345.0,Women's and Children's Hospital
+,,,,,,,
+,,Opelousas,LA,Merged into 6720708,"Opelousas General Health System -Opelousas, LA",6720710.0,Doctor's Hospital of Opelousas
+,,,,,,,
+,,Tulsa,OK,Merged into 6730026,"Continuous Care Centers of Tulsa -Tulsa, OK",6730018.0,Continuous Care Hospital
+,,,,,,,
+,,Edmond,OK,Merged into 6730024,"OU Medical Center - Oklahoma City,OK",6730305.0,OU Medical Center Edmond
+,,,,,,,
+,,Oklahoma City,OK,Merged into 6730830,"St. Anthony Hospital - OklahomaCity, OK",6730730.0,Bone and Joint Hospital
+,,,,,,,
+,,Texas City,TX,Merged into 6740149,"Clear Lake Regional MedicalCenter - Webster, TX",6740118.0,Mainland Medical Center
+,,,,,,,
+,,Fort Worth,TX,Merged into 6740162,"LifeCare Hospitals of Dallas - Dallas,TX",6740193.0,Lifecare Hosp of Fort Worth
+,,,,,,,
+,,Plano,TX,Merged into 6740162,"LifeCare Hospitals of Dallas - Dallas,TX",6740231.0,LifeCare Hospitals of Plano
+,,,,,,,
+,,El Paso,TX,Merged into 6741315,"Las Palmas Del Sol Healthcare - ElPaso, TX",6741225.0,Del Sol Medical Center
+,,,,,,,
+,,Temple,TX,Merged into 6743413,"Scott and White Memorial Hospital -Temple, TX",6743410.0,King's Daughters Hospital
+,,,,,,,
+,,Oakland,CA,Merged into 6930275,"Alameda County Medical Center -Oakland, CA",6932200.0,Alameda County Medical Center
