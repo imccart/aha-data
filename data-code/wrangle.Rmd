@@ -23,14 +23,14 @@ dir_root <- "/home/wonjun/Dropbox/Emory/Assistant/RA/Ian/aha-data"
 dat_cooper <- read_csv(paste0(dir_root,'/data/cooper-et-al/HC_ext_mergerdata_public.csv'))
 ```
 ```{r}
-dat_cooper %>% filter(id==6740415)
+dat_cooper %>% filter(id=='653032B')
 ```
 
 
 ```{r Import data}
-y <- 2007
+y <- 2010
 
-f <- paste0(dir_root,'/data/input/AHA FY ',y,'/COMMA/comma.csv')
+f <- paste0(dir_root,'/data/input/AHA FY ',y,'/COMMA/ASPUB10.csv')
 df_2007 <- read.csv(f)
 df_2007 <- df_2007 %>% mutate(year = 2007)
 
@@ -39,6 +39,13 @@ print(dat_cooper %>% filter(year==2007) %>% nrow())
 print(dat_cooper %>% filter(year==2008) %>% nrow())
 print(dat_cooper %>% filter(year==2006) %>% nrow())
 ```
+```{r}
+df_2007 %>% filter(MNAME == 'Mercy Rehabilitation Hospital')
+```
+```{r}
+df_2007
+```
+
 
 ```{r select}
 df_tmp <- df_2007 %>% select(ID, year, REG,STCD,HOSPN,SYSID, LAT,LONG)
