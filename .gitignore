@@ -1,6 +1,7 @@
 /data/input/
 *.Rhistory
 aha-data.Rpoj
+/.Rpoj.user/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
