@@ -15,7 +15,15 @@ pacman::p_load(tidyverse, haven)
 ```
 
 ```{r}
-dir_root <- "/home/wonjun/Dropbox/Emory/Assistant/RA/Ian/aha-data"
+## load
+y <- 2007
+setwd()
+df_hosp <- read.csv(paste0("data/input/AHA FY 2007/COMMA/comma.csv"))
+df_hosp <- df_hosp %>% select('ID') %>% mutate(year=y)
+df_reg_add <- read.csv(paste0("data/temp/change_reg_add_",y,".csv"))
+df_reg_del <- read.csv(paste0("data/temp/change_reg_del_",y,".csv"))
+df_nonreg_add <- read.csv(paste0("data/temp/change_nonreg_add_",y,".csv"))
+df_nonreg_del <- read.csv(paste0("data/temp/change_nonreg_del_",y,".csv"))
 ```
 
 
@@ -95,13 +103,26 @@ dat_cooper %>% filter(year==2007) %>% select(id) %>% unique()
 dat_cooper %>% group_by(sysid) %>% summarise(n_cooper=n()) %>% left_join(dat_cooper, by="sysid") %>% select(id, sysid, n_cooper) %>% mutate(ID = id) %>% left_join(df_tmp, by="ID") %>% select(ID, sysid, n_cooper)
 ```
 
-```{r check the variables are available for all year}
-# done by checking the codebooks.
-```
-
-
 ```{r}
 dat_cooper %>% select("id", "sysid", "id_defunct", "id_parent")
 ```
 
+# build-year
+```{r}
+```
+```{r}
+ddd <- df_nonreg_add %>% mutate(ID = as.character(ID))
+
+dddd <- df_hosp %>% left_join(ddd, 'ID')
+```
+
+```{r if register status changed, in the list}
+ff <- df_reg_del %>% mutate(ID = as.character(ID))
+why <- df_hosp %>% select(ID) %>% inner_join(ff, by='ID')
+```
+
+```{r if register status changed, in the list}
+ff <- df_nonreg_del %>% mutate(ID = as.character(ID))
+hoxy <- df_hosp %>% select(ID) %>% left_join(ff,by='ID') %>% filter(del==1)
+```
 

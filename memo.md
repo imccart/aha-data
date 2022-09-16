@@ -10,14 +10,8 @@ Memo:
   2. All the files are the same (csv, sas etc)
   3. codebook, etc are in `DOC` directory.
   4. In change of merger file, the 'merger and acquisition' table is redundant more or less.
-
-Workflow:
-  1. For y in 2007-2019:
-  2. Open AHA y, select identifiers(ID,NAME,CITY, ETC)
-  3. Work on merge/open/close
-  4. Assign temporary dataframe
-  5. Append the dataframes of 4
-  6. Join hospital characteristics
+  5. Wide panel or Long panel? Maybe doesnt matter. Make each year seperately then make both.
+  6. What is register? Doesn't matter. Add is add, del is del. It seems that AHA manage reg/nonreg separately, but it seems there is no difference in our end?
 
 Outcome:  
 
