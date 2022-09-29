@@ -1,7 +1,7 @@
 ---
 title: "wrangle"
 author: "Wonjun Choi"
-date: "2022-09-03"
+date: "2022-09-29"
 output: html_document
 ---
 
@@ -11,24 +11,63 @@ rm(list=ls())
 ```
 
 ```{r Import Package, results = FALSE}
-pacman::p_load(tidyverse, haven)
+pacman::p_load(tidyverse, haven, here)
 ```
 
 ```{r}
 ## load
-y <- 2007
-setwd()
-df_hosp <- read.csv(paste0("data/input/AHA FY 2007/COMMA/comma.csv"))
-df_hosp <- df_hosp %>% select('ID') %>% mutate(year=y)
-df_reg_add <- read.csv(paste0("data/temp/change_reg_add_",y,".csv"))
-df_reg_del <- read.csv(paste0("data/temp/change_reg_del_",y,".csv"))
-df_nonreg_add <- read.csv(paste0("data/temp/change_nonreg_add_",y,".csv"))
-df_nonreg_del <- read.csv(paste0("data/temp/change_nonreg_del_",y,".csv"))
+
+# working directory is {}/aha-data/ (above data-code)
+df_hosp <- tibble()
+for (y in 2007:2019){
+  if (y == 2007) {
+    f <- here("data",'input',paste0('AHA FY ',y),'COMMA','comma.csv')
+  } else if (y==2008) {
+    f <- here('data','input',paste0('AHA FY ',y),'COMMA','pubas08.csv')
+  } else if (y==2009) {
+    f <- here('data','input',paste0('AHA FY ',y),'Comma','pubas09.csv')
+  } else if (y<=2012) {
+    f <- here('data','input',paste0('AHA FY ',y),
+              'COMMA', paste0('ASPUB',y-2000,'.csv'))
+  } else if (y<=2015) {
+        f <- here('data','input',paste0('AHA FY ',y),
+              'COMMA', paste0('ASPUB',y-2000,'.CSV'))
+  } else {
+    f <- here('data','input',paste0('AHA FY ',y),
+              paste0('ASPUB',y-2000,'.csv'))
+  }
+  df_temp <- read.csv(f)
+  df_temp <- df_temp %>% select('ID','MNAME') %>% mutate(year=y)
+  df_hosp <- rbind(df_hosp, df_temp)
+}
+df_hosp <- df_hosp %>% group_by(ID) %>% 
+  mutate(n = n()) %>% ungroup()
+```
+
+```{r}
+# df_hosp %>% select(ID) %>% unique()  # n = 7165
+```
+
+```{r}
+y <-2007
+dir_temp <-here('data','temp')
+df_reg_add <- read.csv(here(dir_temp,paste0('change_reg_add_',y,'.csv')))
+df_reg_del <- read.csv(here(dir_temp,paste0('change_reg_del_',y,'.csv')))
+df_nonreg_add <- read.csv(here(dir_temp,paste0('change_nonreg_add_',y,'.csv')))
+df_nonreg_del <- read.csv(here(dir_temp,paste0('change_nonreg_del_',y,'.csv')))
+```
+
+```{r}
+df_reg_add
+```
+```{r}
+#df_hosp %>% filter(ID==6350011)
 ```
 
 
+
 ```{r Import data}
-dat_cooper <- read_csv(paste0(dir_root,'/data/cooper-et-al/HC_ext_mergerdata_public.csv'))
+dat_cooper <- read_csv(paste0(here(),'/data/cooper-et-al/HC_ext_mergerdata_public.csv'))
 ```
 ```{r}
 dat_cooper %>% filter(id=='653032B')
@@ -36,9 +75,9 @@ dat_cooper %>% filter(id=='653032B')
 
 
 ```{r Import data}
-y <- 2010
+y <- 2007
 
-f <- paste0(dir_root,'/data/input/AHA FY ',y,'/COMMA/ASPUB10.csv')
+f <- paste0(here(),'/data/input/AHA FY ',y,'/COMMA/comma.csv')
 df_2007 <- read.csv(f)
 df_2007 <- df_2007 %>% mutate(year = 2007)
 
@@ -106,6 +145,24 @@ dat_cooper %>% group_by(sysid) %>% summarise(n_cooper=n()) %>% left_join(dat_coo
 ```{r}
 dat_cooper %>% select("id", "sysid", "id_defunct", "id_parent")
 ```
+
+```{r}
+ll <- unique(df_del$ID)
+```
+
+```{r}
+df_hosp2 %>% names()
+```
+```{r}
+df_hosp%>%names()
+```
+
+
+```{r}
+aha_data %>% filter(readum_Colorado == 1)
+aha_data %>% filter(ID='Colorado Springs')
+```
+
 
 # build-year
 ```{r}

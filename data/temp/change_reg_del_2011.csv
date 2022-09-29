@@ -1,4 +1,4 @@
-ID,NAME,CITY,STATE,REASON FOR DELETION
+ID,HOSPITAL NAME,CITY,STATE,REASON FOR DELETION
 6040025,Hospital El Buen Pastor,Arecibo,PR,Closed
 6040296,San Carlos General Hospital,San Juan,PR,Closed
 6130260,Vermonst State Hospital,Waterbury,VT,Closed
@@ -6,10 +6,13 @@ ID,NAME,CITY,STATE,REASON FOR DELETION
 6210018,Hudson River Psychiatric Center,Poughkeepsie,NY,Closed
 6214340,Peninsula Hospital Center,Far Rockaway,NY,Closed
 6214805,Community-General Hospital of Greater,Syracuse,NY,Merged into 6214885
+6220022,Syracuse Senator Garrett W. Hagedorn Psych,Glen Gardner,NJ,Closed
 6220022,Senator Garrett W. Hagedorn Psych,Glen Gardner,NJ,Closed
+6230030,Hospital Allentown State Hospital,Allentown,PA,Closed
 6230030,Allentown State Hospital,Allentown,PA,Closed
 6230715,"Moss Rehab, Einstein at Elkins Park",Elkins Park,PA,Merged into 6231634
 6231780,KeyStone Center,Chester,PA,Psychiatric Services
+6233110, Shamokin Area Community Hospital,Coal Township,PA,Merged into 6230550
 6233110,Shamokin Area Community Hospital,Coal Township,PA,Merged into 6230550
 6234010,Cove Forge Behavioral Health System,Williamsburg,PA,Behavioral Health Center
 6320390,Malcolm Grow Medical Center,Andrews AFB,MD,Ambulatory Care Center
@@ -18,7 +21,9 @@ ID,NAME,CITY,STATE,REASON FOR DELETION
 6360018,Carolinas Medical Center-Pineville,Charlotte,NC,Merged into 6360310
 6380645,Smith Northview Hospital,Valdosta,GA,Merged into 6381193
 6390535,Kindred Hospital South Florida-Coral,Coral Gables,Fl,Merged into 6399040
+6390572,Gables Mercy Hospital-A Campus of Plantation,Miami,FL,Merged into 6390843
 6390572,Mercy Hospital-A Campus of Plantation,Miami,FL,Merged into 6390843
+6410743,General Hospital Huron Hospital,Cleveland,OH,Closed
 6410743,Huron Hospital,Cleveland,OH,Closed
 6430205,Scott Medical Center,Scott AFB,IL,Ambulatory Care Center
 6432410,Oak Forest Hospital of Cook County,Oak Forest,IL,Ambulatory Care Center
@@ -31,6 +36,7 @@ ID,NAME,CITY,STATE,REASON FOR DELETION
 6530518,Hartselle Medical Center,Hartselle,AL,Closed
 6530920,Southwest Alabama Medical Center,Thomasville,AL,Closed
 6631310.0,Saint Luke's Northland Hospital-Smithville,Smithville,MO,Merged into 6630001
+6710013.0,Campus Willow Creek Women's Hospital,Johnson,AR,Merged to form 6710008
 6710013.0,Willow Creek Women's Hospital,Johnson,AR,Merged to form 6710008
 6710047.0,Northwest Medical Center-Bentonville,Bentonville,AR,Merged to form 6710008
 6710330.0,St. Bernard's Behavioral Health,Jonesboro,AR,Behavioral Health Center
@@ -45,16 +51,20 @@ ID,NAME,CITY,STATE,REASON FOR DELETION
 6742275.0,HEALTHSOUTH Hospital of Houston,Houston,TX,Closed
 6742850.0,CHRISTUS Hospital-St. Mary,Port Arthus,TX,Merged into 6740258
 6743025.0,Methodist Children's Hospital of South,San Antonio,TX,Merged into 6743122
+6743060.0,Texas Metropolitan Methodist Hospital,San Antonio,TX,Merged into 6743122
 6743060.0,Metropolitan Methodist Hospital,San Antonio,TX,Merged into 6743122
 6743122.0,Clarity Child Guidance Center,San Antonio,TX,Status hanged to
+6743125.0, Wilford Hall Medical Center,San Antonio,TX,Ambulatory Care Center
 6743125.0,Wilford Hall Medical Center,San Antonio,TX,Ambulatory Care Center
 6850006.0,Desert Hills,Albuquerque,NM,Behavioral Health Center
 6850014.0,Heart Hospital of New Mexico,Albuquerque,NM,Merged into 6850060
 6860002.0,Sierra Tucson,Tucson,AZ,Psychiatric Services
+6860022.0, Arizona Heart Hospital,Phoenix,AZ,Merged into 6860232
 6860022.0,Arizona Heart Hospital,Phoenix,AZ,Merged into 6860232
 6860182.0,Hualapai Mountain Medical Center,Kingman,AZ,Closed
 6860390.0,Tempe St. Luke's Hospital,Tempe,AZ,Merged into 6860290
 6870325.0,Highland Ridge Hospital,Midvale,UT,Psychiatric Services
+6932015.0, Seton Medical Center Coastside,Moss Beach,CA,Nursing Facility
 6932015.0,Seton Medical Center Coastside,Moss Beach,CA,Nursing Facility
 6932370.0,Impact Drug and Alcohol Treatment Center,Pasadena,CA,Behavioral Health Center
 6950002.0,Hawaii Medical Center-West,Ewa Beach,HI,Closed

@@ -1,35 +1,35 @@
 ID,REASON FOR ADDITION,HOSPITAL NAME,CITY,STATE
-6140014,Newly Added,Kindred Hospital-Boston,Brighton,MA
-6140026,Newly Added,Kindred Hospital Northeast-Stoughton,Stoughton,MA
-6210263,Merger Result,Eastern Niagara Health System,Lockport,NY
-6230123,Newly Added,Kindred Hospital Pittsburgh - North Shore,Pittsburgh,PA
-6320206,Newly Added,Western Maryland Regional Medical Center,Cumberland,MD
-6360147,Newly Added,Select Specialty Hospital-Greensboro,Greensboro,NC
-6390077,Newly Added,Kindred Hospital-Bay Area St. Petersburg,Saint Petersburg,FL
-6390188,Newly Added,Kindred Hospital the Palm Beaches,Riviera Beach,FL
-6390535,Newly Added,Kindred Hospital South Florida-Coral Gables,Coral Gables,FL
-6410075,Newly Added,Lindner Center of HOPE,Mason,OH
-6410077,Newly Added,West Chester Hospital,West Chester,OH
-6410199,Newly Added,Ahuja Medical Center,Beachwood,OH
-6420029,Status changed to registered,Franciscan St. Francis Health,Indianapolis,IN
-6420196,Newly Added,Orthopaedic Hospital of Lutheran Health,Fort Wayne,IN
-6440047,Status changed to registered,Sparrow Specialty Hospital,Lansing,MI
-6450175,Newly Added,Aurora Medical Center Summit,Summit,WI
-6450244,Merger Result,Columbia St. Mary's Hospital Milwaukee,Milwaukee,WI
-6510540,Newly Added,Kosair Children's Hospital,Louisville,KY
-6610152,Newly Added,Maple Grove Hospital,Maple Grove,MN
-6620126,Newly Added,Mercy Medical Center - West Lakes,West Des Moines,IA
-6650016,Status changed to registered,Spearfish Regional Surgery Center,Spearfish,SD
-6660138,Newly Added,Bellevue Medical Center,Bellevue,NE
-6710033,Status changed to registered,Allegiance Specialty Hospital,Little Rock,AR
-6720119,Status changed to registered,Heart Hospital of Lafayette,Lafayette,LA
-6720384,Status changed to registered,Doctor's Hospital of Deer Creek,Leesville,LA
-6740162,Status changed to registered,LifeCare Hospitals of Dallas,Dallas,TX
-6740558,Newly Added,Select Rehabilitation Hospital of Denton,Denton,TX
-6740646,Merger Result,South Texas Health System,Edinburg,TX
-6742625,Newly Added,CHRISTUS Santa Rosa Hosp - New Braunfels,New Braunfels,TX
-6860182,Newly Added,Hualapai Mountain Medical Center,Kingman,AZ
-6930274,Newly Added,Hanford Community Medical Center,Hanford,CA
-6930275,Newly Added,Alameda County Medical Center,Oakland,CA
-6930403,Merger Result,NorthBay Medical Center,Fairfield,CA
-6931781,Newly Added,Memorial Hospital Los Banos,Los Banos,CA
+6140014.0,Newly Added,Kindred Hospital-Boston,Brighton,MA
+6140026.0,Newly Added,Kindred Hospital Northeast-Stoughton,Stoughton,MA
+6210263.0,Merger Result,Eastern Niagara Health System,Lockport,NY
+6230123.0,Newly Added,Kindred Hospital Pittsburgh - North Shore,Pittsburgh,PA
+6320206.0,Newly Added,Western Maryland Regional Medical Center,Cumberland,MD
+6360147.0,Newly Added,Select Specialty Hospital-Greensboro,Greensboro,NC
+6390077.0,Newly Added,Kindred Hospital-Bay Area St. Petersburg,Saint Petersburg,FL
+6390188.0,Newly Added,Kindred Hospital the Palm Beaches,Riviera Beach,FL
+6390535.0,Newly Added,Kindred Hospital South Florida-Coral Gables,Coral Gables,FL
+6410075.0,Newly Added,Lindner Center of HOPE,Mason,OH
+6410077.0,Newly Added,West Chester Hospital,West Chester,OH
+6410199.0,Newly Added,Ahuja Medical Center,Beachwood,OH
+6420029.0,Status changed to registered,Franciscan St. Francis Health,Indianapolis,IN
+6420196.0,Newly Added,Orthopaedic Hospital of Lutheran Health,Fort Wayne,IN
+6440047.0,Status changed to registered,Sparrow Specialty Hospital,Lansing,MI
+6450175.0,Newly Added,Aurora Medical Center Summit,Summit,WI
+6450244.0,Merger Result,Columbia St. Mary's Hospital Milwaukee,Milwaukee,WI
+6510540.0,Newly Added,Kosair Children's Hospital,Louisville,KY
+6610152.0,Newly Added,Maple Grove Hospital,Maple Grove,MN
+6620126.0,Newly Added,Mercy Medical Center - West Lakes,West Des Moines,IA
+6650016.0,Status changed to registered,Spearfish Regional Surgery Center,Spearfish,SD
+6660138.0,Newly Added,Bellevue Medical Center,Bellevue,NE
+6710033.0,Status changed to registered,Allegiance Specialty Hospital,Little Rock,AR
+6720119.0,Status changed to registered,Heart Hospital of Lafayette,Lafayette,LA
+6720384.0,Status changed to registered,Doctor's Hospital of Deer Creek,Leesville,LA
+6740162.0,Status changed to registered,LifeCare Hospitals of Dallas,Dallas,TX
+6740558.0,Newly Added,Select Rehabilitation Hospital of Denton,Denton,TX
+6740646.0,Merger Result,South Texas Health System,Edinburg,TX
+6742625.0,Newly Added,CHRISTUS Santa Rosa Hosp - New Braunfels,New Braunfels,TX
+6860182.0,Newly Added,Hualapai Mountain Medical Center,Kingman,AZ
+6930274.0,Newly Added,Hanford Community Medical Center,Hanford,CA
+6930275.0,Newly Added,Alameda County Medical Center,Oakland,CA
+6930403.0,Merger Result,NorthBay Medical Center,Fairfield,CA
+6931781.0,Newly Added,Memorial Hospital Los Banos,Los Banos,CA

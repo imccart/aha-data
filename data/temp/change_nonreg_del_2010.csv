@@ -1,25 +1,25 @@
-ID,REASON FOR DELETION,HOSPITAL NAME CITY,STATE
-6380197,Not a hosp - Psych Fac,Laurel Heights Hospital Atlanta,GA
-6420029,Status changed to registered,Franciscan St. Francis Health Indianapolis,IN
-6420071,Outpatient,Surgical Hospital of Munster Munster,IN
-6440047,Status changed to registered,Sparrow Specialty Hospital Lansing,MI
-6450014,Closed,Charter Behavioral Hlth System West Allis,WI
-6450027,Outpatient,Children's Hospital of Wisconsin Kenosha,WI
-6540380,Closed,Charter Behavioral Hlth System Jackson,MS
-6610026,Not a hospital - Psych Facility,Community Behavioral Health Hosp Wadena,MN
-6610028,Closed,Community Behavioral Health Hospital Cold Spring,MN
-6650016,Status changed to registered,Spearfish Regional Surgery Center Spearfish,SD
-6710020,Closed,Living Hope Texarkana Texarkana,AR
-6710033,Status changed to registered,Allegiance Specialty Hospital Little Rock,AR
-6720102,Merged into 6720639,River Oaks Child and Adolescence New Orleans,LA
-6720103,Merged into 6720670,Touro Rehabilitation Center New Orleans,LA
-6720119,Status changed to registered,Heart Hospital of Lafayette Lafayette,LA
-6720201,Closed,Golden Age Senior Care Hospital Monroe,LA
-6720384,Status changed to registered,Doctor's Hospital of Deer Creek Leesville,LA
-6730059,Closed,Continuous Care Centers of BartlesvilleBartlesville,OK
-6740162,Status changed to registered,LifeCare Hospitals of Dallas Dallas,TX
-6740319,Closed,Lakeside Hospital at Bastrop Bastrop,TX
-6740382,Closed,Apex Hospital - Katy Katy,TX
-6740398,Closed,Integra Hospital Plano Plano,TX
-6740548,Closed,Acuity Hospital of Houston Houston,TX
-6880024,Closed,University Medical Center Las Vegas,NV
+ID,REASON FOR DELETION,STATE,CITY,HOSPITAL NAME
+6380197,Not a hosp - Psych Fac,GA,Atlanta,Laurel Heights Hospital
+6420029,Status changed to registered,IN,Indianapolis,Franciscan St. Francis Health
+6420071,Outpatient,IN,Munster,Surgical Hospital of Munster
+6440047,Status changed to registered,MI,Lansing,Sparrow Specialty Hospital
+6450014,Closed,WI,Allis,Charter Behavioral Hlth System West
+6450027,Outpatient,WI,Kenosha,Children's Hospital of Wisconsin
+6540380,Closed,MS,Jackson,Charter Behavioral Hlth System
+6610026,Not a hospital - Psych Facility,MN,Wadena,Community Behavioral Health Hosp
+6610028,Closed,MN,Spring,Community Behavioral Health Hospital Cold
+6650016,Status changed to registered,SD,Spearfish,Spearfish Regional Surgery Center
+6710020,Closed,AR,Texarkana,Living Hope Texarkana
+6710033,Status changed to registered,AR,Rock,Allegiance Specialty Hospital Little
+6720102,Merged into 6720639,LA,Orleans,River Oaks Child and Adolescence New
+6720103,Merged into 6720670,LA,Orleans,Touro Rehabilitation Center New
+6720119,Status changed to registered,LA,Lafayette,Heart Hospital of Lafayette
+6720201,Closed,LA,Monroe,Golden Age Senior Care Hospital
+6720384,Status changed to registered,LA,Leesville,Doctor's Hospital of Deer Creek
+6730059,Closed,OK,BartlesvilleBartlesville,Continuous Care Centers of
+6740162,Status changed to registered,TX,Dallas,LifeCare Hospitals of Dallas
+6740319,Closed,TX,Bastrop,Lakeside Hospital at Bastrop
+6740382,Closed,TX,Katy,Apex Hospital - Katy
+6740398,Closed,TX,Plano,Integra Hospital Plano
+6740548,Closed,TX,Houston,Acuity Hospital of Houston
+6880024,Closed,NV,Vegas,University Medical Center Las
