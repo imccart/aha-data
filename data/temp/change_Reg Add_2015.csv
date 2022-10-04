@@ -1,0 +1,18 @@
+2014 TOTAL,547,547.1,0
+Status changed from non-registered to registered,2.0,2.0,0.0
+Changed to inpatient care other than a hospital,0.0,0.0,0.0
+Changed to an outpatient facility,1.0,1.0,0.0
+Closed,9.0,9.0,0.0
+Demerged,0.0,0.0,0.0
+Duplicate record,0.0,0.0,0.0
+Merged to form a new hospital,0.0,0.0,0.0
+Merged into a hospital already on file,3.0,3.0,0.0
+Temporarily inactive record,0.0,0.0,0.0
+TOTAL DELETIONS,15.0,15.0,0.0
+Status changed from registered to non-registered,1.0,1.0,0.0
+Demerger result,1.0,1.0,0.0
+Merger result,0.0,0.0,0.0
+Newly added to the non-registered file,88.0,82.0,6.0
+Previously closed/reopened,0.0,0.0,0.0
+Duplicate record,0.0,0.0,0.0
+TOTAL ADDITIONS,90.0,84.0,6.0

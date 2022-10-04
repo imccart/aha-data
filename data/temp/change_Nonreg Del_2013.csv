@@ -1,0 +1,18 @@
+ID,HOSPITAL NAME,CITY,STATE,REASON FOR DELETION
+6080001.0,Commonwealth Health Center,Saipan,AS,Not a hospital
+6210061.0,Eddy Cohoes Rehabilitation Center,Cohoes,NY,Nursing facility
+6360243.0,Yancey Community Medical Center ,Burnsville,NC,Merged into 6361407
+6410078.0,Medical Center of Newark ,Newark,OH,Merged/closed into 6411800
+6610021.0,Lakeside Medical Center,Pine City,MN,Nursing facility
+6630026.0,Southwest Missouri Psychiatric Rehabilitation Center,El Dorado Springs,MO,Psychiatric facility 
+6670038.0,Heartland Surgical Specialty Hospital ,Overland Park,KS,Merged into 6670510
+6710024.0,Surgical Hospital of Jonesboro,Jonesboro,AR,Closed
+6720067.0,St. Charles Specialty Rehabilitation Hospital,Luling,LA,Closed
+6720177.0,Ascension Gonzales Rehabilitation Hospital ,Gonzales,LA,Merged into 6720209
+6720204.0,Woodlands Behavioral Center,Winnfield,LA,Closed
+6740079.0,Cornerstone Hospital of Houston - Bellaire ,Houston,TX,Merged into 6740229
+6740087.0,Spring Branch Medical Center,Houston,TX,Closed
+6740267.0,Brownsville Doctors Hospital,Brownsville,TX,Closed
+6740419.0,North Texas Community Hospital ,Bridgeport,TX,Merged into 6741120
+6740663.0,Baylor Institute for Rehabilitation at Frisco ,Frisco,TX,Status changed to registered
+6740920.0,Lakeway Regional Medical Center ,Lakeway,TX,Status changed to registered

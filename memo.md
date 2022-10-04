@@ -1,7 +1,7 @@
 TO DO:
   1. Figure out Memo 1.
-  2. Make Summary of Changes.pdf into table (python/R)
-  3. Work on 2007 and compare it to Cooper-et-al.
+  2. Make Summary of Changes.pdf into table (python) - Working on year 2012
+  3. Added double_check. Double_check from the beginning.
 
 Do 2 first, research or email Ian for 1.
 
