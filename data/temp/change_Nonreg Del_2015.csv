@@ -1,1 +1,16 @@
-ID,NAME,Unnamed: 0,CITY,STATE,Unnamed: 1,REASON FOR ADDITION
+ID,HOSPITAL NAME,CITY,STATE,REASON FOR DELETION
+6230499.0,OSS Orthopaedic Hospital,York,PA,Status changed to registered
+6520024.0,Methodist Extended Care Hospital,Memphis,TN,Closed
+6630153.0,Southeast Health Center of Reynolds County,Ellington,MO,Closed
+6720062.0,Community Specialty Hospital,Lafayette,LA,Closed
+6720168.0,Ouachita Community Hospital,West Monroe,LA,"Merged into 6720891 Glenwood Regional Medical Center - West Monroe, LA"
+6720188.0,AMG Specialty Hospital-Slidell,Slidell,LA,Closed
+6740308.0,Victory Medical Center Mid-Cities,Hurst,TX,Closed
+6740552.0,BCA Permian Basin,Midland,TX,Closed
+6740553.0,Forest Park Medical Center,Dallas,TX,Closed
+6740555.0,Victory Medical Center Craig Ranch,McKinney,TX,Emergency/Urgent Care Center
+6740666.0,Baylor Institute for Rehabilitation at Northwest Dallas,Dallas,TX,Closed
+6740885.0,HEALTHSOUTH Rehabilitation Hospital - Dallas,Dallas,TX,Status changed to registered
+6740897.0,Forest Park Medical Center Frisco,Frisco,TX,"Merged into 6742865 Medical Center of Plano - Plano, TX"
+6740944.0,Cambridge Hospital in Houston,Houston,TX,Closed
+6880035.0,Sierra Surgery Hospital,Carson City,NV,"Merged into 6880025 Carson Tahoe Hospital - Tahoe, NV"

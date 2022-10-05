@@ -1,1 +1,66 @@
-ID,NAME CITY,Unnamed: 0,STATE,REASON FOR DELETION,NAME,Unnamed: 1,CITY,Unnamed: 2
+ID,HOSPITAL NAME,CITY,STATE,REASON FOR DELETION
+6110173.0,Parkview Adventist Medical Center,Brunswick,ME,Ambulatory Care Center
+6141800.0,Spaulding Hospital for Continuing Medical Care North Shore,Salem,MA,Closed
+6210770.0,NYU Lutheran NYU Lutheran,Brooklyn,NY,"Merged into 6212925 NYU Lagone Medical Center - New York, NY NYU Lagone Medical Center - New York, NY"
+6211614.0,(Long Island Jewish) Forest Hills Hospital Forest (Long Island Jewish) Forest Hills Hospital Forest,Hills,NY,"Merged into 6211680 Long Island Jewish Medical Center - New York, NY Long Island Jewish Medical Center - New York, NY"
+6214010.0,Summit Park Hospital and Nursing Care Center,Pomona,NY,Closed
+6215155.0,(Long Island Jewish Valley Stream) Franklin Hospital Valley (Long Island Jewish Valley Stream) Franklin Hospital Valley,Stream,NY,"Merged into 6211680 Long Island Jewish Medical Center - New York, NY Long Island Jewish Medical Center - New York, NY"
+6233440.0,Clear Brook Manor,Wilkes-Barre,PA,Not operating as a hospital (Residential Treatment Center)
+6340325.0,Riverside Behavioral Health Center Riverside Behavioral Health Center,Hampton,VA,"Merged into 6340520 Riverside Regional Medical Center - Newport News, VA Riverside Regional Medical Center - Newport News, VA"
+6360212.0,Crawley Memorial Hospital,Shelby,NC,Closed
+6360945.0,Novant Health Franklin Medical Center,Louisburg,NC,Closed
+6361705.0,Yadkin Valley Community Hospital,Yadkinville,NC,Closed
+6370048.0,Southern Palmetto Hospital,Barnwell,SC,Closed
+6370411.0,Williamsburg Regional Hospital,Kingstree,SC,Temporarily Closed
+6380566.0,North Georgia Medical Center,Ellijay,GA,Closed
+6390495.0,Florida Medical Center - A Campus of North Shore Fort Florida Medical Center - A Campus of North Shore Fort,Lauderdale,FL,"Merged into 6390615 North Shore Medical Center - Miami, FL North Shore Medical Center - Miami, FL"
+6390711.0,North Florida/South Georgia Veteran's Health System,Gainesville,FL,Status changed to nonregistered
+6410150.0,Summa Barberton Citizens Hospital Summa Barberton Citizens Hospital,Barberton,OH,"Merged into 6410012 Summa Health System - Akron, OH Summa Health System - Akron, OH"
+6411490.0,Lakewood Hospital,Lakewood,OH,Closed
+6420057.0,St. Vincent Seton Specialty Hospital,Lafayette,IN,Closed
+6420960.0,Indiana University Health Morgan Hospital,Martinsville,IN,Ambulatory Care Center
+6433030.0,HSHS St. Mary's Hospital,Streator,IL,Closed
+6440024.0,"Mercy Health, Mercy Campus Mercy Health, Mercy Campus",Muskegon,MI,Merged into 6441880 Mercy Health Hackley Campus Mercy Health Hackley Campus
+6450033.0,Wheaton Franciscan Healthcare - The Wisconsin Heart Hospital Hospital,Wauwatosa,WI,Closed Closed
+6510795.0,New Horizons Health Systems,Owenton,KY,Emergency/Urgent Care Center
+6520645.0,Medical Center of Manchester,Manchester,TN,Closed
+6520772.0,Baptist Rehabilitation-Germantown,Germantown,TN,Not operating as a hospital
+6521167.0,Tennova Healthcare McNairy Regional Hospital,Selmer,TN,Closed
+6521180.0,Methodist Healthcare-Fayette Hospital,Somerville,TN,Closed
+6538099.0,Northport Medical Center Northport Medical Center,Northport,AL,"Merged into 6530960 DCH Regional Medical Center - Tuscaloosa, AL DCH Regional Medical Center - Tuscaloosa, AL"
+6540031.0,Regency Hospital of Jackson,Jackson,MS,Closed
+6540658.0,Pioneer Community Hospital of Newton,Newton,MS,Closed
+6610036.0,CHI Albany Area Health,Albany,MN,Ambulatory Care Center
+6620250.0,Mental Health Institute,Clarinda,IA,Closed
+6620980.0,Mental Health Institute Mount,Pleasant,IA,Closed
+6630750.0,Missouri Rehabilitation Center Mount,Vernon,MO,Closed
+6639070.0,Parkland Health Center - Weber Road,Farmington,MO,Closed
+6660640.0,CHI Health Creighton University Medical Center CHI Health Creighton University Medical Center,Omaha,NE,"Merged into 6660720 CHI Health Bergan Mercy - Omaha, NE CHI Health Bergan Mercy - Omaha, NE"
+6670027.0,Select Specialty Hospital-Topeka,Topeka,KS,Closed
+6670440.0,Mercy Hospital Independence,Independence,KS,Closed
+6710026.0,Regency Hospital of Northwest Arkansas,Fayetteville,AR,Closed
+6720334.0,Regional Medical Center of Acadiana Regional Medical Center of Acadiana,Lafayette,LA,"Merged into 6720340 Lafayette General Medical Center - Lafayette, LA Lafayette General Medical Center - Lafayette, LA"
+6720490.0,Dauterive Hospital New,Iberia,LA,Closed
+6730068.0,Norman Specialty Hospital,Norman,OK,Closed
+6730385.0,Epic Medical Center,Eufaula,OK,Ambulatory Care Center
+6730440.0,Memorial Hospital and Physician Group,Frederick,OK,Closed
+6730995.0,Sayre Memorial Hospital,Sayre,OK,Closed
+6740041.0,Central Texas Hospital,Cameron,TX,Closed
+6740252.0,East Texas Medical Center-Gilmer,Gilmer,TX,Closed
+6740275.0,Kindred Hospital North Houston,Houston,TX,Closed
+6740278.0,Kindred Hospital East Houston,Channelview,TX,Closed
+6740348.0,Regency Hospital of Fort Worth Fort,Worth,TX,Closed
+6740411.0,Bowie Memorial Hospital,Bowie,TX,Closed
+6740422.0,CHRISTUS Dubuis Hospital of Bryan,Bryan,TX,Closed
+6740620.0,East Texas Medical Center Clarksville,Clarksville,TX,Closed
+6740716.0,Hunt Regional Community Hospital,Commerce,TX,Emergency/Urgent Care Center
+6740925.0,Baylor Specialty Hospital,Dallas,TX,Closed
+6741880.0,Select Specialty Hospital-Houston Heights,Houston,TX,Closed
+6742575.0,East Texas Medical Center-Mount Vernon,Mount Vernon,TX,Closed
+6742695.0,Baptist Orange Hospital,Orange,TX,Emergency/Urgent Care Center
+6743756.0,Lake Whitney Medical Center,Whitney,TX,Closed
+6820235.0,U. S. Air Force Clinic,Mountain Home AFB,ID,Ambulatory Care Center
+6849015.0,Cleo Wallace Centers Hospital,Westminster,CO,Not operating as a hospital (Residential Treatment Center)
+6850029.0,Presbyterian Kaseman Hospital,Albuquerque,NM,"Merged into 6850055 Presbyterian Hospital - Alberquerque, NM"
+6930123.0,Arroyo Grande Community Hospital,Arroyo Grande,CA,"Merged into 6933440 Marian Regional Medical - Santa Maria, CA"
+6930452.0,Colusa Regional Medical Center,Colusa,CA,Closed

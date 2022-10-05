@@ -15,7 +15,8 @@ filenames = {2007: ['DOC','2007 Summary of Changes.pdf'],
              2012: ['DOCUMENTATION', '2012_Summary_of_Changes.pdf'],
              2013: ['DOCUMENTATION', '2013_Summary_of_Changes.pdf'],
              2014: ['DOCUMENTATION', '2014_Summary_of_Changes.pdf'],
-             2015: ['DOCUMENTATION', '2015_Summary_of_Changes.pdf']} 
+             2015: ['DOCUMENTATION', '2015_Summary_of_Changes.pdf'],
+             2016: ['2016_Summary_of_Changes.pdf']} 
 
 # list of pages to be read by tabula.read_pdf
 
@@ -31,8 +32,8 @@ pagecontent_2012 = {"Reg Del": [1,2,3,4], "Reg Add": [5,6,7,8,9],
                     "Mergers and Acquisitions": []}
 pagecontent_2013 = {"Reg Del": [1,2,3], "Reg Add": [4], "Nonreg Del": [6], "Nonreg Add": [7,8], "Mergers and Acquisitions": []}
 pagecontent_2014 = {"Reg Del": [1,2,3,4], "Reg Add": [5], "Nonreg Del": [7,8], "Nonreg Add": [9], "Mergers and Acquisitions": []}
-pagecontent_2015 = {"Reg Del": [1,2], "Reg Add": [3], "Nonreg Del": [5], "Nonreg Add": [6,7], "Mergers and Acquisitions": []}
-pagecontent_2016 = {"Reg Del": [], "Reg Add": [], "Nonreg Del": [], "Nonreg Add": [], "Mergers and Acquisitions": []}
+pagecontent_2015 = {"Reg Del": [1,2], "Reg Add": [], "Nonreg Del": [4], "Nonreg Add": [5,6], "Mergers and Acquisitions": []}
+pagecontent_2016 = {"Reg Del": [1], "Reg Add": [], "Nonreg Del": [3], "Nonreg Add": [3,4], "Mergers and Acquisitions": []}
 pagecontent_2017 = {"Reg Del": [], "Reg Add": [], "Nonreg Del": [], "Nonreg Add": [], "Mergers and Acquisitions": []}
 pagecontent_2018 = {"Reg Del": [], "Reg Add": [], "Nonreg Del": [], "Nonreg Add": [], "Mergers and Acquisitions": []}
 pagecontent_2019 = {"Reg Del": [], "Reg Add": [], "Nonreg Del": [], "Nonreg Add": [], "Mergers and Acquisitions": []}

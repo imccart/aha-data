@@ -1,0 +1,91 @@
+ID,HOSPITAL NAME,CITY,STATE,REASON FOR ADDITION
+6040391.0,Hospital Menonita De Caguas,Caguas,PR,Newly added
+6040396.0,Hospital San Antonio,Mayaguez,PR,Newly added
+6040397.0,Hospital de Psiquiatria Forense,Ponce,PR,Newly added
+6048008.0,Hospital Psiquiatrico Correccional,San Juan,PR,Newly added
+6048009.0,Centro de Trauma,Moca,PR,Newly added
+6080001.0,Commonwealth Health Center,Saipan,MP,Newly added
+6141450.0,Beth Israel Deaconess Hospital-Needham Campus,Needham,MA,Formerly unit of 6140013 (Beth Israel Deaconess Med Center)
+6220469.0,Cornerstone Behavioral Health Hospital of Union County,Berkeley Heights,NJ,Newly added
+6221340.0,Robert Wood Johnson University Hospital Somerset,Somerville,NJ,Newly added
+6230287.0,Pennsylvania Psychiatric Institute,Harrisburg,PA,Newly added
+6230505.0,Advanced Surgical Hospital,Washington,PA,Newly added
+6230538.0,Helen M. Simpson Rehabilitation Hospital,Harrisburg,PA,Newly added
+6320391.0,Holy Cross Germantown Hospital,Germantown,MD,Newly added
+6349173.0,The Pavilion at Williamsburg Place,Williamsburg,VA,Newly added
+6360439.0,Carolinas ContinueCARE Hospital at Kings Mountain,Kings Mountain,NC,Newly added
+6369135.0,Strategic Behavioral Health - Raleigh,Garner,NC,Newly added
+6369136.0,Strategic Behavioral Health - Wilmington,Leland,NC,Newly added
+6369137.0,Strategic Behavioral Health - Charlotte,Charlotte,NC,Newly added
+6380257.0,SummitRidge Hospital,Lawrenceville,GA,Newly added
+6380497.0,Northeast Georgia Medical Center Braselton,Braselton,GA,Newly added
+6380498.0,Landmark Hospital of Savannah,Savannah,GA,Newly added
+6381200.0,Greenleaf Center,Valdosta,GA,Newly added
+6389228.0,Emory Rehabilitation Hospital,Atlanta,GA,Newly added
+6390711.0,North Florida/South Georgia Veteran's Health System,Gainesville,FL,Previously classified as registered
+6390713.0,Landmark Hospital of Southwest Florida,Naples,FL,Newly added
+6390714.0,Healthsouth Rehabilitation Hospital of Altamonte Springs,Altamonte Springs,FL,Newly added
+6390716.0,Promise Hospital of Miami,Miami,FL,Newly added
+6399253.0,Select Specialty Hospital Daytona Beach,Daytona Beach,FL,Newly added
+6399254.0,Promise Hospital of Fort Myers,Fort Myers,FL,Newly added
+6399255.0,North Tampa Behavioral Health,Wesley Chapel,FL,Newly added
+6410522.0,Summa Rehab Hospital,Akron,OH,Newly added
+6410545.0,Select Specialty Hospital - Boardman,Boardman,OH,Newly added
+6410558.0,King's Daughters Medical Center Ohio,Portsmouth,OH,Newly added
+6410559.0,Cleveland Clinic Rehabilitation Hospital,Avon,OH,Newly added
+6429154.0,NorthEastern Center,Auburn,IN,Newly added
+6430447.0,Garfield Park Hospital,Chicago,IL,Newly added
+6520009.0,Quillen Rehabilitation Hospital,Johnson City,TN,Newly added
+6520456.0,TrustPoint Hospital,Murfreesboro,TN,Newly added
+6520471.0,Baptist Memorial Rehabilitation Hospital,Germantown,TN,Newly added
+6521093.0,Pioneer Community Hospital of Scott,Oneida,TN,Newly added
+6529208.0,Regional One Health Extended Care Hospital,Memphis,TN,Newly added
+6530404.0,Behavioral Healthcare Center at Huntsville,Huntsville,AL,Newly added
+6620414.0,Select Specialty Hospital-Des Moines,Des Moines,IA,Newly added
+6639248.0,Osage Beach Center for Cognitive Disorders,Osage Beach,MO,Newly added
+6660417.0,Select Specialty Hospital - Lincoln,Lincoln,NE,Newly added
+6660418.0,Madonna Rehabilitation Hospital,Lincoln,NE,Newly added
+6669152.0,Madonna Rehabilitation Specialty Hospital,Bellevue,NE,Newly added
+6670459.0,Premier Surgical Institute,Galena,KS,Newly added
+6670467.0,Blue Valley Hospital,Overland Park,KS,Newly added
+6710027.0,Regency Hospital of Northwest Arkansas - Springdale,Springdale,AR,Newly added
+6720345.0,Women's and Children's Hospital,Lafayette,LA,Newly added
+6720504.0,Phoenix Behavioral Hospital,Rayne,LA,Newly added
+6720693.0,Compass Behavioral Center of Houma,Houma,LA,Newly added
+6740067.0,Select Specialty Hospital-Houston West,Houston,TX,Newly added
+6740277.0,Kindred Hospital Clear Lake,Webster,TX,Newly added
+6740373.0,Kindred Hospital Tomball,Tomball,TX,Newly added
+6740387.0,Baylor St. Luke's Medical Center McNair Campus,Houston,TX,Newly added
+6740880.0,Scott & White Hospital - Marble Falls,Marble Falls,TX,Newly added
+6740969.0,ContinueCARE Hospital at Midland Memorial,Midland,TX,Newly added
+6741008.0,Vibra Rehabilitation Hospital Lake Travis,Lakeway,TX,Newly added
+6741009.0,Select Specialty Hospital - Dallas Downtown,Dallas,TX,Newly added
+6741011.0,Select Specialty Hospital - Dallas Garland,Garland,TX,Newly added
+6741017.0,Little River Cameron Hospital,Cameron,TX,Newly added
+6741019.0,Woodlands Specialty Hospital,The Woodlands,TX,Newly added
+6741023.0,Rock Prairie Behavioral Health,College Station,TX,Newly added
+6741026.0,Haven Behavioral Hospital of Frisco,Frisco,TX,Newly added
+6741027.0,Georgetown Behavioral Health Institute,Georgetown,TX,Newly added
+6741028.0,Pearland Medical Center,Pearland,TX,Newly added
+6741037.0,Children's Medical Center Plano,Plano,TX,Newly added
+6741038.0,Medical Center Alliance,Fort Worth,TX,Newly added
+6741042.0,Emerus Community Hospital,Tomball,TX,Newly added
+6741043.0,Weatherford Rehabilitation Hospital,Weatherford,TX,Newly added
+6741047.0,Oceans Behavioral Hospital Katy,Katy,TX,Newly added
+6741048.0,Oceans Behavioral Hospital Fort Worth,Fort Worth,TX,Newly added
+6741052.0,Texas Rehabilitation Hospital of Arlington,Arlington,TX,Newly added
+6741053.0,Laredo Rehabilitation Hospital,Laredo,TX,Newly added
+6741054.0,Weimar Medical Center Texas General Hospital - Van Zandt Regional Medical,Weimar,TX,Newly added
+6741735.0,Center,Grand Saline,TX,Newly added
+6840156.0,"Select Specialty Hospital - Denver, Inc.",Denver,CO,Newly added
+6840416.0,West Springs Hospital,Grand Junction,CO,Newly added
+6840445.0,Banner Fort Collins Medical Center,Fort Collins,CO,Newly added
+6860057.0,Restora Hospital of Mesa,Mesa,AZ,Newly added
+6860058.0,Restora Hospital of Sun City,Sun City,AZ,Newly added
+6860469.0,Dignity Health Arizona General Hospital,Laveen,AZ,Newly added
+6860476.0,Oasis Behavioral Health - Chandler,Chandler,AZ,Newly added
+6879349.0,Landmark Hospital of Salt Lake City,Murray,UT,Newly added
+6930206.0,Loma Linda University Children's Hospital,Loma Linda,CA,Newly added
+6930706.0,"Martin Luther King, Jr. Community Hospital",Los Angeles,CA,Newly added
+6932900.0,California Pacific Medical Center-Davies Campus,San Francisco,CA,Newly added
+6933500.0,Sonoma West Medical Center,Sebastopol,CA,Newly added
