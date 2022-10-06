@@ -1,0 +1,29 @@
+ID,REASON FOR ADDITION,HOSPITAL NAME,CITY,STATE
+6350011.0,Status changed from nonregistered to registered,Peterson Rehab Hospital,Wheeling,WV
+6380030.0,Status changed from nonregistered to registered,Sumter Regional Hospital East,Americus,GA
+6390480.0,Status changed from nonregistered to registered,Lake Wales Medical Center,Lake Wales,FL
+6391122.0,status changed from nonregistered to registered,Florida Hospital Wauchula,Wauchula,FL
+6420175.0,Demerged from 6420715,St Vincent Carmel Hospital,Carmel,IN
+6420605.0,Demerged from 6420005,Community Hospital East,Indianapolis,IN
+6420728.0,Demerged from 6420005,Community Hospital South,Indianapolis,IN
+6431810.0,Reopened,Gateway Regional Medical Center,Granite City,IL
+6442070.0,Demerged from 6440017,Borgess-Pipp Hospital,Plainwell,MI
+6520025.0,Status changed from nonregistered to registered,Baptist Hospital West,Knoxville,TN
+6520026.0,Status changed from nonregistered to registered,Baptist Hospital for Women,Knoxville,TN
+6540014.0,Status changed from nonregistered to registered,Scott Regional Hospital,Morton,MS
+6540030.0,Status changed from nonregistered to registered,Greene County Hospital,Leakesville,MS
+6720072.0,Reopened,Louisiana Specialty Hospital,Marrero,LA
+6730069.0,Newly added,St John Owasso,Owasso,OK
+6730072.0,Newly added,Bailey Medical Center,Owasso,OK
+6740148.0,Status changed from nonregistered to registered,Seton Northwest Hospital,Austin,TX
+6740233.0,Status changed from nonregistered to registered,Seton Southwest Hospital,Austin,TX
+6740363.0,Status changed from nonregistered to registered,Methodist Mansfield Med Center,Mansfield,TX
+6740413.0,Merger resutlt -6741969 & 6749310,Doctor's Hospital -Tidwell,Houston,TX
+6840033.0,Newly added,Medical Center of the Rockies,Loveland,CO
+6840034.0,Newly added,Northern Colorado Rehab Hosp,Johnstown,CO
+6860043.0,Newly added,Banner Gateway Medical Center,Gilbert,AZ
+6860046.0,Newly added,Vally View Medical Center,Fort Mohave,AZ
+6880031.0,Status changed from nonregistered to registered,Renown South Meadows Center,Reno,NV
+6880032.0,Newly added,St Rose Domincian Hospitals,Las Vegas,NV
+6930116.0,Status changed from nonregistered to registered,Continental Rehab Hospital,San Diego,CA
+6930133.0,Merger result,Eden Medical Center,Castro Valley,CA

@@ -7,41 +7,10 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-rm(list=ls())
 ```
 
 ```{r Import Package, results = FALSE}
 pacman::p_load(tidyverse, haven, here)
-```
-
-```{r}
-## load
-
-# working directory is {}/aha-data/ (above data-code)
-df_hosp <- tibble()
-for (y in 2007:2019){
-  if (y == 2007) {
-    f <- here("data",'input',paste0('AHA FY ',y),'COMMA','comma.csv')
-  } else if (y==2008) {
-    f <- here('data','input',paste0('AHA FY ',y),'COMMA','pubas08.csv')
-  } else if (y==2009) {
-    f <- here('data','input',paste0('AHA FY ',y),'Comma','pubas09.csv')
-  } else if (y<=2012) {
-    f <- here('data','input',paste0('AHA FY ',y),
-              'COMMA', paste0('ASPUB',y-2000,'.csv'))
-  } else if (y<=2015) {
-        f <- here('data','input',paste0('AHA FY ',y),
-              'COMMA', paste0('ASPUB',y-2000,'.CSV'))
-  } else {
-    f <- here('data','input',paste0('AHA FY ',y),
-              paste0('ASPUB',y-2000,'.csv'))
-  }
-  df_temp <- read.csv(f)
-  df_temp <- df_temp %>% select('ID','MNAME') %>% mutate(year=y)
-  df_hosp <- rbind(df_hosp, df_temp)
-}
-df_hosp <- df_hosp %>% group_by(ID) %>% 
-  mutate(n = n()) %>% ungroup()
 ```
 
 ```{r}
@@ -51,10 +20,10 @@ df_hosp <- df_hosp %>% group_by(ID) %>%
 ```{r}
 y <-2007
 dir_temp <-here('data','temp')
-df_reg_add <- read.csv(here(dir_temp,paste0('change_reg_add_',y,'.csv')))
-df_reg_del <- read.csv(here(dir_temp,paste0('change_reg_del_',y,'.csv')))
-df_nonreg_add <- read.csv(here(dir_temp,paste0('change_nonreg_add_',y,'.csv')))
-df_nonreg_del <- read.csv(here(dir_temp,paste0('change_nonreg_del_',y,'.csv')))
+df_reg_add <- read.csv(here(dir_temp,paste0('change_Reg Add_',y,'.csv')))
+df_reg_del <- read.csv(here(dir_temp,paste0('change_Reg Add_',y,'.csv')))
+df_nonreg_add <- read.csv(here(dir_temp,paste0('change_Nonreg Add_',y,'.csv')))
+df_nonreg_del <- read.csv(here(dir_temp,paste0('change_Nonreg Del_',y,'.csv')))
 ```
 
 ```{r}
@@ -66,42 +35,12 @@ df_reg_add
 
 
 
-```{r Import data}
+```{r Cooper data}
 dat_cooper <- read_csv(paste0(here(),'/data/cooper-et-al/HC_ext_mergerdata_public.csv'))
 ```
 ```{r}
 dat_cooper %>% filter(id=='653032B')
 ```
-
-
-```{r Import data}
-y <- 2007
-
-f <- paste0(here(),'/data/input/AHA FY ',y,'/COMMA/comma.csv')
-df_2007 <- read.csv(f)
-df_2007 <- df_2007 %>% mutate(year = 2007)
-
-print(nrow(df_2007))
-print(dat_cooper %>% filter(year==2007) %>% nrow())
-print(dat_cooper %>% filter(year==2008) %>% nrow())
-print(dat_cooper %>% filter(year==2006) %>% nrow())
-```
-```{r}
-df_2007 %>% filter(MNAME == 'Mercy Rehabilitation Hospital')
-```
-```{r}
-df_2007
-```
-
-
-```{r select}
-df_tmp <- df_2007 %>% select(ID, year, REG,STCD,HOSPN,SYSID, LAT,LONG)
-```
-
-```{r}
-df_tmp %>% filter(ID == 6740051)
-```
-
 
 ```{r check each variable}
 for (v in variable.names(df_tmp)){
@@ -153,15 +92,86 @@ ll <- unique(df_del$ID)
 ```{r}
 df_hosp2 %>% names()
 ```
+
 ```{r}
 df_hosp%>%names()
 ```
 
 
 ```{r}
-aha_data %>% filter(readum_Colorado == 1)
-aha_data %>% filter(ID='Colorado Springs')
+aha_data %>% names()
 ```
+
+```{r drop columns 'from, previously'}
+# just status change: nonreg <-> reg
+aha_data %>% 
+  filter(readum_from==1 | 
+           readum_Previously|
+           readum_STATUS==1) %>%
+  select(ID,year,add,del,reason)
+# aha_data <- aha_data %>% select(-readum_from)
+```
+
+
+```{r drop rows 'Not a hospital'}
+aha_data %>% 
+  filter(readum_Inpatient==1 | readum_Ambulatory==1 |
+           readum_Inpatient==1 | readum_Outpatient==1 |
+           readum_Hospice==1 | readum_Not==1 |
+           readum_Psychiatric==1 | readum_Behavioral==1 |
+           readum_Ambulatory==1 | readum_Nursing==1 |
+           readum_Rehabilitation==1 | readum_Urgent==1 |
+           readum_Skilled==1 | readum_Developmental==1
+           ) %>% 
+  select(ID, year, add, del, reason)
+li <- aha_data %>%
+  filter(readum_Inpatient==1 | readum_Ambulatory==1 |
+           readum_Inpatient==1 | readum_Outpatient==1 |
+           readum_Hospice==1 | readum_Not==1 |
+           readum_Psychiatric==1 | readum_Behavioral==1 |
+           readum_Ambulatory==1 | readum_Nursing==1 |
+           readum_Rehabilitation==1 | readum_Urgent==1 |
+           readum_Skilled==1 | readum_Developmental==1) %>%
+  select(ID)
+li$ID
+# ID_list_to_del = append(ID_list_to_del, li)
+```
+
+```{r}
+aha_data %>% filter((ID %in% li$ID))
+```
+```{r}
+aha_data %>% filter(ID==6141740) 
+# 6080001: deleted in 2013 bc not hospital, but added again.
+#  => delete before deletion, and check again
+
+for (id in li) {
+  
+}
+```
+
+
+```{r ID change}
+aha_data %>% 
+  filter(readum_ID==1 | readum_System==1 |
+           `readum_change-formerly`==1) %>% 
+  select(ID, year, add, del, reason)
+```
+
+
+```{r ???}
+aha_data %>% 
+  filter(readum_Nonregistered==1 |
+           readum_Temporarily==1) %>% 
+  select(ID, year, add, del, reason)
+```
+
+```{r}
+aha_data %>% 
+  filter(readum_Developmental==1) %>% 
+  select(ID, year, add, del, reason)
+```
+
 
 
 # build-year

@@ -1,8 +1,8 @@
 ID,REASON FOR ADDITION,HOSPITAL NAME,CITY,STATE
-6220440,Status changed from registered to nonregistered,LibertyHealth-Greenville Hosp,Jersey City,NJ
-6230056,Status changed from registered to nonregistered,Temple Univ Children's Med Center,Philadephia,PA
-6350670,Status changed from registered to nonregistered,Richwood Area Comm Hosp,Richwood,WV
-6370200,Status changed from registered to nonregistered,South Carolina State Hospital,Columbia,SC
+6220440,from registered to nonregistered,LibertyHealth-Greenville Hosp,Jersey City,NJ
+6230056,from registered to nonregistered,Temple Univ Children's Med Center,Philadephia,PA
+6350670,from registered to nonregistered,Richwood Area Comm Hosp,Richwood,WV
+6370200,from registered to nonregistered,South Carolina State Hospital,Columbia,SC
 6370320,Reopened,Greenville General Hospital,Greenville,SC
 6410072,Newly added,University Pointe Surg Hosp,West Chester,OH
 6420008,Demerger form 6420005,Community Hosp of Anderson,Anderson,IN
@@ -15,7 +15,7 @@ ID,REASON FOR ADDITION,HOSPITAL NAME,CITY,STATE
 6430031,Newly added,Maryville Scott Nolan Center,Des Plaines,IL
 6440230,Demerged from 6440215,Lakeland Spec Hospital-Berrien Center,Berrien Center,MI
 6530025,Newly added,Jack Hughston Memorial Hosp,Phenix City,AL
-6540003,Status changed from registered to nonregistered,Gulf Coast Medical Center,Biloxi,MS
+6540003,from registered to nonregistered,Gulf Coast Medical Center,Biloxi,MS
 6540026,Reopened,Select Specialty Hosp-Biloxi,Biloxi,MS
 6540380,Reopened,Charter Behavioral Health System,Jackson,MS
 6549100,Reopened,Greene County Hospital & ECF,Leakesville,MS
@@ -27,9 +27,9 @@ ID,REASON FOR ADDITION,HOSPITAL NAME,CITY,STATE
 6630042,Newly added,Landmark Hospital of Joplin,Joplein,MO
 6720207,Newly added,Calcasieu Oaks Ger Psych Hosp,Lake Charles,LA
 6730077,Newly added,Oklahoma NeuroSpecilaty Center,Tulsa,OK
-6740021,Status changed from registered to nonregistered,Austin Lakes Hospital,Austin,TX
-6740142,Status changed from registered to nonregistered,River Oaks Hospital,Houston,TX
-6740247,Status changed from registered to nonregistered,Healthsouth Rehab Hospital,Odessa,TX
+6740021,from registered to nonregistered,Austin Lakes Hospital,Austin,TX
+6740142,from registered to nonregistered,River Oaks Hospital,Houston,TX
+6740247,from registered to nonregistered,Healthsouth Rehab Hospital,Odessa,TX
 6740356,Newly added,El Paso LTAC Hospital,El Paso,TX
 6740367,Newly added,North Cypress Medical Center,Cypress,TX
 6740380,Newly added,Heart Hospital Baylor Plano,Plano,TX
@@ -45,5 +45,5 @@ ID,REASON FOR ADDITION,HOSPITAL NAME,CITY,STATE
 6740406,Newly added,Sugar Land Rehab Hospital,Sugar Land,TX
 6740407,Newly added,Twin Creeks Rehab Hospital,Allen,TX
 6860053,Newly added,Mountain Valley Reg Rehab Hosp,Prescott Valley,AZ
-6860165,Status changed from registered to nonregistered,Banner Mesa Medical Center,Mesa,AZ
-6910223,Status changed from registered to nonregistered,Deer Park Hospital,Deer Park,WA
+6860165,from registered to nonregistered,Banner Mesa Medical Center,Mesa,AZ
+6910223,from registered to nonregistered,Deer Park Hospital,Deer Park,WA

@@ -1,30 +1,0 @@
-ID,Name,City,State,MergerResult ID,Merged Name,Merged City,MergedState
-6214805,Community-General Hospital of Greater Syracus,Syracuse,NY,6214885,Upstate University Hospital at Community Genera,Syracuse,NY
-6230715,"Moss Rehab, Einstein At Elkins Park",Elkins Park,PA,6231634,Einstein Medical Center Philadelphia,Philadelphia,PA
-6233110,Shamokin Area Community Hospital,coal Township,PA,6230550,Keisinger Medical Center,Danville,PA
-6350610,St. Joseph's Hospital,Parkersburg,WV,6350600,Camden Clark medical Center,Parkersburg,WV
-6360018,Carolinas Medical Center-Pineville,Charlotte,NC,6360310,Carolinas Medical Center-Mercy,Charlotte,NC
-6360142,Kernersville Medical Center,Kernersville,NC,6361685,Forsyth Medical Center,Winston Salem,NC
-6380645,Smith Northview Hospital,Valdosta,GA,6381193,South Georgia Medical Center,Valdosta,GA
-6390535,Kindred Hospital South Florida-Coral Gables,Coaral Gables,FL,6399040,Kindred Hospital South Florida-Fort Lauderdale,Fort Lauderdale,FL
-6390572,Mercy Hospital-A Campus of Plantation GeneralHospital,Miami,FL,6390843,Plantation General Hospital,Plantation,FL
-6410033,Regency Hospital of Akron,Barberton,OH,6410139,Regency Hospital Cleveland East,Cleveland,OH
-6631310,Saint Luke's Northland Hospital-SmithvilleCampus,Smithville,MO,6630001,Saint Luke's North Hospital-Barry Road,Kansas City,MO
-6666001,Lasting Hope Recovery Center,Omaha,NE,6660720,Alegent Health-Bergan Mercy Medical Center,Omaha,NE
-6710013,Willow Creek Women's Hospital,Johnson,AR,6710008,Northwest Medical Center,Springdale,AR
-6710047,Northwest Medical Center-Bentonville,Bentonville,AR,6710008,Northwest Medical Center,Springdale,AR
-6710575,Northwest Medical Center,Springdale,AR,6710008,Northwest Medical Center,Springdale,AR
-6740181,Heart Hospital of Austin,Austin,TX,6740190,St. David's Medical Center,Austin,TX
-6740222,CHRISTUS Santa Rosa Children's Hospital,San Antonio,TX,6743120,CHRISTUS Santa Rosa Hlth Care,San Antonio,TX
-6740282,Triumph Hospital Northwest,Houston,TX,6740275,Kindred Hospital North Houston,Houston,TX
-6740298,Padre Behavioral Hospital,Corpus Christi,TX,6740732,Corpus Christi Medical Center,Corpus Christi,TX
-6740347,Regency Hospital of North Dallas,Carrollton,TX,6740036,Select Specialty Hospital-Dallas,Carrollton,TX
-6740416,DePaul Center,Waco,TX,6743660,Providence Health Center,Waco,TX
-6741630,St. David's Georgetown Hospital,Georgetown,TX,6740190,St. David's medical Center,Austin,TX
-6742850,CHRISTUS Hospital-St. Mary,Port Arthur,TX,6740258,CHRISTUS Hospital-St. Elizabeth,Beaumont,TX
-6743025,Methodist Children's Hospital of South Texas,San Antonio,TX,6743122,Methodist Hospital,San Antonio,TX
-6743060,Metropolitan Methodist Hospital,San Antonio,TX,6743122,Methodist Hospital,San Antonio,TX
-6850014,Heart Hospital of New Mexico,Albuquerque,NM,6850060,Lovelace Medical Center,Albuquerque,NM
-6860022,Arizona Heart Hospital,Phoenix,AZ,6860232,Phoenix Baptist Hospital,Phoenix,AZ
-6860390,Tempe St. Luke's Hospital,Tempe,AZ,6860290,St. Luke's Medical Center,Phoenix,AZ
-6830411,Sharp McDonald Center,San Diego,CA,6932811,Shart Mesa Vista Hospital,San Diego,CA

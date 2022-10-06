@@ -49,7 +49,7 @@ ID,REASON FOR DELETION,HOSPITAL NAME,CITY,STATE
 6530333.0,Merged into 6530011,Parkway Medical Center,Decatur,AL
 6530382.0,Closed,Elba General Hospital,Elba,AL
 6530605.0,Closed,Infirmary West,Mobile,AL
-6530750.0,Closed ,Searcy Hospital,Vernon,AL
+6530750.0,Closed,Searcy Hospital,Vernon,AL
 6610179.0,Behavioral Health Center,Brainerd Regional Human Services Center,Brainerd,MN
 6610845.0,Merged to form 6610449,Children’s Hospitals and Clinics of Minnesota,Minneapolis,MN
 6611600.0,Merged to form 6610449,Children’s Hospitals and Clinics of Minnesota,Saint Paul,MN
@@ -69,7 +69,7 @@ ID,REASON FOR DELETION,HOSPITAL NAME,CITY,STATE
 6820004.0,Closed,Idaho Falls Recovery Center,Idaho Falls,ID
 6860023.0,Merged Closed into 6860480,Carondelet Heart & Vascular Institute,Tucson,AZ
 6920002.0,Behavioral Health Center,Serenity Lane,Eugene,OR
-6930011.0,Closed ,Medicine,San Diego,CA
+6930011.0,Closed,Medicine,San Diego,CA
 6930034.0,Merged to form 6930690,Rancho Springs Medical Center,Murrieta,CA
 6930081.0,Closed,Los Angeles Metropolitan Medical Center,Los Angeles,CA
 6930085.0,Closed,Anaheim General Hospital,Anaheim,CA

@@ -44,6 +44,6 @@ ID,REASON FOR ADDITION,HOSPITAL NAME,CITY,STATE
 6740552,Newly added,BCA Permian Basin,Midland,TX
 6740553,Newly added,Forest Park Medical Center,Dallas,TX
 6740554,Newly added,Reliant Reahb Hospital Abilene,Abilene,TX
-6810122,System ID change-formerly 6810012,Advanced Care Hospital of Montana,Billings,MT
-6830069,System ID change-formerly 6830003,Mountain View Regional Hospital,Casper,WY
-6920051,System ID change-formerly 6920012,Sacred Heart Medical Center at RiverBend,Springfield,OR
+6810122,change-formerly 6810012,Advanced Care Hospital of Montana,Billings,MT
+6830069,change-formerly 6830003,Mountain View Regional Hospital,Casper,WY
+6920051,change-formerly 6920012,Sacred Heart Medical Center at RiverBend,Springfield,OR

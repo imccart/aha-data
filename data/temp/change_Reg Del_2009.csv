@@ -1,0 +1,65 @@
+ID,REASON FOR DELETION,HOSPITAL NAME,CITY,STATE
+6140034.0,Outpatient,University Health Services,Amherst,MA
+6141880.0,Closed,Northeast Specialty Hospital,Braintree,MA
+6142150.0,Outpatient,Simpson Infirmary,Wellesley,MA
+6142180.0,Closed,Westborough State Hospital,Westborough,MA
+6160130.0,Merged into 6060010,St Vincent's Behavioral Health,Westport,CT
+6210016.0,Closed,Brunswick Phys Med-Rehab Hosp,Amityville,NY
+6210160.0,Merged into 6210170,Amsterdam Memorial Hospital,Amsterdam,NY
+6212121.0,Closed,North General Hospital,New York,NY
+6213030.0,Merged into 6212190,Manhattan EET Hospital,New York,NY
+6213470.0,Closed,St Vincent's Hosp-Manhatten,New York,NY
+6230015.0,Closed,Commonwealth Medical Center,Aliquippa,PA
+6230190.0,Closed,UPMC Braddock,Braddock,PA
+6231017.0,Outpatient,Execla Health Westmoreland Hsp,Jeannette,PA
+6231040.0,Merged into 6230052,Memorial Med Ctr -Lee Campus,Johnstown,PA
+6231310.0,Closed,Mayview State Hospital,Bridgeville,PA
+6231640.0,Closed,Chestnut Hill Rehab Hospital,Glenside,PA
+6232040.0,Closed,"Temple East, Northeastern Hosp",Philadelphia,PA
+6232640.0,Outpatient,UPMC South Side,Pittsburgh,PA
+6233450.0,Closed,Geisinger South Wilkes-Barre,Wilkes-Barre,PA
+6320007.0,Closed,Upper Shore Comm Health Ctr,Chestertown,MD
+6340017.0,Status Changed to nonregistered,Snowden at Frederiscksburg,Frederiscksburg,VA
+6340034.0,System ID Change - now 6340064,Kindred Hospital Richmond,Richmond,VA
+6340036.0,System ID Change - now 6340147,Healthsouth Rehab Hospital,Petersburg,VA
+6340037.0,System Id Change - now 6340146,Healthsouth Rehab Hospital,Frederiscksburg,VA
+6380785.0,Closed,Taylor-Telfair Regional Hosp,McRae,GA
+6390047.0,Closed,Gulf Coast Medical Center,Fort Myers,FL
+6390162.0,System ID Change - now 6390323,Gulf Coast Medical Center,Fort Myers,FL
+6390164.0,System ID Change- now 6390164,Healthsouth Ridgelake Hospital,Sarasota,FL
+6390413.0,Closed,Trinity Community Hospital,Jasper,FL
+6391170.0,Not a hospital - hospice,Hospice of Palm Beach County,West Palm Beach,FL
+6410086.0,System ID Change -now 6410197,Regency Hospital of Columbus,Columbus,OH
+6410087.0,System ID Change-now 6410196,Regency Hospital of Toledo,Sylvania,OH
+6410088.0,System ID Change-now 6410139,Regency Hospital of Cleveland,Cleveland,OH
+6420021.0,Closed,Saint Hoseph Regional Med Center,Mishawaka,IN
+6420049.0,Closed,Select Specialty Hospital,Greenwood,IN
+6430680.0,Closed,Lincoln Park Hospital,Chicago,IL
+6430845.0,Merged into 6430420,Kindred Hospital Chicago North,Chicago,IL
+6430880.0,Closed,Michael Reese Hosp & Med Center,Chicago,IL
+6431050.0,Merged into 6431090,St Mary & Elizabeth Med Center,Chicago,IL
+6431540.0,Closed,Kenneth Hall Regional Hospital,East Saint Louis,IL
+6510358.0,Closed,Jenkins Community Hospital,Jenkins,KY
+6530340.0,Closed,Woodland Medical Center,Cullman,AL
+6630049.0,System ID Change-now 6630174,St Luke's Rehab Hosp,Chesterfield,MO
+6640388.0,Not a hospital - nursing home,Richardton Health Center,Richardton,ND
+6710830.0,Closed,Southwest Regional Medical Center,Little Rock,AR
+6720054.0,Closed,Gulf States of Denham Springs,Denham Springs,LA
+6720095.0,Closed,Gulf States LTAC of Feliciana,Clinton,LA
+6720117.0,Closed,Premier Rehabilitation Hosp,Monroe,LA
+6720705.0,Closed,New Orleans Adolescent Hosp,New Orleands,LA
+6720740.0,Closed,River West Medical Center,Plaquemine,LA
+6720810.0,Closed,Doctors' Hosp of Shreveport,Shreveport,LA
+6720885.0,Merged into 672049,Ville Platte Medical Center,Ville Platte,LA
+6740007.0,Closed,North Dallas Rehab Hospital,Dallas,TX
+6740116.0,Status Changed to nonregistered,Houston Hospital for Specialized Surgery,Houston,TX
+6740159.0,Status Changed to nonregistered,Kindred Hospital-Bay Area,Pasadena,TX
+6741950.0,Merged into 6741952,Mem Hermann Southwest Hosp,Houston,TX
+6930910.0,Merged into 6930274,Hanford Comm Medical Center,Hanford,CA
+6931124.0,Merged to form 6930272,Saddleback Memorial Med Center,Laguna Hills,CA
+6932769.0,Merged to form 6930272,Saddleback Memorial Med Center,San Clemente,CA
+6933260.0,Merged into 6930275,Alameda County Medical Center,San Leandro,CA
+6933378.0,Merged into 6930127,Kindred Hospital Santa Ana,Santa Ana,CA
+6933510.0,Merged into 6930274,Selma Community Hospital,Selma,CA
+6933565.0,Merged into 6931915,Mission Hospital Laguna Beach,Laguna Beach,CA
+6933872.0,Merged into 6930127,Kindred Hospital San Gabriel,West Covina,CA

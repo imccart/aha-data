@@ -41,24 +41,31 @@ df_hosp <- df_hosp %>% group_by(ID) %>%
 # 1. Make a full (long*) list of hosp-year (done above: df_hosp)
 #    * what's better: long? wide?
 #    !! should be year by year (otherwise, left_join is troublesome)
-# 1. Subset the full-list
-# 2. For each year, create 2 dataframes: for addition, deletion
+# 1. Subset the full-list from df_hosp
+# 2. Using sum of changes, for each year, 
+#    create 2 data frames: for addition, deletion
 # 3. For addition, create a dummy for each reason, but drop status/Status
 # 4. left_join 3 into df_hosp using (ID,year)*
 #    * we also have state, city, hospital name
+#      -- city, hospital name is not valid (problems in pdf to csv)
 # 5. For deletion, create a dummy, but drop status/Status
 # 6. add (NOT left_join) ID,year to df_hosp with reason
-# 6. If del. reason is not hospital, delete ALL OF THE OBSERVATIONS
 # 7. If demerged/merged/etc, from where?
-# 8. Final list??
+# 8. Repeat and bind_rows()
 
 aha_data <- tibble()  # modify this later
-for (y in 2007:2011) {
+for (y in 2007:2015) {
   source(paste0('data-code/add-change-y.R'))
   aha_data <- bind_rows(aha_data, df_year)
 }
 
-# Code for: If demerged, from where?
+# Tidy aha_data
+# 1. Merger/Demerger/Acquisition...
+# 2. If del. reason is not hospital, delete ALL OF THE OBSERVATIONS
+
+aha_data
+
+# Code for: 7. If demerged, from where?
 #   df_temp <- df %>% filter(demerged == 1) %>%
 #     select(ID, REASON.FOR.ADDITION)
 #   df_temp$demerged_from = lapply(df_temp$REASON.FOR.ADDITION, spl_last)
