@@ -54,7 +54,7 @@ df_hosp <- df_hosp %>% group_by(ID) %>%
 # 8. Repeat and bind_rows()
 
 aha_data <- tibble()  # modify this later
-for (y in 2007:2015) {
+for (y in 2007:2019) {
   source(paste0('data-code/add-change-y.R'))
   aha_data <- bind_rows(aha_data, df_year)
 }
