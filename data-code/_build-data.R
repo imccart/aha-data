@@ -59,11 +59,15 @@ for (y in 2007:2019) {
   aha_data <- bind_rows(aha_data, df_year)
 }
 
-# Tidy aha_data
-# 1. Merger/Demerger/Acquisition...
-# 2. If del. reason is not hospital, delete ALL OF THE OBSERVATIONS
-
-aha_data
+## Tidy aha_data
+# status changes nonreg <-> reg : discard those changes
+aha_data %>% 
+  filter(readum_from==1 | 
+           readum_Previously|
+           readum_STATUS==1) %>%
+  select(ID,year,add,del,reason)
+aha_data <- aha_data %>% 
+  select(-c(readum_from, readum_Previously, readum_STATUS))
 
 # Code for: 7. If demerged, from where?
 #   df_temp <- df %>% filter(demerged == 1) %>%

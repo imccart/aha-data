@@ -102,14 +102,15 @@ df_hosp%>%names()
 aha_data %>% names()
 ```
 
-```{r drop columns 'from, previously'}
+```{r nonreg <-> reg: ignore them all}
 # just status change: nonreg <-> reg
 aha_data %>% 
   filter(readum_from==1 | 
            readum_Previously|
            readum_STATUS==1) %>%
   select(ID,year,add,del,reason)
-# aha_data <- aha_data %>% select(-readum_from)
+aha_data <- aha_data %>% 
+  select(-c(readum_from, readum_Previously, readum_STATUS))
 ```
 
 
@@ -124,16 +125,16 @@ aha_data %>%
            readum_Skilled==1 | readum_Developmental==1
            ) %>% 
   select(ID, year, add, del, reason)
-li <- aha_data %>%
-  filter(readum_Inpatient==1 | readum_Ambulatory==1 |
-           readum_Inpatient==1 | readum_Outpatient==1 |
-           readum_Hospice==1 | readum_Not==1 |
-           readum_Psychiatric==1 | readum_Behavioral==1 |
-           readum_Ambulatory==1 | readum_Nursing==1 |
-           readum_Rehabilitation==1 | readum_Urgent==1 |
-           readum_Skilled==1 | readum_Developmental==1) %>%
-  select(ID)
-li$ID
+# li <- aha_data %>%
+#   filter(readum_Inpatient==1 | readum_Ambulatory==1 |
+#            readum_Inpatient==1 | readum_Outpatient==1 |
+#            readum_Hospice==1 | readum_Not==1 |
+#            readum_Psychiatric==1 | readum_Behavioral==1 |
+#            readum_Ambulatory==1 | readum_Nursing==1 |
+#            readum_Rehabilitation==1 | readum_Urgent==1 |
+#            readum_Skilled==1 | readum_Developmental==1) %>%
+#   select(ID)
+# li$ID
 # ID_list_to_del = append(ID_list_to_del, li)
 ```
 

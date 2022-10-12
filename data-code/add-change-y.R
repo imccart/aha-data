@@ -53,7 +53,6 @@ if (df_reg_del$ID[1] == -1) {
 } else {
   df_del <- rbind(df_reg_del, df_nonreg_del)  # reg status doesn't matter  
 }
-df_del <- rbind(df_reg_del, df_nonreg_del)
 df_del$reason_head <- lapply(df_del$REASON.FOR.DELETION, spl_first)
 df_del <- df_del %>%
   mutate(ID = as.character(ID),
