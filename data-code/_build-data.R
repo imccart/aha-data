@@ -61,13 +61,50 @@ for (y in 2007:2019) {
 
 ## Tidy aha_data
 # status changes nonreg <-> reg : discard those changes
-aha_data %>% 
-  filter(readum_from==1 | 
-           readum_Previously|
-           readum_STATUS==1) %>%
-  select(ID,year,add,del,reason)
 aha_data <- aha_data %>% 
   select(-c(readum_from, readum_Previously, readum_STATUS))
+
+
+## build final data
+my_update <- function(data_left, data_right, adddel) {
+  for (i_right in 1:nrow(df_right)) {  # for each ID in right
+    ID <- df_right[i_right,'ID']
+    i_left <- which(df_left$ID == ID[[1]])   # find index in left
+    
+    suffix <- 1 # find empty slot in left
+    reason_s <- paste0('reason',suffix)
+    while (is.na(df_left[i_left,reason_s])[[1]] == F) { 
+      suffix <- suffix+1
+      reason_s <- paste0('reason',suffix)
+    }
+    vars = c('year','add','del')
+    for (v in vars) {
+      v_s <- paste0(v, suffix)
+      df_left[i_left, v_s] <- df_right[i_right, v]
+    }
+  }
+  return(df_left)
+}
+
+df_left <- df_hosp %>% select(ID) %>%
+  mutate('year1' = NA, 'reason1' = NA, 'add1' = NA, 'del1' = NA,
+         'year2' = NA, 'reason2' = NA, 'add2' = NA, 'del2' = NA,
+         'year3' = NA, 'reason3' = NA, 'add3' = NA, 'del3' = NA,
+         'year4' = NA, 'reason4' = NA, 'add4' = NA, 'del4' = NA,
+         'year5' = NA, 'reason5' = NA, 'add5' = NA, 'del5' = NA)
+
+df_right <- aha_data %>% 
+  filter(readum_Inpatient==1 | readum_Ambulatory==1 |
+           readum_Inpatient==1 | readum_Outpatient==1 |
+           readum_Hospice==1 | readum_Not==1 |
+           readum_Psychiatric==1 | readum_Behavioral==1 |
+           readum_Ambulatory==1 | readum_Nursing==1 |
+           readum_Rehabilitation==1 | readum_Urgent==1 |
+           readum_Skilled==1 | readum_Developmental==1
+  ) %>% 
+  select(ID, year, add, del, reason)
+
+df_left <- my_update(df_left,df_right)
 
 # Code for: 7. If demerged, from where?
 #   df_temp <- df %>% filter(demerged == 1) %>%

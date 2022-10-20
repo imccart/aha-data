@@ -19,5 +19,5 @@ ID,HOSPITAL NAME,CITY,STATE,REASON FOR DELETION
 6859146.0,Presbyterian Rust Medical Center,Rio Rancho,NM,"Merged into 6850055 Presbyterian Hospital Albuquerque, NM"
 6860057.0,Restora Hospital of Mesa,Mesa,AZ,Closed
 6860058.0,Restora Hospital of Sun City,Sun City,AZ,Closed
-6930126,Thousand Oaks Surgical Hospital Thousand Oaks Surgical Hospital Thousand Oaks Surgical Hospital,Thousand Oaks,CA,"Merged into 6933672 Merged into 6933672 Los Robles Hospital and Medical Merged into 6933672 Los Robles Hospital and Medical Center Thousand Oaks, CA"
-6930417.0,Kaiser Permanente Ontario Medical Center Kaiser Permanente Ontario Medical Center Kaiser Permanente Ontario Medical Center,Ontario,CA,"Merged into 6930737 Merged into 6930737 Kaiser Permanente Fontana Merged into 6930737 Kaiser Permanente Fontana Medical Center Fontana, CA"
+6930126,Thousand Oaks Surgical Hospital,Thousand Oaks,CA,"Merged into 6933672 Los Robles Hospital and Medical Center Thousand Oaks, CA"
+6930417.0,Kaiser Permanente Ontario Medical Center,Ontario,CA,"Merged into 6930737 Kaiser Permanente Fontana Medical Center Fontana, CA"

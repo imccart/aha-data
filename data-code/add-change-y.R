@@ -4,7 +4,7 @@
 # Description: A file to add a reason of change in 2007
 #
 # load change data ------------------------------------------------
-#y <- 2008  # y comes from the global variable (fix it later)
+#y <- 2008  # y is a global variable defined on _build-data.R (fix it later)
 print(y)
 df_year <- df_hosp %>% filter(year==y)
 df_reg_add <- read.csv(paste0("data/temp/change_Reg Add_",y,".csv"))

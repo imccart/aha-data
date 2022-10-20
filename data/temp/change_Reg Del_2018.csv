@@ -1,19 +1,19 @@
 ID,HOSPITAL NAME,CITY,STATE,REASON FOR DELETION
-6140840.0,Clinton Hospital Clinton Hospital Clinton Hospital,Clinton,MA,"Merged into Merged into 6140008 Merged into 6140008 UMass Memorial UMass Memorial HealthAlliance-Clinton UMass Memorial HealthAlliance-Clinton Hospital Leominster, MA"
+6140840.0,Clinton Hospital,Clinton,MA,"Merged into 6140008 UMass Memorial HealthAlliance-Clinton Hospital Leominster, MA"
 6210020.0,Seton Health St. Mary s Hospital,Troy,NY,"Merged into 6214990 Samaritan Hospital-Main Campus Troy, NY"
 6214788.0,Syosset Hospital,Syosset,NY,"Merged into 6212357 North Shore University Hospital Manhasset, NY"
 6220020.0,East Mountain Hospital,Belle Mead,NJ,Closed
 6230035.0,Lehigh Valley Hospital- Muhlenberg,Bethlehem,PA,"Merged into 6230013 Lehigh Valley Hospital Allentown, PA"
 6230057.0,LifeCare Hospitals of Mechanicsburg,Mechanicsburg,PA,Closed
 6232780.0,Lehigh Valley Hospital- Schuylkill East Norwegian Street,Pottsville,PA,"Merged into 6232800 Lehigh Valley Hospital- Schuykill Pottsville, PA"
-6320006.0,Gladys Spellman Gladys Spellman Specialty Hospital and Gladys Spellman Specialty Hospital and Nursing Center,Cheverly,MD,Not a hospital; Not a hospital; Senior Not a hospital; Senior Center/Adult Day Center
-6320655.0,University of Maryland University of Maryland Capital Region Health University of Maryland Capital Region Health at Laurel Regional Hospital,Laurel,MD,"Merged into Merged into 6320610 Merged into 6320610 University of Maryland Capital University of Maryland Capital Region Health Prince University of Maryland Capital Region Health Prince George's Hospital Center Cheverly, MD"
-6320765.0,Adventist Behavioral Adventist Behavioral Health and Wellness Adventist Behavioral Health and Wellness Services,Rockville,MD,"Merged into Merged into 6320775 Merged into 6320775 Adventist Healthcare Shady Adventist Healthcare Shady Grove Medical Center Adventist Healthcare Shady Grove Medical Center Rockville, MD"
+6320006.0,Gladys Spellman Specialty Hospital and Nursing Center,Cheverly,MD,Not a hospital; Senior Center/Adult Day Center
+6320655.0,University of Maryland Capital Region Health at Laurel Regional Hospital,Laurel,MD,"Merged into 6320610 University of Maryland Capital Region Health Prince George's Hospital Center Cheverly, MD"
+6320765.0,Adventist Behavioral Health and Wellness Services,Rockville,MD,"Merged into 6320775 Adventist Healthcare Shady Grove Medical Center Rockville, MD"
 6330190.0,Providence Hospital,Washington,DC,Not a hospital - Urgent Care Center
 6340017.0,Snowden at Fredericksburg,Fredericksburg,VA,"Merged into 6340290 Mary Washington Hospital Fredericksburg, VA"
-6360439.0,Carolinas Carolinas ContinueCARE Carolinas ContinueCARE Hospital at Kings Carolinas Carolinas ContinueCARE Carolinas ContinueCARE Hospital at Kings Mountain,Kings Mountain,NC,Closed Closed Closed Closed Closed Closed
+6360439.0,Carolinas ContinueCARE Hospital at Kings Mountain,Kings Mountain,NC,Closed
 6361265.0,FirstHealth Richmond Memorial Hospital,Rockingham,NC,"Merged into 6361150 FirstHealth Moore Regional Hospital Pinehurst, NC"
-6370130.0,Whitten Center Whitten Center Whitten Center,Clinton,SC,Not a hospital- Not a hospital- Development Not a hospital- Development and Disability Center
+6370130.0,Whitten Center,Clinton,SC,Not a hospital- Development and Disability Center
 6370675.0,Fairfield Memorial Hospital,Winnsboro,SC,Closed
 6380023.0,Southern Crescent Hospital for Specialty Care,Riverdale,GA,Closed
 6380435.0,Midtown Medical Center West,Columbus,GA,"Merged into 6380430 Piedmont Columbus Regional Midtown Columbus, OH"
@@ -22,14 +22,14 @@ ID,HOSPITAL NAME,CITY,STATE,REASON FOR DELETION
 6390522.0,Bascom Palmer Eye Institute-Anne Bates Leach Eye Hospital,Miami,FL,"Merged into 6390610 University of Miami Hospital and Clinics, Miami, FL"
 6391097.0,Tampa Community Hospital,Tampa,FL,"Merged into 6391090 Memorial Hospital of Tampa, Tampa, FL"
 6410013.0,Northside Medical Center,Youngstown,OH,Closed
-6410073.0,The Medical Center at The Medical Center at Elizabeth Place The Medical Center at Elizabeth Place,Dayton,OH,Not a hospital Not a hospital -Other Health Not a hospital -Other Health Related Services
+6410073.0,The Medical Center at Elizabeth Place,Dayton,OH,Not a hospital -Other Health Related Services
 6410180.0,Belmont Community Hospital,Bellaire,OH,Closed
 6411180.0,Good Samaritan Hospital,Dayton,OH,Closed
 6420066.0,Kentuckiana Medical Center,Clarksville,IN,Closed
 6430217.0,Vibra Hospital of Springfield,Springfield,IL,Closed
 6433260.0,Centegra Hospital - Woodstock,Woodstock,IL,"Merged into 6432127 Northwestern Medicine McHenry, McHenry, IL"
 6440045.0,Select Specialty Hospital-Northwest Detroit,Detroit,MI,"Merged into 6440036 Select Specialty Hospital- Downriver Wyandotte, MI"
-6450620.0,"United Hospital United Hospital System, St. Catherine's United Hospital System, St. Catherine's Medical Center Campus",Pleasant Prairie,WI,"Merged into Merged into 6450610 Merged into 6450610 Froedtert South - Kenosha Froedtert South - Kenosha Medical Center, Froedtert South - Kenosha Medical Center, Kenosha, WI"
+6450620.0,"United Hospital System, St. Catherine's Medical Center Campus",Pleasant Prairie,WI,"Merged into 6450610 Froedtert South - Kenosha Medical Center, Kenosha, WI"
 6510575.0,Norton Brownsboro Hospital,Louisville,KY,"Merged into 6510488 Norton Hospital Louisville, KY"
 6510595.0,Frazier Rehab Institute,Louisville,KY,"Merged into 6510510 Jewish Hospital Louisville, KY"
 6510610.0,Norton Audubon Hospital,Louisville,KY,"Merged into 6510488 Norton Hospital Louisville, KY"

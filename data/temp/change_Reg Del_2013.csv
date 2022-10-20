@@ -24,7 +24,7 @@ ID,HOSPITAL NAME,CITY,STATE,REASON FOR DELETION
 6390290.0,Kindred Hospital South Florida-Hollywood,Hollywood,FL,Merged into 6399040
 6390486.0,Sun Coast Hospital,Largo,FL,Merged into 6390489
 6390622.0,Metropolitan Hospital of Miami,Miami,FL,Temporarily closed
-6410072.0,University Pointe Surgical Hospital University Pointe Surgical Hospital University Pointe Surgical Hospital University Pointe Surgical Hospital University Pointe Surgical Hospital University Pointe Surgical Hospital,West Chester,OH,Changed to Changed to outpatient and Changed to outpatient and merged with Changed to Changed to outpatient and Changed to outpatient and merged with 6410077 to form 6410531
+6410072.0,University Pointe Surgical Hospital,West Chester,OH,Changed to outpatient and merged with 6410077 to form 6410531
 6410077.0,West Chester Hospital,West Chester,OH,Merged with 6410072 to form 6410531
 6410582.0,Mercy Health - Mt. Airy Hospital,Cincinnati,OH,Closed
 6410587.0,Mercy Health - Western Hills Hospital,Cincinnati,OH,Merged into 6410518 (now outpatient)
