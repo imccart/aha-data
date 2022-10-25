@@ -71,3 +71,6 @@ df_del <- df_del %>%  # update to df_hosp
   mutate(year = y)
 
 df_year <- bind_rows(df_year, df_del)
+
+rm(list = c('df_add','df_del','df_nonreg_del','df_nonreg_add',
+            'df_reg_del','df_reg_add'))
