@@ -138,17 +138,8 @@ df_left
 ```{r}
 aha_data %>% names()
 ```
-readum_Newly readum_Reopened
  
-readum_Temporarily readum_Formerly
  
-readum_nNoenwrleyg readum_Result readum_
- 
-readum_Nonregistered
-
-readum_Duplicate
- 
-readum_Substance readum_Unit
  
 ```{r nonreg <-> reg: ignore them all}
 # just status change: nonreg <-> reg
@@ -165,11 +156,11 @@ aha_data %>%
 
 ```{r drop rows 'Not a hospital'}
 aha_data %>% 
-  filter(readum_Inpatient==1 | readum_Ambulatory==1 | readum_Outpatient==1 | readum_Hospice==1 | readum_Not==1 |readum_Psychiatric==1 | readum_Behavioral==1 | readum_Nursing==1 | readum_Rehabilitation==1 | readum_Urgent==1 | readum_Skilled==1 | readum_Developmental==1 | readum_BEHAVIORAL==1 | readum_RESIDENTIAL==1 | readum_REHABILITATION==1 | readum_SKILLED==1 |`readum_Merged/Ambulatory`==1 | `readum_Emergency/Urgent`==1 |      readum_Residential==1| readum_Emergency==1) %>% 
+  filter(readum_Inpatient==1 | readum_Ambulatory==1 | readum_Outpatient==1 | readum_Hospice==1 | readum_Not==1 |readum_Psychiatric==1 | readum_Behavioral==1 | readum_Nursing==1 | readum_Rehabilitation==1 | readum_Urgent==1 | readum_Skilled==1 | readum_Developmental==1 | readum_BEHAVIORAL==1 | readum_RESIDENTIAL==1 | readum_REHABILITATION==1 | readum_SKILLED==1 |`readum_Merged/Ambulatory`==1 | `readum_Emergency/Urgent`==1 |      readum_Residential==1| readum_Emergency==1 | readum_Substance==1) %>% 
   select(ID, year, add, del, reason)  # they are all del
 
 # aha_data <- aha_data %>%
-#   select(-c(readum_Inpatient, readum_Ambulatory, readum_Outpatient,  readum_Hospice, readum_Not, readum_Psychiatric,readum_Behavioral, readum_Nursing, readum_Rehabilitation, readum_Urgent,readum_Skilled, readum_Developmental,readum_BEHAVIORAL,readum_RESIDENTIAL, readum_REHABILITATION,readum_SKILLED,`readum_Merged/Ambulatory`, `readum_Emergency/Urgent`,readum_Residential,readum_Emergency))
+#   select(-c(readum_Inpatient, readum_Ambulatory, readum_Outpatient,  readum_Hospice, readum_Not, readum_Psychiatric,readum_Behavioral, readum_Nursing, readum_Rehabilitation, readum_Urgent,readum_Skilled, readum_Developmental,readum_BEHAVIORAL,readum_RESIDENTIAL, readum_REHABILITATION,readum_SKILLED,`readum_Merged/Ambulatory`, `readum_Emergency/Urgent`,readum_Residential,readum_Emergency, readum_Substance))
 
 # li <- aha_data %>%
 #   filter(readum_Inpatient==1 | readum_Ambulatory==1 |
@@ -209,7 +200,7 @@ aha_data %>%
 
 ```{r Merger}
 aha_data %>%
-  filter(readum_Merger==1) %>%
+  filter(readum_Merger==1 | readum_Result==1) %>%
   select(ID,year,add,del,reason)
 ```
 
@@ -235,68 +226,61 @@ aha_data %>%
   select(ID,year,add,del,reason)
 ```
 
-```{r closed}
+```{r open}
 aha_data %>%
-  filter(readum_Closed==1| readum_CLOSED==1) %>%
+  filter(readum_Newly==1) %>%
+  select(ID,year,add,del,reason) %>%
+  select(reason) %>%
+  unique()
+# added -> add
+# registered -> delete data
+```
+
+```{r reopen}
+aha_data %>%
+  filter(readum_Reopened==1) %>%
   select(ID,year,add,del,reason)
 ```
 
-```{r closed}
+```{r temporarily}
 aha_data %>%
-  filter(readum_Closed==1| readum_CLOSED==1) %>%
+  filter(readum_Temporarily==1) %>%
   select(ID,year,add,del,reason)
 ```
 
-```{r closed}
+```{r formerly}
 aha_data %>%
-  filter(readum_Closed==1| readum_CLOSED==1) %>%
+  filter(readum_Formerly==1) %>%
   select(ID,year,add,del,reason)
 ```
 
-```{r closed}
+```{r bug - hardfix}
 aha_data %>%
-  filter(readum_Closed==1| readum_CLOSED==1) %>%
+  filter(readum_nNoenwrleyg==1) %>%
   select(ID,year,add,del,reason)
 ```
 
-```{r closed}
+```{r i dun understand the reason}
 aha_data %>%
-  filter(readum_Closed==1| readum_CLOSED==1) %>%
+  filter(readum_Nonregistered==1) %>%
   select(ID,year,add,del,reason)
 ```
-
-
-```{r ???}
-aha_data %>% 
-  filter(readum_Nonregistered==1 |
-           readum_Temporarily==1) %>% 
-  select(ID, year, add, del, reason)
+```{r duplicate}
+aha_data %>%
+  filter(readum_Duplicate==1) %>%
+  select(ID,year,add,del,reason)
 ```
-
-```{r}
-aha_data %>% 
-  filter(readum_Nonregistered==1) %>% 
-  select(ID, year, add, del, reason)
+```{r del-Unit of other hospital}
+aha_data %>%
+  filter(readum_Unit==1) %>%
+  select(ID,year,add,del,reason)
 ```
-
-
+```{r ?? bug}
+aha_data %>%
+  filter(readum_nNoenwrleyg==1) %>%
+  select(ID,year,add,del,reason)
+```
 
 # build-year
-```{r}
-```
-```{r}
-ddd <- df_nonreg_add %>% mutate(ID = as.character(ID))
 
-dddd <- df_hosp %>% left_join(ddd, 'ID')
-```
-
-```{r if register status changed, in the list}
-ff <- df_reg_del %>% mutate(ID = as.character(ID))
-why <- df_hosp %>% select(ID) %>% inner_join(ff, by='ID')
-```
-
-```{r if register status changed, in the list}
-ff <- df_nonreg_del %>% mutate(ID = as.character(ID))
-hoxy <- df_hosp %>% select(ID) %>% left_join(ff,by='ID') %>% filter(del==1)
-```
 
