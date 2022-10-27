@@ -32,23 +32,23 @@ for (v in variable.names(dat_cooper)){
 - SYSNAME: not unique, 2833 NA's
 - (LAT,LONG): not unique -> see [lat,long is not unique]
 
-```{r sysid is not unique}
-df_tmp1 <- df_tmp %>% group_by(SYSID) %>% summarise(n=n()) %>% right_join(df_tmp, by="SYSID")
-
-df_tmp1 %>% filter(n>=2) %>% select(ID, SYSID, n)
-
-# cross-check with cooper -- not meaningful in this stage...
-df_tmp2 <- dat_cooper %>% filter(year==2007)
-df_tmp2 <- df_tmp2 %>% group_by(sysid) %>% summarise(n=n()) %>% right_join(df_tmp2, by='sysid')
-
-df_tmp2 %>% filter(n>=2) %>% select(id, sysid, n)
-
-df_tmp1 %>% mutate(id=ID) %>% left_join(df_tmp2, by="id") %>% select(id, SYSID, n.x, n.y)
+```{r sysid is not unique, include=F}
+# df_tmp1 <- df_tmp %>% group_by(SYSID) %>% summarise(n=n()) %>% right_join(df_tmp, by="SYSID")
+# 
+# df_tmp1 %>% filter(n>=2) %>% select(ID, SYSID, n)
+# 
+# # cross-check with cooper -- not meaningful in this stage...
+# df_tmp2 <- dat_cooper %>% filter(year==2007)
+# df_tmp2 <- df_tmp2 %>% group_by(sysid) %>% summarise(n=n()) %>% right_join(df_tmp2, by='sysid')
+# 
+# df_tmp2 %>% filter(n>=2) %>% select(id, sysid, n)
+# 
+# df_tmp1 %>% mutate(id=ID) %>% left_join(df_tmp2, by="id") %>% select(id, SYSID, n.x, n.y)
 ```
 seems cooper et al. somehow pooled sysid==2...?
 
 ```{r lat,long is not unique}
-df_tmp %>% group_by(LAT,LONG) %>% summarise(n=n()) %>% left_join(df_tmp, by=c("LAT","LONG")) %>% filter(n >=2) %>% select(ID, n, LAT, LONG)
+# df_tmp %>% group_by(LAT,LONG) %>% summarise(n=n()) %>% left_join(df_tmp, by=c("LAT","LONG")) %>% filter(n >=2) %>% select(ID, n, LAT, LONG)
 ```
 
 ```{r}
@@ -57,35 +57,8 @@ dat_cooper %>% filter(year==2007) %>% nrow()
 
 
 ```{r ??}
-dat_cooper %>% filter(year==2007) %>% select(id) %>% unique()
-dat_cooper %>% group_by(sysid) %>% summarise(n_cooper=n()) %>% left_join(dat_cooper, by="sysid") %>% select(id, sysid, n_cooper) %>% mutate(ID = id) %>% left_join(df_tmp, by="ID") %>% select(ID, sysid, n_cooper)
-```
-
-```{r}
-
-
-my_update <- function(data_left, data_right) {
-  for (i_right in 1:nrow(data_right)) {  # for each ID in right
-    ID <- data_right[i_right,'ID']
-    i_left <- which(data_left$ID == ID[[1]])   # find index in left
-  
-    # find empty slot in left
-    suffix <- 1 
-    reason_s <- paste0('reason',suffix)
-    while (is.na(data_left[i_left,reason_s])[[1]] == F) { 
-      suffix <- suffix+1
-      reason_s <- paste0('reason',suffix)
-    }
-    vars = c('reason')
-    for (v in vars) {
-      v_s <- paste0(v, suffix)
-      df_left[i_left, v_s] <- df_right[i_right, v]
-    }
-  }
-  return(df_left)
-}
-
-my_update(df_left,df_right)
+# dat_cooper %>% filter(year==2007) %>% select(id) %>% unique()
+# dat_cooper %>% group_by(sysid) %>% summarise(n_cooper=n()) %>% left_join(dat_cooper, by="sysid") %>% select(id, sysid, n_cooper) %>% mutate(ID = id) %>% left_join(df_tmp, by="ID") %>% select(ID, sysid, n_cooper)
 ```
 
 # aha_data
@@ -95,13 +68,13 @@ aha_data %>% names()
 ```
  
 ```{r}
-aha_data %>% filter(ID==6141740) 
+# aha_data %>% filter(ID==6141740) 
 # 6080001: deleted in 2013 bc not hospital, but added again.
 #  => delete before deletion, and check again
 ```
 
 ```{r}
-source('data-code/tidy_aha_data.R')
+# source('data-code/tidy_aha_data.R')
 ```
 
 ```{r}
@@ -253,51 +226,6 @@ df_left_test %>% filter(ID == "6710013")
 ```
 
 
-```{r}
-# if true
-
-# if false
-i_left <- which(df_left_test$ID == ID)
-reason_s <- paste0('reason_short', suffix)
-
-
-```
-
-```{r}
-    if (is.na(data_right[[i_right, 'del']])==F & 
-        data_right[[i_right, 'year']]==2007) {
-      row <- data.frame('ID'=ID,
-                        'year1'=2007,
-                        'reason_short1'=data_right[[i_right,'reason_short']],
-                        'reason1'=data_right[[i_right,'reason']])
-      data_left <- bind_rows(row, data_left)
-    } else {
-      i_left <- which(data_left$ID == ID)   # find index in left
-  
-      # find empty slot in left
-      suffix <- 1 
-      reason_s <- paste0('reason_short',suffix)
-      while (is.na(data_left[[i_left,reason_s]]) == F) { 
-        suffix <- suffix+1
-        reason_s <- paste0('reason_short',suffix)
-      }
-      #vars = c('reason')
-      vars = c('year', 'reason_short','reason')  # modify here
-      for (v in vars) {
-        v_s <- paste0(v, suffix)
-        data_left[i_left, v_s] <- data_right[i_right, v]
-      }
-    }
-  }
-  return(data_left)
-}
-
-```
-```{r}
-df_left %>% filter(ID==6040130)
-```
-
-
 ```{r merged into}
 df_change %>% 
   filter(reason_short1 == 'merged into') %>%
@@ -324,7 +252,7 @@ df_change %>%
   select(ID,target)
 ```
 
-```{r demerger, 'demerged', 'duplicate', 'merger result', 'ID change'}
+```{r demerger}
 df_change %>% 
   filter(reason_short1 == 'demerger') %>%
   mutate(target = reason1) %>%
@@ -352,7 +280,7 @@ df_change %>%
   select(ID,target)
 ```
 
-```{r merger result', 'ID change'}
+```{r merger result}
 df_change %>% 
   filter(reason_short1 == 'merger result') %>%
   mutate(target = reason1) %>%
