@@ -49,36 +49,83 @@ source('data-code/tidy_aha_data.R')
 
 aha_data <- aha_data %>% 
   filter(!is.na(reason_short)) %>%
-  select(ID,year,reason_short,reason, everything())
+  select(ID,year,reason_short,reason, everything()) %>%
+  arrange(year)
 
 ## add changes to unique hospital ID -----------------------------
-my_update <- function(data_left, data_right, adddel) {
-  for (i_right in 1:nrow(df_right)) {  # for each ID in right
-    ID <- df_right[i_right,'ID']
-    i_left <- which(df_left$ID == ID[[1]])   # find index in left
+# error_counter <- 0  # check data_right[error_counter,]
+# df_left_test <- aha_data
+# del2007 <- 'haha'
+# err <- 0
+
+my_update <- function(data_left, data_right) {
+  for (i_right in 1:nrow(data_right)) {  # for each ID in right
+    # error_counter <<- i_right+1
+    ID <- data_right[[i_right,'ID']]
     
-    suffix <- 1 # find empty slot in left
-    reason_s <- paste0('reason',suffix)
-    while (is.na(df_left[i_left,reason_s])[[1]] == F) { 
-      suffix <- suffix+1
-      reason_s <- paste0('reason',suffix)
-    }
-    vars = c('year','add','del')
-    for (v in vars) {
-      v_s <- paste0(v, suffix)
-      df_left[i_left, v_s] <- df_right[i_right, v]
+    if (is.na(data_right[[i_right, 'del']])==F & 
+        data_right[[i_right, 'year']]==2007 &
+        !(ID %in% data_left$ID)) {
+      # del2007 <<- 'if'
+      row <- data.frame('ID'=ID,
+                        'year1'=2007,
+                        'reason_short1'=data_right[[i_right,'reason_short']],
+                        'reason1'=data_right[[i_right,'reason']])
+      data_left <- bind_rows(row, data_left)
+      # df_left_test <<- data_left
+    } else {
+      # del2007 <<- 'else'
+      i_left <- which(data_left$ID == ID)   # find index in left
+      # err <<- 1
+      
+      # find empty slot in left
+      suffix <- 1 
+      reason_s <- paste0('reason_short',suffix)
+      while (is.na(data_left[[i_left,reason_s]]) == F) { 
+        suffix <- suffix+1
+        reason_s <- paste0('reason_short',suffix)
+      }
+      #vars = c('reason')
+      vars = c('year', 'reason_short','reason', 'MNAME')  # modify here
+      for (v in vars) {
+        v_s <- paste0(v, suffix)
+        data_left[i_left, v_s] <- data_right[i_right, v]
+        #df_left_test <<- data_left
+      }
     }
   }
-  return(df_left)
+  return(data_left)
 }
 
-df_left <- df_hosp %>% select(ID) %>% unique() %>%
-  mutate('year1' = NA, 'reason1' = NA, 'add1' = NA, 'del1' = NA,
-         'year2' = NA, 'reason2' = NA, 'add2' = NA, 'del2' = NA,
-         'year3' = NA, 'reason3' = NA, 'add3' = NA, 'del3' = NA,
-         'year4' = NA, 'reason4' = NA, 'add4' = NA, 'del4' = NA,
-         'year5' = NA, 'reason5' = NA, 'add5' = NA, 'del5' = NA)
+# aha_data %>% group_by(ID) %>% summarise(n=n()) %>% arrange(desc(n))
+# maximum number of changes = 4
 
-df_right <- aha_data
+df_change <- df_hosp %>% select(ID) %>% unique() %>%
+  mutate('year1' = NA, 'reason_short1' = NA, 'reason1' = NA,
+         'year2' = NA, 'reason_short2' = NA, 'reason2' = NA,
+         'year3' = NA, 'reason_short3' = NA, 'reason3' = NA,
+         'year4' = NA, 'reason_short4' = NA, 'reason4' = NA,
+         'year5' = NA, 'reason_short5' = NA, 'reason5' = NA,
+         'MNAME1'=NA,'MNAME2'=NA,'MNAME3'=NA,'MNAME4'=NA,'MNAME5'=NA) %>%
+  mutate(ID2 = as.integer(ID),
+         ID = ifelse(is.na(ID2)==F, ID2, ID)) %>%
+  select(-c(ID2))
+# fifth is just a buffer
+# ID is for sth like 123.0 -> 123. There are 12B,12C, too.
 
-df_left <- my_update(df_left,df_right)
+aha_data <- aha_data %>% 
+  mutate(ID2 = as.integer(ID),
+         ID = ifelse(is.na(ID2)==F, ID2, ID)) %>%
+  select(-c(ID2))
+
+df_change <- my_update(df_change, aha_data)
+
+## add merge/demerge/dissolution ID ------------------------------------
+
+# df_change %>% select(reason_short1) %>% unique()
+# 'merged into', 'unit of other hosp', 'dissolution', 'demerger',
+# 'demerged', 'duplicate', 'merger result', 'ID change'
+
+# for (suffix in 1:5) {}
+df_change %>% filter(reason_short1 == 'merged into') %>% select(reason1)
+
