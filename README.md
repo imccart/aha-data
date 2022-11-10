@@ -6,4 +6,4 @@ This repository houses code and other supporting documentation for importing and
     - sumofchanges: A collection of 'summary of changes'. For later years, I manually printed relevant pages from 'AnnualSurveyFY{year}Doc.pdf'.
 
 - **data-code**: code files and supporting documentation for all data wrangling, cleaning, and management. All code files are called by the [_build-data.R](data-code/_build-data.R) script.
-    - `pdf2table.ipynb` transforms the tables in 'summary of changes' pdf into csv files. The result of the extraction might depend on the version of the packages used (especially tabula.io).
+    - `pdf2table.ipynb` transforms the tables in the 'summary of changes' pdf into csv files. The result of the extraction might depend on the version of the packages used (especially `tabula.io`).
