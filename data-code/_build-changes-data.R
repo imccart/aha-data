@@ -22,20 +22,19 @@ pacman::p_load(data.table, tidyverse, janitor, here)
 df_hosp <- tibble()
 for (y in 2007:2019){
   if (y == 2007) {
-    # working directory is {}/aha-data/ (above data-code)
-    f <- here("data",'input',paste0('AHA FY ',y),'COMMA','comma.csv')
+    f <- here('data/input/AHA Data',paste0('AHA FY ',y),'COMMA','comma.csv')
   } else if (y==2008) {
-    f <- here('data','input',paste0('AHA FY ',y),'COMMA','pubas08.csv')
+    f <- here('data/input/AHA Data',paste0('AHA FY ',y),'COMMA','pubas08.csv')
   } else if (y==2009) {
-    f <- here('data','input',paste0('AHA FY ',y),'Comma','pubas09.csv')
+    f <- here('data/input/AHA Data',paste0('AHA FY ',y),'Comma','pubas09.csv')
   } else if (y<=2012) {
-    f <- here('data','input',paste0('AHA FY ',y),
+    f <- here('data/input/AHA Data',paste0('AHA FY ',y),
               'COMMA', paste0('ASPUB',y-2000,'.csv'))
   } else if (y<=2015) {
-    f <- here('data','input',paste0('AHA FY ',y),
+    f <- here('data/input/AHA Data',paste0('AHA FY ',y),
               'COMMA', paste0('ASPUB',y-2000,'.CSV'))
   } else {
-    f <- here('data','input',paste0('AHA FY ',y),
+    f <- here('data/input/AHA Data',paste0('AHA FY ',y),
               paste0('ASPUB',y-2000,'.csv'))
   }
   df_temp <- read.csv(f)
@@ -45,6 +44,7 @@ for (y in 2007:2019){
 rm(list=c('df_temp'))
 df_hosp <- df_hosp %>% group_by(ID) %>% 
   mutate(n = n()) %>% ungroup()
+
 
 ## Find changes/reasons (sum_of_change) ---------------------------------
 # sum_of_change contains all changes.
@@ -66,10 +66,6 @@ sum_of_change <- sum_of_change %>%
 ## add changes to unique hospital ID -----------------------------
 # my_update is a function that add the changes in sum_of_change to df_hosp
 
-# error_counter <- 0  # check data_right[error_counter,]
-# df_left_test <- sum_of_change
-# del2007 <- 'haha'
-# err <- 0
 my_update <- function(data_left, data_right) {
   for (i_right in 1:nrow(data_right)) {  # for each ID in right
     # error_counter <<- i_right+1
@@ -109,10 +105,6 @@ my_update <- function(data_left, data_right) {
   return(data_left)
 }
 
-# sum_of_change %>% group_by(ID) %>% summarise(n=n()) %>% arrange(desc(n))
-# maximum number of changes = 4
-# fifth is just a buffer
-
 df_change <- df_hosp %>% select(ID) %>% unique() %>%
   mutate('year1' = NA, 'reason_short1' = NA, 'reason1' = NA,
          'year2' = NA, 'reason_short2' = NA, 'reason2' = NA,
@@ -130,17 +122,12 @@ sum_of_change <- sum_of_change %>%
   select(-c(ID2))
 
 df_change <- my_update(df_change, sum_of_change)
-# rm(list=c('sum_of_change'))
 
 ## add merge/demerge/dissolution ID ------------------------------------
 # So far, df_change has the history of changes, but not related IDs:
-# If 1234567 is merged into 9876543, add this ID's to the df.
+# If 1234567 is merged into 9876543, add this ID to the df.
 
-# df_change %>% select(reason_short1) %>% unique()
-# 'merged into', 'unit of other hosp', 'dissolution', 'demerger',
-# 'demerged', 'duplicate', 'merger result', 'ID change'
 
-# for (suffix in 1:5) {}
 df_change <- df_change %>%
   mutate(target = reason1) %>%
   mutate(target = gsub('Merged with ([0-9]+) to form','',target)) %>%
@@ -176,10 +163,6 @@ df_change <- df_change %>%
             year4,reason_short4,ID4,reason4,MNAME4,
          everything())
 
-df_change2 <- df_change %>% filter(!is.na(year1))
-df_change2 %>% write_csv(file=here('data','output','df_change2.csv'))
-df_change3 <- read_csv(here('data','output','df_change2.csv'))
-
-# row 826 of df_change3 : negative number,
-# merger result / dissolved into: has multiple numbers
-#                                 -> now capturing only the first
+## export to CSV
+df_change %>% filter(!is.na(year1)) %>% 
+  write_csv(file=here('data','output','df_change.csv'))

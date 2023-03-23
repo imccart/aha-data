@@ -4,13 +4,12 @@
 # Description: A file to add a reason of change in 2007
 #
 # load change data ------------------------------------------------
-#y <- 2008  # y is a global variable defined on _build-data.R (fix it later)
 print(y)
 df_year <- df_hosp %>% filter(year==y)
-df_reg_add <- read.csv(paste0("data/temp/change_Reg Add_",y,".csv"))
-df_reg_del <- read.csv(paste0("data/temp/change_Reg Del_",y,".csv"))
-df_nonreg_add <- read.csv(paste0("data/temp/change_Nonreg Add_",y,".csv"))
-df_nonreg_del <- read.csv(paste0("data/temp/change_Nonreg Del_",y,".csv"))
+df_reg_add <- read.csv(paste0("data/output/temp/change_Reg Add_",y,".csv"))
+df_reg_del <- read.csv(paste0("data/output/temp/change_Reg Del_",y,".csv"))
+df_nonreg_add <- read.csv(paste0("data/output/temp/change_Nonreg Add_",y,".csv"))
+df_nonreg_del <- read.csv(paste0("data/output/temp/change_Nonreg Del_",y,".csv"))
 
 # functions ------------------------------------------------------
 spl <- function(text) {
