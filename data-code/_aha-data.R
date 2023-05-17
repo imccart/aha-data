@@ -46,7 +46,8 @@ for (y in 2007:2019){
                     'ADULTHOS', 'HOSPCHOS', 'PATEDHOS', 'SOCWKHOS', 'VOLSVHOS', 'GPWWHOS', 'OPHHOS', 
                     'CPHHOS', 'FNDHOS', 'EQMHOS', 'IPAHOS', 'MSOHOS', 'ISMHOS', 'GPWWNET', 'OPHNET', 
                     'CPHNET', 'FNDNET', 'EQMNET', 'IPANET', 'MSONET', 'ISMNET', 'GPWWSYS', 'OPHSYS', 
-                    'CPHSYS', 'FNDSYS', 'EQMSYS', 'IPASYS', 'MSOSYS', 'ISMSYS', 'PHYGP'))) %>%
+                    'CPHSYS', 'FNDSYS', 'EQMSYS', 'IPASYS', 'MSOSYS', 'ISMSYS', 'PHYGP',
+                    'CAH','RRCTR','SCPROV'))) %>%
     mutate(year=y) %>%
     mutate(across(any_of(c('EHLTH','ACLABHOS','CTSCNHOS','DRADFHOS','EBCTHOS',
                     'FFDMHOS','MRIHOS','IMRIHOS','MSCTHOS','MSCTGHOS',
@@ -58,7 +59,8 @@ for (y in 2007:2019){
                     'ADULTHOS','HOSPCHOS','PATEDHOS','SOCWKHOS','VOLSVHOS',
                     'GPWWHOS','IPAHOS','MSOHOS','ISMHOS','GPWWNET','IPANET',
                     'MSONET','ISMNET','GPWWSYS','IPASYS','MSOSYS','ISMSYS',
-                    'ID','NPINUM','HRRCODE','SYSID','FSTCD','FCNTYCD')), ~ as_factor(.)),
+                    'ID','NPINUM','HRRCODE','SYSID','FSTCD','FCNTYCD',
+                    'CAH','RRCTR','SCPROV')), ~ as_factor(.)),
            across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
            across(any_of(c('DTBEG','DTEND','FISYR')), ~as.character(.)))
