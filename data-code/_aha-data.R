@@ -2,7 +2,7 @@
 ## Title:         AHA Data
 ## Author:        Ian McCarthy
 ## Date Created:  2/5/2018
-## Date Edited:   4/6/2023
+## Date Edited:   7/14/2023
 
 
 # Preliminaries -----------------------------------------------------------
@@ -31,9 +31,13 @@ for (y in 2007:2019){
               paste0('ASPUB',y-2000,'.csv'))
   }
   aha.data <- read_csv(aha.path) %>%
-    select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'HRRCODE', 'DTBEG', 'DTEND', 'FISYR', 'BDTOT',
-                    'LAT', 'LONG', 'MLOCZIP', 'SYSTELN', 'FSTCD', 'FCNTYCD', 'EHLTH', 'CNTRL', 
-                    'MAPP8', 'MAPP3', 'MAPP5', 'MAPP12', 'MAPP13', 'MHSMEMB', 'FTEMD', 'FTERES', 
+    select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
+                    'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'FSTCD', 'FCNTYCD', 
+                    'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
+                    'BDTOT', 'COMMTY', 'SYSTELN', 'EHLTH', 'CNTRL', 
+                    'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
+                    'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
+                    'MHSMEMB', 'FTEMD', 'FTERES', 
                     'FTERN', 'FTELPN', 'FTEH', 'NAMMSHOS', 'ACLABHOS', 'ENDOCHOS', 'ENDOUHOUS',
                     'REDSHOS', 'CTSCNHOS', 'DRADFHOS', 'EBCTHOS', 'FFDMHOS', 'MRIHOS', 'IMRIHOS',
                     'MSCTHOS', 'MSCTGHOS', 'PETHOS', 'PETCTHOS', 'SPECTHOS', 'ULTSNHOS',
@@ -61,7 +65,7 @@ for (y in 2007:2019){
                     'MSONET','ISMNET','GPWWSYS','IPASYS','MSOSYS','ISMSYS',
                     'ID','NPINUM','HRRCODE','SYSID','FSTCD','FCNTYCD',
                     'CAH','RRCTR','SCPROV')), ~ as_factor(.)),
-           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD',
+           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
            across(any_of(c('DTBEG','DTEND','FISYR')), ~as.character(.)))
   
@@ -73,24 +77,31 @@ for (y in 2007:2019){
 # Tidy AHA data -----------------------------------------------------------
 
 aha.final <- aha.final %>%
-  mutate(Own_Type = between(CNTRL, 12, 16) +
+  mutate(
+    critical_access = case_when(
+      year<2009 & CAH==2 ~ 0,
+      year<2009 & CAH==1 ~ 1,
+      year>=2009 & MAPP18==2 ~ 0,
+      year>=2009 & MAPP18==1 ~ 1,
+      TRUE ~ 0),
+    own_type = between(CNTRL, 12, 16) +
            2*between(CNTRL, 21, 23) +
            3*between(CNTRL, 30, 33) +
            4*between(CNTRL, 41, 48),
-         Own_Gov=ifelse(Own_Type==1, 1, 0),
-         Own_NFP=ifelse(Own_Type==2, 1, 0),
-         Own_P=ifelse(Own_Type==3, 1, 0),
-         Teaching_Major=ifelse(MAPP8==1, 1, 0),
-         Teaching_Minor=ifelse(MAPP3==1 | MAPP5==1 | MAPP8==1 | MAPP12==1 | MAPP13==1, 1, 0),
-         System=ifelse(!is.na(SYSID) | MHSMEMB==1, 1, 0)) %>%
-  filter(!is.na(ID))
+    own_gov=ifelse(own_type==1, 1, 0),
+    own_nfp=ifelse(own_type==2, 1, 0),
+    own_profit=ifelse(own_type==3, 1, 0),
+    teach_major=ifelse(MAPP8==1, 1, 0),
+    teach_minor=ifelse(MAPP3==1 | MAPP5==1 | MAPP8==1 | MAPP12==1 | MAPP13==1, 1, 0),
+    system=ifelse(!is.na(SYSID) | MHSMEMB==1, 1, 0)) %>%
+  filter(!is.na(ID)) %>%
+  select(-c(CAH,MAPP18))
 
 ## check for duplicates
 aha.duplicates <- aha.final %>%
   group_by(ID, year) %>%
   filter(n()>1) %>%
   ungroup()
-
 
 # Merge summary of changes information ------------------------------------
 
