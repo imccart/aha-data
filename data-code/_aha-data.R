@@ -32,7 +32,7 @@ for (y in 2007:2019){
   }
   aha.data <- read_csv(aha.path) %>%
     select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
-                    'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'FSTCD', 'FCNTYCD', 
+                    'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'FSTCD', 'FCNTYCD', 
                     'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
                     'BDTOT', 'COMMTY', 'SYSTELN', 'EHLTH', 'CNTRL', 
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
@@ -67,7 +67,7 @@ for (y in 2007:2019){
                     'CAH','RRCTR','SCPROV')), ~ as_factor(.)),
            across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
-           across(any_of(c('DTBEG','DTEND','FISYR')), ~as.character(.)))
+           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))
   
   aha.final <- bind_rows(aha.final, aha.data)
   
