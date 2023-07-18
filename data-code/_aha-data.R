@@ -34,7 +34,7 @@ for (y in 2007:2019){
     select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
                     'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'FSTCD', 'FCNTYCD', 
                     'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
-                    'BDTOT', 'COMMTY', 'SYSTELN', 'EHLTH', 'CNTRL', 
+                    'BDTOT', 'COMMTY', 'SYSTELN', 'EHLTH', 'CNTRL', 'SERV',
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
                     'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
                     'MHSMEMB', 'FTEMD', 'FTERES', 
@@ -64,7 +64,7 @@ for (y in 2007:2019){
                     'GPWWHOS','IPAHOS','MSOHOS','ISMHOS','GPWWNET','IPANET',
                     'MSONET','ISMNET','GPWWSYS','IPASYS','MSOSYS','ISMSYS',
                     'ID','NPINUM','HRRCODE','SYSID','FSTCD','FCNTYCD',
-                    'CAH','RRCTR','SCPROV')), ~ as_factor(.)),
+                    'CAH','RRCTR','SCPROV','SERV')), ~ as_factor(.)),
            across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
            across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))
