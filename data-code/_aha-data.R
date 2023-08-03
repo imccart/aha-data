@@ -18,34 +18,40 @@ for (y in 1980:2006) {
     mutate(year=y) %>%
     mutate(across(any_of(c('mngt','radmchi','msic82','mcounty','ppo','mhsmemb','subs','sysid',
                            'fcounty','fstcd','fcntycd','netstcd','mngtstcd',
-                           'hsacode')), ~ as_factor(.)),
+                           'reg','stcd','chc','los','serv')), ~ as_factor(.)),
            across(any_of(c('genbd','pedbd','obbd','msicbd','cicbd','pedicbd','nicbd','nintbd',
                            'brnbd','othicbd','rehabbd','othbd','othbdtot','hospbd',
                            'bdh','admh','ipdh','npaybenh','spcicbd','mcrdch',
                            'mcripdh','mcddch','mcdipdh','mcrdclt','mcripdlt',
-                           'mcddclt','mcdipdlt','npayben')), ~ as.numeric(.)),
+                           'mcddclt','mcdipdlt','npayben','hsacode')), ~ as.numeric(.)),
            across(any_of(c('dtbeg','dtend','fyr','dbegd','dbegy','dendm','dbegm','dendd',
                            'dendy')), ~as.character(.)))
       
   aha.historic <- bind_rows(aha.historic, aha.data)
 }
 
-# tabulate nonmissing values of variables in aha.historic by year
-aha.historic %>%
-  select(year, across(everything(), ~ !is.na(.))) %>%
+non.missing.counts <- aha.historic %>%
   group_by(year) %>%
-  summarise(across(everything(), sum)) %>%
-  pivot_longer(-year) %>%
-  filter(value > 0) %>%
-  arrange(year, name) %>%
-  write_csv(here('data/output/aha-historic-nonmissing.csv'))
+  summarise(across(everything(), ~ sum(!is.na(.) & !(. %in% "")))) %>%
+  pivot_longer(cols = -year, names_to = "Variable", values_to = "Count") %>%
+  pivot_wider(names_from = year, values_from = Count)
 
-
-
+## for now...
+## only pull critical variables on hospital location/ID, ownership type, bed size, type, and FTEs
+## consider pulling info on specific services, bed types, and physician arrangements
+aha.historic <- aha.historic %>%
+  select(id, sysid, hospno, mcrnum, mtype, mlos=los, dtbeg, dtend, fisyr=fyr,
+         lat, long=lon, mstate, fstcd, fcntycd,
+         bdtot, commty=chc, cntrl, serv,
+         starts_with('mapp'),
+         hsaname, hsacode,
+         mhsmemb, ftemd, ftern, ftelpn, year) %>%
+  rename_with(toupper) %>%
+  rename(year=YEAR)
 
 # Import yearly AHA data --------------------------------------------------
 
-aha.final <- tibble()
+aha.modern <- tibble()
 for (y in 2007:2019){
   if (y == 2007) {
     aha.path <- here('data/input/AHA Data',paste0('AHA FY ',y),'COMMA','comma.csv')
@@ -67,7 +73,7 @@ for (y in 2007:2019){
     select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
                     'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'FSTCD', 'FCNTYCD', 
                     'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
-                    'BDTOT', 'COMMTY', 'SYSTELN', 'EHLTH', 'CNTRL', 'SERV',
+                    'BDTOT', 'COMMTY', 'EHLTH', 'CNTRL', 'SERV',
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
                     'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
                     'MHSMEMB', 'FTEMD', 'FTERES', 
@@ -97,12 +103,12 @@ for (y in 2007:2019){
                     'GPWWHOS','IPAHOS','MSOHOS','ISMHOS','GPWWNET','IPANET',
                     'MSONET','ISMNET','GPWWSYS','IPASYS','MSOSYS','ISMSYS',
                     'ID','NPINUM','HRRCODE','SYSID','FSTCD','FCNTYCD',
-                    'CAH','RRCTR','SCPROV','SERV')), ~ as_factor(.)),
+                    'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB')), ~ as_factor(.)),
            across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
            across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))
   
-  aha.final <- bind_rows(aha.final, aha.data)
+  aha.modern <- bind_rows(aha.modern, aha.data)
   
 }
 
@@ -110,11 +116,12 @@ for (y in 2007:2019){
 
 # Tidy AHA data -----------------------------------------------------------
 
-aha.final <- aha.final %>%
+aha.final <- bind_rows(aha.historic, aha.modern) %>%
   mutate(
     critical_access = case_when(
-      year<2009 & CAH==2 ~ 0,
-      year<2009 & CAH==1 ~ 1,
+      year<2007 ~ NA,
+      year>=2007 & year<2009 & CAH==2 ~ 0,
+      year>=2007 & year<2009 & CAH==1 ~ 1,
       year>=2009 & MAPP18==2 ~ 0,
       year>=2009 & MAPP18==1 ~ 1,
       TRUE ~ 0),
@@ -125,10 +132,16 @@ aha.final <- aha.final %>%
     own_gov=ifelse(own_type==1, 1, 0),
     own_nfp=ifelse(own_type==2, 1, 0),
     own_profit=ifelse(own_type==3, 1, 0),
-    teach_major=ifelse(MAPP8==1, 1, 0),
-    teach_minor=ifelse(MAPP3==1 | MAPP5==1 | MAPP8==1 | MAPP12==1 | MAPP13==1, 1, 0),
+    teach_major = case_when(
+      year<2007 ~ NA,
+      year>=2007 & MAPP8==1 ~ 1,
+      TRUE ~ 0),
+    teach_minor = case_when(
+      year<2007 ~ NA,
+      year>=2007 & (MAPP3==1 | MAPP5==1 | MAPP8==1 | MAPP12==1 | MAPP13==1) ~ 1,
+      TRUE ~ 0),
     system=ifelse(!is.na(SYSID) | MHSMEMB==1, 1, 0)) %>%
-  filter(!is.na(ID)) %>%
+  filter(!is.na(ID), ID!="", ID!="1111111") %>%
   select(-c(CAH,MAPP18))
 
 ## check for duplicates
