@@ -7,7 +7,40 @@
 
 # Preliminaries -----------------------------------------------------------
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(data.table, tidyverse, janitor, here)
+pacman::p_load(data.table, tidyverse, janitor, here, readstata13)
+
+
+# Import historic AHA data ------------------------------------------------
+
+aha.historic <- tibble()
+for (y in 1980:2006) {
+  aha.data <- read.dta13(paste0('data/input/AHA Data/NBER AHA Data (from C. DePasquale)/aha_extract',y,'.dta')) %>%
+    mutate(year=y) %>%
+    mutate(across(any_of(c('mngt','radmchi','msic82','mcounty','ppo','mhsmemb','subs','sysid',
+                           'fcounty','fstcd','fcntycd','netstcd','mngtstcd',
+                           'hsacode')), ~ as_factor(.)),
+           across(any_of(c('genbd','pedbd','obbd','msicbd','cicbd','pedicbd','nicbd','nintbd',
+                           'brnbd','othicbd','rehabbd','othbd','othbdtot','hospbd',
+                           'bdh','admh','ipdh','npaybenh','spcicbd','mcrdch',
+                           'mcripdh','mcddch','mcdipdh','mcrdclt','mcripdlt',
+                           'mcddclt','mcdipdlt','npayben')), ~ as.numeric(.)),
+           across(any_of(c('dtbeg','dtend','fyr','dbegd','dbegy','dendm','dbegm','dendd',
+                           'dendy')), ~as.character(.)))
+      
+  aha.historic <- bind_rows(aha.historic, aha.data)
+}
+
+# tabulate nonmissing values of variables in aha.historic by year
+aha.historic %>%
+  select(year, across(everything(), ~ !is.na(.))) %>%
+  group_by(year) %>%
+  summarise(across(everything(), sum)) %>%
+  pivot_longer(-year) %>%
+  filter(value > 0) %>%
+  arrange(year, name) %>%
+  write_csv(here('data/output/aha-historic-nonmissing.csv'))
+
+
 
 
 # Import yearly AHA data --------------------------------------------------
@@ -72,6 +105,7 @@ for (y in 2007:2019){
   aha.final <- bind_rows(aha.final, aha.data)
   
 }
+
 
 
 # Tidy AHA data -----------------------------------------------------------
