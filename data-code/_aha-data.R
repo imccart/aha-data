@@ -49,6 +49,130 @@ aha.historic <- aha.historic %>%
   rename_with(toupper) %>%
   rename(year=YEAR)
 
+# Import WRDS AHA data ----------------------------------------------------
+
+aha.data.1994 <- read_csv('data/input/AHA Data/AHA FY 1994-2021/ANNUAL_SURVEY_HIST_1994_RECENT.csv') %>% 
+    select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
+                    'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'MLOCAD1', 'MLOCAD2', 'FSTCD', 'FCNTYCD', 
+                    'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
+                    'BDTOT', 'COMMTY', 'EHLTH', 'CNTRL', 'SERV',
+                    'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
+                    'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
+                    'MHSMEMB', 'FTEMD', 'FTERES', 
+                    'FTERN', 'FTELPN', 'FTEH', 'NAMMSHOS', 'ACLABHOS', 'ENDOCHOS', 'ENDOUHOUS',
+                    'REDSHOS', 'CTSCNHOS', 'DRADFHOS', 'EBCTHOS', 'FFDMHOS', 'MRIHOS', 'IMRIHOS',
+                    'MSCTHOS', 'MSCTGHOS', 'PETHOS', 'PETCTHOS', 'SPECTHOS', 'ULTSNHOS',
+                    'AMBSHOS', 'EMDEPHOS', 'ICLABHOS', 'ADTCHOS', 'ADTEHOS', 'CHTHHOS', 'CAOSHOS',
+                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'PTONHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
+                    'BROOMHOS', 'ACLABHOS', 'CARIC', 'CTSCNHOS', 'DRADFHOS', 'ESWLHOS', 'FITCHOS',
+                    'ADTCHOS', 'PETHOS', 'IGRTHOS', 'IMRTHOS', 'SPECTHOS', 'SPORTHOS', 'ULTSNHOS', 
+                    'WOMHCHOS', 'ALCHBD', 'BRNBD', 'PSYBD', 'TRAUMHOS', 'PSYCAHOS', 'EMDEPHOS', 
+                    'AIDSSHOS', 'PSYSLSHOS', 'PSYEDHOS', 'PSYEMHOS', 'PSYOPHOS', 'PSYPHHOS', 
+                    'ADULTHOS', 'HOSPCHOS', 'PATEDHOS', 'SOCWKHOS', 'VOLSVHOS', 'GPWWHOS', 'OPHHOS', 
+                    'CPHHOS', 'FNDHOS', 'EQMHOS', 'IPAHOS', 'MSOHOS', 'ISMHOS', 'GPWWNET', 'OPHNET', 
+                    'CPHNET', 'FNDNET', 'EQMNET', 'IPANET', 'MSONET', 'ISMNET', 'GPWWSYS', 'OPHSYS', 
+                    'CPHSYS', 'FNDSYS', 'EQMSYS', 'IPASYS', 'MSOSYS', 'ISMSYS', 'PHYGP',
+                    'CAH','RRCTR','SCPROV', 'YEAR'))) %>%
+    mutate(across(any_of(c('EHLTH','ACLABHOS','CTSCNHOS','DRADFHOS','EBCTHOS',
+                    'FFDMHOS','MRIHOS','IMRIHOS','MSCTHOS','MSCTGHOS',
+                    'PETHOS','PETCTHOS','SPECTHOS','ULTSNHOS','AMBSHOS',
+                    'EMDEPHOS','ICLABHOS','ADTCHOS','CHTHHOS','CAOSHOS',
+                    'IMRTHOS','PTONHOS','BROOMHOS','ESWLHOS','FITCHOS',
+                    'IGRTHOS','SPORTHOS','WOMHCHOS','TRAUMHOS','PSYCAHOS',
+                    'AIDSSHOS','PSYEDHOS','PSYEMHOS','PSYOPHOS','PSYPHHOS',
+                    'ADULTHOS','HOSPCHOS','PATEDHOS','SOCWKHOS','VOLSVHOS',
+                    'GPWWHOS','IPAHOS','MSOHOS','ISMHOS','GPWWNET','IPANET',
+                    'MSONET','ISMNET','GPWWSYS','IPASYS','MSOSYS','ISMSYS',
+                    'ID','NPINUM','HRRCODE','SYSID','FSTCD','FCNTYCD',
+                    'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB')), ~ as_factor(.)),
+           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
+                           'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
+           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))  %>% 
+    filter(YEAR<2007) %>%
+    rename(year=YEAR)
+
+aha.data.1986 <- read_csv('data/input/AHA Data/AHA FY 1986-1993/ANNUAL_SURVEY_HIST_1986_1993.csv') %>% 
+    select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
+                    'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'MLOCAD1', 'MLOCAD2', 'FSTCD', 'FCNTYCD', 
+                    'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
+                    'BDTOT', 'COMMTY', 'EHLTH', 'CNTRL', 'SERV',
+                    'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
+                    'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
+                    'MHSMEMB', 'FTEMD', 'FTERES', 
+                    'FTERN', 'FTELPN', 'FTEH', 'NAMMSHOS', 'ACLABHOS', 'ENDOCHOS', 'ENDOUHOUS',
+                    'REDSHOS', 'CTSCNHOS', 'DRADFHOS', 'EBCTHOS', 'FFDMHOS', 'MRIHOS', 'IMRIHOS',
+                    'MSCTHOS', 'MSCTGHOS', 'PETHOS', 'PETCTHOS', 'SPECTHOS', 'ULTSNHOS',
+                    'AMBSHOS', 'EMDEPHOS', 'ICLABHOS', 'ADTCHOS', 'ADTEHOS', 'CHTHHOS', 'CAOSHOS',
+                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'PTONHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
+                    'BROOMHOS', 'ACLABHOS', 'CARIC', 'CTSCNHOS', 'DRADFHOS', 'ESWLHOS', 'FITCHOS',
+                    'ADTCHOS', 'PETHOS', 'IGRTHOS', 'IMRTHOS', 'SPECTHOS', 'SPORTHOS', 'ULTSNHOS', 
+                    'WOMHCHOS', 'ALCHBD', 'BRNBD', 'PSYBD', 'TRAUMHOS', 'PSYCAHOS', 'EMDEPHOS', 
+                    'AIDSSHOS', 'PSYSLSHOS', 'PSYEDHOS', 'PSYEMHOS', 'PSYOPHOS', 'PSYPHHOS', 
+                    'ADULTHOS', 'HOSPCHOS', 'PATEDHOS', 'SOCWKHOS', 'VOLSVHOS', 'GPWWHOS', 'OPHHOS', 
+                    'CPHHOS', 'FNDHOS', 'EQMHOS', 'IPAHOS', 'MSOHOS', 'ISMHOS', 'GPWWNET', 'OPHNET', 
+                    'CPHNET', 'FNDNET', 'EQMNET', 'IPANET', 'MSONET', 'ISMNET', 'GPWWSYS', 'OPHSYS', 
+                    'CPHSYS', 'FNDSYS', 'EQMSYS', 'IPASYS', 'MSOSYS', 'ISMSYS', 'PHYGP',
+                    'CAH','RRCTR','SCPROV', 'year'))) %>%
+    mutate(across(any_of(c('EHLTH','ACLABHOS','CTSCNHOS','DRADFHOS','EBCTHOS',
+                    'FFDMHOS','MRIHOS','IMRIHOS','MSCTHOS','MSCTGHOS',
+                    'PETHOS','PETCTHOS','SPECTHOS','ULTSNHOS','AMBSHOS',
+                    'EMDEPHOS','ICLABHOS','ADTCHOS','CHTHHOS','CAOSHOS',
+                    'IMRTHOS','PTONHOS','BROOMHOS','ESWLHOS','FITCHOS',
+                    'IGRTHOS','SPORTHOS','WOMHCHOS','TRAUMHOS','PSYCAHOS',
+                    'AIDSSHOS','PSYEDHOS','PSYEMHOS','PSYOPHOS','PSYPHHOS',
+                    'ADULTHOS','HOSPCHOS','PATEDHOS','SOCWKHOS','VOLSVHOS',
+                    'GPWWHOS','IPAHOS','MSOHOS','ISMHOS','GPWWNET','IPANET',
+                    'MSONET','ISMNET','GPWWSYS','IPASYS','MSOSYS','ISMSYS',
+                    'ID','NPINUM','HRRCODE','SYSID','FSTCD','FCNTYCD',
+                    'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB')), ~ as_factor(.)),
+           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
+                           'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
+           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))
+
+aha.data.1980 <- read_csv('data/input/AHA Data/AHA FY 1980-1985/ANNUAL_SURVEY_HIST_1980_1985.csv') %>% 
+    select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
+                    'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'MLOCAD1', 'MLOCAD2', 'FSTCD', 'FCNTYCD', 
+                    'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
+                    'BDTOT', 'COMMTY', 'EHLTH', 'CNTRL', 'SERV',
+                    'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
+                    'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
+                    'MHSMEMB', 'FTEMD', 'FTERES', 
+                    'FTERN', 'FTELPN', 'FTEH', 'NAMMSHOS', 'ACLABHOS', 'ENDOCHOS', 'ENDOUHOUS',
+                    'REDSHOS', 'CTSCNHOS', 'DRADFHOS', 'EBCTHOS', 'FFDMHOS', 'MRIHOS', 'IMRIHOS',
+                    'MSCTHOS', 'MSCTGHOS', 'PETHOS', 'PETCTHOS', 'SPECTHOS', 'ULTSNHOS',
+                    'AMBSHOS', 'EMDEPHOS', 'ICLABHOS', 'ADTCHOS', 'ADTEHOS', 'CHTHHOS', 'CAOSHOS',
+                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'PTONHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
+                    'BROOMHOS', 'ACLABHOS', 'CARIC', 'CTSCNHOS', 'DRADFHOS', 'ESWLHOS', 'FITCHOS',
+                    'ADTCHOS', 'PETHOS', 'IGRTHOS', 'IMRTHOS', 'SPECTHOS', 'SPORTHOS', 'ULTSNHOS', 
+                    'WOMHCHOS', 'ALCHBD', 'BRNBD', 'PSYBD', 'TRAUMHOS', 'PSYCAHOS', 'EMDEPHOS', 
+                    'AIDSSHOS', 'PSYSLSHOS', 'PSYEDHOS', 'PSYEMHOS', 'PSYOPHOS', 'PSYPHHOS', 
+                    'ADULTHOS', 'HOSPCHOS', 'PATEDHOS', 'SOCWKHOS', 'VOLSVHOS', 'GPWWHOS', 'OPHHOS', 
+                    'CPHHOS', 'FNDHOS', 'EQMHOS', 'IPAHOS', 'MSOHOS', 'ISMHOS', 'GPWWNET', 'OPHNET', 
+                    'CPHNET', 'FNDNET', 'EQMNET', 'IPANET', 'MSONET', 'ISMNET', 'GPWWSYS', 'OPHSYS', 
+                    'CPHSYS', 'FNDSYS', 'EQMSYS', 'IPASYS', 'MSOSYS', 'ISMSYS', 'PHYGP',
+                    'CAH','RRCTR','SCPROV', 'year'))) %>%
+    mutate(across(any_of(c('EHLTH','ACLABHOS','CTSCNHOS','DRADFHOS','EBCTHOS',
+                    'FFDMHOS','MRIHOS','IMRIHOS','MSCTHOS','MSCTGHOS',
+                    'PETHOS','PETCTHOS','SPECTHOS','ULTSNHOS','AMBSHOS',
+                    'EMDEPHOS','ICLABHOS','ADTCHOS','CHTHHOS','CAOSHOS',
+                    'IMRTHOS','PTONHOS','BROOMHOS','ESWLHOS','FITCHOS',
+                    'IGRTHOS','SPORTHOS','WOMHCHOS','TRAUMHOS','PSYCAHOS',
+                    'AIDSSHOS','PSYEDHOS','PSYEMHOS','PSYOPHOS','PSYPHHOS',
+                    'ADULTHOS','HOSPCHOS','PATEDHOS','SOCWKHOS','VOLSVHOS',
+                    'GPWWHOS','IPAHOS','MSOHOS','ISMHOS','GPWWNET','IPANET',
+                    'MSONET','ISMNET','GPWWSYS','IPASYS','MSOSYS','ISMSYS',
+                    'ID','NPINUM','HRRCODE','SYSID','FSTCD','FCNTYCD',
+                    'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB')), ~ as_factor(.)),
+           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
+                           'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
+           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))
+
+
+aha.historic <- aha.data.1980 %>% 
+  bind_rows(aha.data.1986) %>% 
+  bind_rows(aha.data.1994)
+
+
 # Import yearly AHA data --------------------------------------------------
 
 aha.modern <- tibble()
@@ -119,9 +243,9 @@ for (y in 2007:2019){
 aha.final <- bind_rows(aha.historic, aha.modern) %>%
   mutate(
     critical_access = case_when(
-      year<2007 ~ NA,
-      year>=2007 & year<2009 & CAH==2 ~ 0,
-      year>=2007 & year<2009 & CAH==1 ~ 1,
+      year<2003 ~ NA,
+      year>=2003 & year<2009 & CAH==2 ~ 0,
+      year>=2003 & year<2009 & CAH==1 ~ 1,
       year>=2009 & MAPP18==2 ~ 0,
       year>=2009 & MAPP18==1 ~ 1,
       TRUE ~ 0),
@@ -133,12 +257,10 @@ aha.final <- bind_rows(aha.historic, aha.modern) %>%
     own_nfp=ifelse(own_type==2, 1, 0),
     own_profit=ifelse(own_type==3, 1, 0),
     teach_major = case_when(
-      year<2007 ~ NA,
-      year>=2007 & MAPP8==1 ~ 1,
+      MAPP8==1 ~ 1,
       TRUE ~ 0),
     teach_minor = case_when(
-      year<2007 ~ NA,
-      year>=2007 & (MAPP3==1 | MAPP5==1 | MAPP8==1 | MAPP12==1 | MAPP13==1) ~ 1,
+      MAPP3==1 | MAPP5==1 | MAPP8==1 | MAPP12==1 | MAPP13==1 ~ 1,
       TRUE ~ 0),
     system=ifelse(!is.na(SYSID) | MHSMEMB==1, 1, 0)) %>%
   filter(!is.na(ID), ID!="", ID!="1111111") %>%
@@ -251,7 +373,8 @@ aha.combine <- aha.final %>%
   write_csv('data/output/aha_data.csv')
 
 aha.geo  <- aha.combine %>%
-  select(ID, SYSID, MCRNUM, NPINUM, LAT, LONG, FCNTYCD, FSTCD, year,
+  select(ID, SYSID, MCRNUM, NPINUM, LAT, LONG, FCNTYCD, FSTCD,
+         MLOCCITY, MLOCZIP, MSTATE, year, 
          own_type, critical_access, change_type) %>%
   write_csv('data/output/aha_geo.csv')
 
