@@ -23,7 +23,7 @@ for (y in 1980:2006) {
                            'brnbd','othicbd','rehabbd','othbd','othbdtot','hospbd',
                            'bdh','admh','ipdh','npaybenh','spcicbd','mcrdch',
                            'mcripdh','mcddch','mcdipdh','mcrdclt','mcripdlt',
-                           'mcddclt','mcdipdlt','npayben','hsacode')), ~ as.numeric(.)),
+                           'mcddclt','mcdipdlt','npayben','hsacode','lat','lon')), ~ as.numeric(.)),
            across(any_of(c('dtbeg','dtend','fyr','dbegd','dbegy','dendm','dbegm','dendd',
                            'dendy')), ~as.character(.)))
       
@@ -250,6 +250,9 @@ aha.combine <- aha.final %>%
   select(-change_source1, -change_source2) %>%
   write_csv('data/output/aha_data.csv')
 
-
+aha.geo  <- aha.combine %>%
+  select(ID, SYSID, MCRNUM, NPINUM, LAT, LONG, FCNTYCD, FSTCD, year,
+         own_type, critical_access, change_type) %>%
+  write_csv('data/output/aha_geo.csv')
 
   
