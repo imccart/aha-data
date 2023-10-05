@@ -2,7 +2,7 @@
 ## Title:         AHA Data
 ## Author:        Ian McCarthy
 ## Date Created:  2/5/2018
-## Date Edited:   7/14/2023
+## Date Edited:   10/4/2023
 
 
 # Preliminaries -----------------------------------------------------------
@@ -30,12 +30,6 @@ for (y in 1980:2006) {
   aha.historic <- bind_rows(aha.historic, aha.data)
 }
 
-non.missing.counts <- aha.historic %>%
-  group_by(year) %>%
-  summarise(across(everything(), ~ sum(!is.na(.) & !(. %in% "")))) %>%
-  pivot_longer(cols = -year, names_to = "Variable", values_to = "Count") %>%
-  pivot_wider(names_from = year, values_from = Count)
-
 ## for now...
 ## only pull critical variables on hospital location/ID, ownership type, bed size, type, and FTEs
 ## consider pulling info on specific services, bed types, and physician arrangements
@@ -51,23 +45,25 @@ aha.historic <- aha.historic %>%
 
 # Import WRDS AHA data ----------------------------------------------------
 
-aha.data.1994 <- read_csv('data/input/AHA Data/AHA FY 1994-2021/ANNUAL_SURVEY_HIST_1994_RECENT.csv') %>% 
-    select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
+aha.data.1994 <- read_csv('data/input/AHA Data/AHA FY 1994-2021/ANNUAL_SURVEY_HIST_1994_RECENT.csv') %>%
+  select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
                     'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'MLOCAD1', 'MLOCAD2', 'FSTCD', 'FCNTYCD', 
                     'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
                     'BDTOT', 'COMMTY', 'EHLTH', 'CNTRL', 'SERV',
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
                     'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
-                    'MHSMEMB', 'FTEMD', 'FTERES', 
+                    'MHSMEMB', 'FTEMD', 'FTERES', 'ADMTOT', 'IPDTOT', 'MCDDC', 'MCRDC',
                     'FTERN', 'FTELPN', 'FTEH', 'NAMMSHOS', 'ACLABHOS', 'ENDOCHOS', 'ENDOUHOUS',
                     'REDSHOS', 'CTSCNHOS', 'DRADFHOS', 'EBCTHOS', 'FFDMHOS', 'MRIHOS', 'IMRIHOS',
                     'MSCTHOS', 'MSCTGHOS', 'PETHOS', 'PETCTHOS', 'SPECTHOS', 'ULTSNHOS',
                     'AMBSHOS', 'EMDEPHOS', 'ICLABHOS', 'ADTCHOS', 'ADTEHOS', 'CHTHHOS', 'CAOSHOS',
-                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'PTONHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
+                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
                     'BROOMHOS', 'ACLABHOS', 'CARIC', 'CTSCNHOS', 'DRADFHOS', 'ESWLHOS', 'FITCHOS',
                     'ADTCHOS', 'PETHOS', 'IGRTHOS', 'IMRTHOS', 'SPECTHOS', 'SPORTHOS', 'ULTSNHOS', 
                     'WOMHCHOS', 'ALCHBD', 'BRNBD', 'PSYBD', 'TRAUMHOS', 'PSYCAHOS', 'EMDEPHOS', 
                     'AIDSSHOS', 'PSYSLSHOS', 'PSYEDHOS', 'PSYEMHOS', 'PSYOPHOS', 'PSYPHHOS', 
+                    'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
+                    'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN',
                     'ADULTHOS', 'HOSPCHOS', 'PATEDHOS', 'SOCWKHOS', 'VOLSVHOS', 'GPWWHOS', 'OPHHOS', 
                     'CPHHOS', 'FNDHOS', 'EQMHOS', 'IPAHOS', 'MSOHOS', 'ISMHOS', 'GPWWNET', 'OPHNET', 
                     'CPHNET', 'FNDNET', 'EQMNET', 'IPANET', 'MSONET', 'ISMNET', 'GPWWSYS', 'OPHSYS', 
@@ -77,14 +73,16 @@ aha.data.1994 <- read_csv('data/input/AHA Data/AHA FY 1994-2021/ANNUAL_SURVEY_HI
                     'FFDMHOS','MRIHOS','IMRIHOS','MSCTHOS','MSCTGHOS',
                     'PETHOS','PETCTHOS','SPECTHOS','ULTSNHOS','AMBSHOS',
                     'EMDEPHOS','ICLABHOS','ADTCHOS','CHTHHOS','CAOSHOS',
-                    'IMRTHOS','PTONHOS','BROOMHOS','ESWLHOS','FITCHOS',
+                    'IMRTHOS', 'BROOMHOS','ESWLHOS','FITCHOS',
                     'IGRTHOS','SPORTHOS','WOMHCHOS','TRAUMHOS','PSYCAHOS',
                     'AIDSSHOS','PSYEDHOS','PSYEMHOS','PSYOPHOS','PSYPHHOS',
                     'ADULTHOS','HOSPCHOS','PATEDHOS','SOCWKHOS','VOLSVHOS',
                     'GPWWHOS','IPAHOS','MSOHOS','ISMHOS','GPWWNET','IPANET',
                     'MSONET','ISMNET','GPWWSYS','IPASYS','MSOSYS','ISMSYS',
                     'ID','NPINUM','HRRCODE','SYSID','FSTCD','FCNTYCD',
-                    'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB')), ~ as_factor(.)),
+                    'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB',
+                    'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
+                    'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
            across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
            across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))  %>% 
@@ -98,16 +96,18 @@ aha.data.1986 <- read_csv('data/input/AHA Data/AHA FY 1986-1993/ANNUAL_SURVEY_HI
                     'BDTOT', 'COMMTY', 'EHLTH', 'CNTRL', 'SERV',
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
                     'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
-                    'MHSMEMB', 'FTEMD', 'FTERES', 
+                    'MHSMEMB', 'FTEMD', 'FTERES', 'ADMTOT', 'IPDTOT', 'MCDDC', 'MCRDC',
                     'FTERN', 'FTELPN', 'FTEH', 'NAMMSHOS', 'ACLABHOS', 'ENDOCHOS', 'ENDOUHOUS',
                     'REDSHOS', 'CTSCNHOS', 'DRADFHOS', 'EBCTHOS', 'FFDMHOS', 'MRIHOS', 'IMRIHOS',
                     'MSCTHOS', 'MSCTGHOS', 'PETHOS', 'PETCTHOS', 'SPECTHOS', 'ULTSNHOS',
                     'AMBSHOS', 'EMDEPHOS', 'ICLABHOS', 'ADTCHOS', 'ADTEHOS', 'CHTHHOS', 'CAOSHOS',
-                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'PTONHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
+                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
                     'BROOMHOS', 'ACLABHOS', 'CARIC', 'CTSCNHOS', 'DRADFHOS', 'ESWLHOS', 'FITCHOS',
                     'ADTCHOS', 'PETHOS', 'IGRTHOS', 'IMRTHOS', 'SPECTHOS', 'SPORTHOS', 'ULTSNHOS', 
                     'WOMHCHOS', 'ALCHBD', 'BRNBD', 'PSYBD', 'TRAUMHOS', 'PSYCAHOS', 'EMDEPHOS', 
                     'AIDSSHOS', 'PSYSLSHOS', 'PSYEDHOS', 'PSYEMHOS', 'PSYOPHOS', 'PSYPHHOS', 
+                    'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
+                    'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN',
                     'ADULTHOS', 'HOSPCHOS', 'PATEDHOS', 'SOCWKHOS', 'VOLSVHOS', 'GPWWHOS', 'OPHHOS', 
                     'CPHHOS', 'FNDHOS', 'EQMHOS', 'IPAHOS', 'MSOHOS', 'ISMHOS', 'GPWWNET', 'OPHNET', 
                     'CPHNET', 'FNDNET', 'EQMNET', 'IPANET', 'MSONET', 'ISMNET', 'GPWWSYS', 'OPHSYS', 
@@ -117,14 +117,16 @@ aha.data.1986 <- read_csv('data/input/AHA Data/AHA FY 1986-1993/ANNUAL_SURVEY_HI
                     'FFDMHOS','MRIHOS','IMRIHOS','MSCTHOS','MSCTGHOS',
                     'PETHOS','PETCTHOS','SPECTHOS','ULTSNHOS','AMBSHOS',
                     'EMDEPHOS','ICLABHOS','ADTCHOS','CHTHHOS','CAOSHOS',
-                    'IMRTHOS','PTONHOS','BROOMHOS','ESWLHOS','FITCHOS',
+                    'IMRTHOS','BROOMHOS','ESWLHOS','FITCHOS',
                     'IGRTHOS','SPORTHOS','WOMHCHOS','TRAUMHOS','PSYCAHOS',
                     'AIDSSHOS','PSYEDHOS','PSYEMHOS','PSYOPHOS','PSYPHHOS',
                     'ADULTHOS','HOSPCHOS','PATEDHOS','SOCWKHOS','VOLSVHOS',
                     'GPWWHOS','IPAHOS','MSOHOS','ISMHOS','GPWWNET','IPANET',
                     'MSONET','ISMNET','GPWWSYS','IPASYS','MSOSYS','ISMSYS',
                     'ID','NPINUM','HRRCODE','SYSID','FSTCD','FCNTYCD',
-                    'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB')), ~ as_factor(.)),
+                    'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB',
+                    'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
+                    'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
            across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
            across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))
@@ -136,16 +138,18 @@ aha.data.1980 <- read_csv('data/input/AHA Data/AHA FY 1980-1985/ANNUAL_SURVEY_HI
                     'BDTOT', 'COMMTY', 'EHLTH', 'CNTRL', 'SERV',
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
                     'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
-                    'MHSMEMB', 'FTEMD', 'FTERES', 
+                    'MHSMEMB', 'FTEMD', 'FTERES', 'ADMTOT', 'IPDTOT', 'MCDDC', 'MCRDC',
                     'FTERN', 'FTELPN', 'FTEH', 'NAMMSHOS', 'ACLABHOS', 'ENDOCHOS', 'ENDOUHOUS',
                     'REDSHOS', 'CTSCNHOS', 'DRADFHOS', 'EBCTHOS', 'FFDMHOS', 'MRIHOS', 'IMRIHOS',
                     'MSCTHOS', 'MSCTGHOS', 'PETHOS', 'PETCTHOS', 'SPECTHOS', 'ULTSNHOS',
                     'AMBSHOS', 'EMDEPHOS', 'ICLABHOS', 'ADTCHOS', 'ADTEHOS', 'CHTHHOS', 'CAOSHOS',
-                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'PTONHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
+                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
                     'BROOMHOS', 'ACLABHOS', 'CARIC', 'CTSCNHOS', 'DRADFHOS', 'ESWLHOS', 'FITCHOS',
                     'ADTCHOS', 'PETHOS', 'IGRTHOS', 'IMRTHOS', 'SPECTHOS', 'SPORTHOS', 'ULTSNHOS', 
                     'WOMHCHOS', 'ALCHBD', 'BRNBD', 'PSYBD', 'TRAUMHOS', 'PSYCAHOS', 'EMDEPHOS', 
                     'AIDSSHOS', 'PSYSLSHOS', 'PSYEDHOS', 'PSYEMHOS', 'PSYOPHOS', 'PSYPHHOS', 
+                    'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
+                    'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN',                    
                     'ADULTHOS', 'HOSPCHOS', 'PATEDHOS', 'SOCWKHOS', 'VOLSVHOS', 'GPWWHOS', 'OPHHOS', 
                     'CPHHOS', 'FNDHOS', 'EQMHOS', 'IPAHOS', 'MSOHOS', 'ISMHOS', 'GPWWNET', 'OPHNET', 
                     'CPHNET', 'FNDNET', 'EQMNET', 'IPANET', 'MSONET', 'ISMNET', 'GPWWSYS', 'OPHSYS', 
@@ -155,14 +159,16 @@ aha.data.1980 <- read_csv('data/input/AHA Data/AHA FY 1980-1985/ANNUAL_SURVEY_HI
                     'FFDMHOS','MRIHOS','IMRIHOS','MSCTHOS','MSCTGHOS',
                     'PETHOS','PETCTHOS','SPECTHOS','ULTSNHOS','AMBSHOS',
                     'EMDEPHOS','ICLABHOS','ADTCHOS','CHTHHOS','CAOSHOS',
-                    'IMRTHOS','PTONHOS','BROOMHOS','ESWLHOS','FITCHOS',
+                    'IMRTHOS','BROOMHOS','ESWLHOS','FITCHOS',
                     'IGRTHOS','SPORTHOS','WOMHCHOS','TRAUMHOS','PSYCAHOS',
                     'AIDSSHOS','PSYEDHOS','PSYEMHOS','PSYOPHOS','PSYPHHOS',
                     'ADULTHOS','HOSPCHOS','PATEDHOS','SOCWKHOS','VOLSVHOS',
                     'GPWWHOS','IPAHOS','MSOHOS','ISMHOS','GPWWNET','IPANET',
                     'MSONET','ISMNET','GPWWSYS','IPASYS','MSOSYS','ISMSYS',
                     'ID','NPINUM','HRRCODE','SYSID','FSTCD','FCNTYCD',
-                    'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB')), ~ as_factor(.)),
+                    'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB',
+                    'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
+                    'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
            across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
            across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))
@@ -200,18 +206,20 @@ for (y in 2007:2019){
                     'BDTOT', 'COMMTY', 'EHLTH', 'CNTRL', 'SERV',
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
                     'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
-                    'MHSMEMB', 'FTEMD', 'FTERES', 
+                    'MHSMEMB', 'FTEMD', 'FTERES', 'ADMTOT', 'IPDTOT', 'MCDDC', 'MCRDC',
                     'FTERN', 'FTELPN', 'FTEH', 'NAMMSHOS', 'ACLABHOS', 'ENDOCHOS', 'ENDOUHOUS',
                     'REDSHOS', 'CTSCNHOS', 'DRADFHOS', 'EBCTHOS', 'FFDMHOS', 'MRIHOS', 'IMRIHOS',
                     'MSCTHOS', 'MSCTGHOS', 'PETHOS', 'PETCTHOS', 'SPECTHOS', 'ULTSNHOS',
                     'AMBSHOS', 'EMDEPHOS', 'ICLABHOS', 'ADTCHOS', 'ADTEHOS', 'CHTHHOS', 'CAOSHOS',
-                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'PTONHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
+                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
                     'BROOMHOS', 'ACLABHOS', 'CARIC', 'CTSCNHOS', 'DRADFHOS', 'ESWLHOS', 'FITCHOS',
                     'ADTCHOS', 'PETHOS', 'IGRTHOS', 'IMRTHOS', 'SPECTHOS', 'SPORTHOS', 'ULTSNHOS', 
                     'WOMHCHOS', 'ALCHBD', 'BRNBD', 'PSYBD', 'TRAUMHOS', 'PSYCAHOS', 'EMDEPHOS', 
                     'AIDSSHOS', 'PSYSLSHOS', 'PSYEDHOS', 'PSYEMHOS', 'PSYOPHOS', 'PSYPHHOS', 
                     'ADULTHOS', 'HOSPCHOS', 'PATEDHOS', 'SOCWKHOS', 'VOLSVHOS', 'GPWWHOS', 'OPHHOS', 
                     'CPHHOS', 'FNDHOS', 'EQMHOS', 'IPAHOS', 'MSOHOS', 'ISMHOS', 'GPWWNET', 'OPHNET', 
+                    'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
+                    'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN',                    
                     'CPHNET', 'FNDNET', 'EQMNET', 'IPANET', 'MSONET', 'ISMNET', 'GPWWSYS', 'OPHSYS', 
                     'CPHSYS', 'FNDSYS', 'EQMSYS', 'IPASYS', 'MSOSYS', 'ISMSYS', 'PHYGP',
                     'CAH','RRCTR','SCPROV'))) %>%
@@ -220,14 +228,16 @@ for (y in 2007:2019){
                     'FFDMHOS','MRIHOS','IMRIHOS','MSCTHOS','MSCTGHOS',
                     'PETHOS','PETCTHOS','SPECTHOS','ULTSNHOS','AMBSHOS',
                     'EMDEPHOS','ICLABHOS','ADTCHOS','CHTHHOS','CAOSHOS',
-                    'IMRTHOS','PTONHOS','BROOMHOS','ESWLHOS','FITCHOS',
+                    'IMRTHOS','BROOMHOS','ESWLHOS','FITCHOS',
                     'IGRTHOS','SPORTHOS','WOMHCHOS','TRAUMHOS','PSYCAHOS',
                     'AIDSSHOS','PSYEDHOS','PSYEMHOS','PSYOPHOS','PSYPHHOS',
                     'ADULTHOS','HOSPCHOS','PATEDHOS','SOCWKHOS','VOLSVHOS',
                     'GPWWHOS','IPAHOS','MSOHOS','ISMHOS','GPWWNET','IPANET',
                     'MSONET','ISMNET','GPWWSYS','IPASYS','MSOSYS','ISMSYS',
                     'ID','NPINUM','HRRCODE','SYSID','FSTCD','FCNTYCD',
-                    'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB')), ~ as_factor(.)),
+                    'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB',
+                    'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
+                    'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
            across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
            across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))
@@ -357,6 +367,13 @@ aha.survey.changes <- aha.id.years %>%
 
 # Merge and save final data -----------------------------------------------
 
+non.missing.counts <- aha.final %>%
+  group_by(year) %>%
+  summarise(across(everything(), ~ sum(!is.na(.) & !(. %in% "")))) %>%
+  pivot_longer(cols = -year, names_to = "Variable", values_to = "Count") %>%
+  pivot_wider(names_from = year, values_from = Count)
+
+
 aha.combine <- aha.final %>%
   left_join(aha.all.changes,
             by=c("ID","year")) %>%
@@ -374,7 +391,7 @@ aha.combine <- aha.final %>%
 
 aha.geo  <- aha.combine %>%
   select(ID, SYSID, MCRNUM, NPINUM, LAT, LONG, FCNTYCD, FSTCD,
-         MLOCCITY, MLOCZIP, MSTATE, year, 
+         MLOCCITY, MLOCZIP, MSTATE, MLOCAD1, MLOCAD2, year, 
          own_type, critical_access, change_type) %>%
   write_csv('data/output/aha_geo.csv')
 
