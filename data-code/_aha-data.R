@@ -90,7 +90,11 @@ aha.data.1994 <- read_csv('data/input/AHA Data/AHA FY 1994-2021/ANNUAL_SURVEY_HI
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
            across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))  %>% 
     filter(YEAR<2007) %>%
-    rename(year=YEAR)
+    rename(year=YEAR) %>%
+    mutate(COMMTY=case_when(
+      COMMTY==2 ~ "N",
+      COMMTY==1 ~ "Y",
+      TRUE ~ NA_character_))
 
 aha.data.1986 <- read_csv('data/input/AHA Data/AHA FY 1986-1993/ANNUAL_SURVEY_HIST_1986_1993.csv') %>% 
     select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
@@ -132,7 +136,12 @@ aha.data.1986 <- read_csv('data/input/AHA Data/AHA FY 1986-1993/ANNUAL_SURVEY_HI
                     'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
            across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
-           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))
+           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.))) %>%
+    mutate(COMMTY=case_when(
+      COMMTY==2 ~ "N",
+      COMMTY==1 ~ "Y",
+      TRUE ~ NA_character_))
+
 
 aha.data.1980 <- read_csv('data/input/AHA Data/AHA FY 1980-1985/ANNUAL_SURVEY_HIST_1980_1985.csv') %>% 
     select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
@@ -174,7 +183,12 @@ aha.data.1980 <- read_csv('data/input/AHA Data/AHA FY 1980-1985/ANNUAL_SURVEY_HI
                     'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
            across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
-           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))
+           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.))) %>%
+      mutate(COMMTY=case_when(
+        COMMTY==2 ~ "N",
+        COMMTY==1 ~ "Y",
+        TRUE ~ NA_character_))
+
 
 aha.historic <- bind_rows(aha.data.1980, aha.data.1986, aha.data.1994)
 
@@ -239,7 +253,11 @@ for (y in 2007:2019){
                     'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
            across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
-           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))
+           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.))) %>%
+      mutate(COMMTY=case_when(
+        COMMTY==2 ~ "N",
+        COMMTY==1 ~ "Y",
+        TRUE ~ NA_character_))
   
   aha.modern <- bind_rows(aha.modern, aha.data)
   
@@ -424,5 +442,3 @@ aha.geo  <- aha.combine %>%
          MLOCCITY, MLOCZIP, MSTATE, MLOCAD1, MLOCAD2, year, 
          own_type, critical_access, change_type) %>%
   write_csv('data/output/aha_geo.csv')
-
-  
