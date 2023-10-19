@@ -43,6 +43,9 @@ aha.historic <- aha.historic %>%
   rename_with(toupper) %>%
   rename(year=YEAR)
 
+
+
+
 # Import WRDS AHA data ----------------------------------------------------
 
 aha.data.1994 <- read_csv('data/input/AHA Data/AHA FY 1994-2021/ANNUAL_SURVEY_HIST_1994_RECENT.csv') %>%
@@ -287,9 +290,23 @@ aha.duplicates <- aha.final %>%
 changes.data <- read_csv('data/output/df_change.csv') %>%
   mutate(ID5=NA)
   
-
 any.change <- changes.data %>%
   distinct(ID)
+
+aha.closures.historic <- read_csv('data/input/AHA Data/AHA Summary of Changes 1986-2006/closures.csv') %>%
+  mutate(year=year-1, ID=as.character(ID))
+
+aha.merger.historic <- read_csv('data/input/AHA Data/AHA Summary of Changes 1986-2006/mergers.csv') %>%
+  group_by(ID, year) %>%
+  filter(row_number()==1) %>%
+  ungroup() %>%
+  mutate(year=year-1, ID=as.character(ID))
+
+aha.new.historic <- read_csv('data/input/AHA Data/AHA Summary of Changes 1986-2006/new-hospitals.csv') %>%
+  mutate(ID=as.character(ID))
+  
+aha.other.historic <- read_csv('data/input/AHA Data/AHA Summary of Changes 1986-2006/other-changes.csv') %>%
+  mutate(year=year-1, ID=as.character(ID))
 
 ## reshape to long
 dat.list <- list()
@@ -345,8 +362,18 @@ aha.all.changes <- bind_rows(aha.closures, aha.merger, aha.rename, aha.other.cha
   group_by(ID) %>%
   mutate(change_count=row_number()) %>%
   ungroup() %>%
-  mutate(change_source1="Summary of Changes") %>%
+  mutate(change_source1="Summary of Changes", other_ID=as.character(other_ID)) %>%
   rename(change_reason=reason)
+
+aha.all.changes.historic <- bind_rows(aha.closures.historic, aha.merger.historic, aha.new.historic, aha.other.historic) %>%
+  arrange(ID, year) %>%
+  group_by(ID) %>%
+  mutate(change_count=row_number()) %>%
+  ungroup() %>%
+  mutate(change_source1="Summary of Changes")
+
+aha.changes <- bind_rows(aha.all.changes, aha.all.changes.historic)
+
 
 ## identify ID changes in AHA surveys
 aha.id.years <- aha.final %>% select(ID, year) %>%
@@ -375,7 +402,7 @@ non.missing.counts <- aha.final %>%
 
 
 aha.combine <- aha.final %>%
-  left_join(aha.all.changes,
+  left_join(aha.changes,
             by=c("ID","year")) %>%
   left_join(aha.survey.changes, 
             by=c("ID","year")) %>%
