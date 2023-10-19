@@ -52,7 +52,7 @@ aha.data.1994 <- read_csv('data/input/AHA Data/AHA FY 1994-2021/ANNUAL_SURVEY_HI
   select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
                     'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'MLOCAD1', 'MLOCAD2', 'FSTCD', 'FCNTYCD', 
                     'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
-                    'BDTOT', 'COMMTY', 'EHLTH', 'CNTRL', 'SERV',
+                    'BDTOT', 'COMMTY'='CHC', 'EHLTH', 'CNTRL', 'SERV',
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
                     'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
                     'MHSMEMB', 'FTEMD', 'FTERES', 'ADMTOT', 'IPDTOT', 'MCDDC', 'MCRDC',
@@ -96,7 +96,7 @@ aha.data.1986 <- read_csv('data/input/AHA Data/AHA FY 1986-1993/ANNUAL_SURVEY_HI
     select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
                     'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'MLOCAD1', 'MLOCAD2', 'FSTCD', 'FCNTYCD', 
                     'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
-                    'BDTOT', 'COMMTY', 'EHLTH', 'CNTRL', 'SERV',
+                    'BDTOT', 'COMMTY'='CHC', 'EHLTH', 'CNTRL', 'SERV',
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
                     'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
                     'MHSMEMB', 'FTEMD', 'FTERES', 'ADMTOT', 'IPDTOT', 'MCDDC', 'MCRDC',
@@ -138,7 +138,7 @@ aha.data.1980 <- read_csv('data/input/AHA Data/AHA FY 1980-1985/ANNUAL_SURVEY_HI
     select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
                     'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'MLOCAD1', 'MLOCAD2', 'FSTCD', 'FCNTYCD', 
                     'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
-                    'BDTOT', 'COMMTY', 'EHLTH', 'CNTRL', 'SERV',
+                    'BDTOT', 'COMMTY'='CHC', 'EHLTH', 'CNTRL', 'SERV',
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
                     'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
                     'MHSMEMB', 'FTEMD', 'FTERES', 'ADMTOT', 'IPDTOT', 'MCDDC', 'MCRDC',
@@ -176,11 +176,7 @@ aha.data.1980 <- read_csv('data/input/AHA Data/AHA FY 1980-1985/ANNUAL_SURVEY_HI
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
            across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))
 
-
-aha.historic <- aha.data.1980 %>% 
-  bind_rows(aha.data.1986) %>% 
-  bind_rows(aha.data.1994)
-
+aha.historic <- bind_rows(aha.data.1980, aha.data.1986, aha.data.1994)
 
 # Import yearly AHA data --------------------------------------------------
 
@@ -206,7 +202,7 @@ for (y in 2007:2019){
     select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
                     'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'FSTCD', 'FCNTYCD', 
                     'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
-                    'BDTOT', 'COMMTY', 'EHLTH', 'CNTRL', 'SERV',
+                    'BDTOT', 'COMMTY'='CHC', 'EHLTH', 'CNTRL', 'SERV',
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
                     'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
                     'MHSMEMB', 'FTEMD', 'FTERES', 'ADMTOT', 'IPDTOT', 'MCDDC', 'MCRDC',
@@ -394,6 +390,13 @@ aha.survey.changes <- aha.id.years %>%
 
 # Merge and save final data -----------------------------------------------
 
+## fill missing values if they are observed and identical in the previous year and the subsequent year
+aha.final <- aha.final %>% arrange(ID, year) %>%
+  group_by(ID) %>%
+  mutate(across(everything(), ~ ifelse(is.na(.) & !is.na(lag(.)) & !is.na(lead(.)) & lag(.)==lead(.), lag(.), .))) %>%
+  ungroup()
+
+## count non-missing variables by year
 non.missing.counts <- aha.final %>%
   group_by(year) %>%
   summarise(across(everything(), ~ sum(!is.na(.) & !(. %in% "")))) %>%
