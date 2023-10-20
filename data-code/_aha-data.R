@@ -414,7 +414,6 @@ factor_cols <- names(aha.final)[sapply(aha.final, is.factor)]
 aha.final.edit <- aha.final %>%
   mutate(across(all_of(factor_cols), as.character))
 
-
 # 1. Create datasets of lagged and lead years
 aha.final.lag <- aha.final.edit %>% mutate(year = year + 1)
 aha.final.lead <- aha.final.edit %>% mutate(year = year - 1)
@@ -437,7 +436,7 @@ merged_data <- merged_data %>%
          )))
 
 # Drop the extra columns and return to the original structure
-aha.final2 <- merged_data %>% select(names(aha.final.edit)) %>%
+aha.final <- merged_data %>% select(names(aha.final.edit)) %>%
   mutate(across(all_of(factor_cols), as.factor))
 
 
