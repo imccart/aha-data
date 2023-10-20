@@ -409,10 +409,38 @@ aha.survey.changes <- aha.id.years %>%
 # Merge and save final data -----------------------------------------------
 
 ## fill missing values if they are observed and identical in the previous year and the subsequent year
-aha.final <- aha.final %>% arrange(ID, year) %>%
-  group_by(ID) %>%
-  mutate(across(everything(), ~ ifelse(is.na(.) & !is.na(lag(.)) & !is.na(lead(.)) & lag(.)==lead(.), lag(.), .))) %>%
-  ungroup()
+factor_cols <- names(aha.final)[sapply(aha.final, is.factor)]
+
+aha.final.edit <- aha.final %>%
+  mutate(across(all_of(factor_cols), as.character))
+
+
+# 1. Create datasets of lagged and lead years
+aha.final.lag <- aha.final.edit %>% mutate(year = year + 1)
+aha.final.lead <- aha.final.edit %>% mutate(year = year - 1)
+
+# 2. Merge the datasets
+merged_data <- aha.final.edit %>%
+  left_join(aha.final.lag, by = c("ID", "year"), suffix = c("", ".lag")) %>%
+  left_join(aha.final.lead, by = c("ID", "year"), suffix = c("", ".lead"))
+
+# 3. Replace missing values in aha.final
+merged_data <- merged_data %>%
+  mutate(across(all_of(names(aha.final.edit)[-which(names(aha.final.edit) == "year")]), 
+         ~ ifelse(
+             is.na(.) & 
+             !is.na(.[paste0(cur_column(), ".lag")]) & 
+             !is.na(.[paste0(cur_column(), ".lead")]) & 
+             .[paste0(cur_column(), ".lag")] == .[paste0(cur_column(), ".lead")], 
+             .[paste0(cur_column(), ".lag")], 
+             .
+         )))
+
+# Drop the extra columns and return to the original structure
+aha.final2 <- merged_data %>% select(names(aha.final.edit)) %>%
+  mutate(across(all_of(factor_cols), as.factor))
+
+
 
 ## count non-missing variables by year
 non.missing.counts <- aha.final %>%
