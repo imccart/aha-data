@@ -425,15 +425,22 @@ merged_data <- aha.final.edit %>%
 
 # 3. Replace missing values in aha.final
 merged_data <- merged_data %>%
-  mutate(across(all_of(names(aha.final.edit)[-which(names(aha.final.edit) == "year")]), 
-         ~ ifelse(
-             is.na(.) & 
-             !is.na(.[paste0(cur_column(), ".lag")]) & 
-             !is.na(.[paste0(cur_column(), ".lead")]) & 
-             .[paste0(cur_column(), ".lag")] == .[paste0(cur_column(), ".lead")], 
-             .[paste0(cur_column(), ".lag")], 
-             .
-         )))
+  mutate(across(
+    .cols = all_of(names(aha.final.edit)[!names(aha.final.edit) %in% c("ID","year")]),
+    .fns = ~ case_when(
+      is.na(.) & !is.na(get(paste0(cur_column(), ".lag"))) & !is.na(get(paste0(cur_column(), ".lead"))) & 
+      get(paste0(cur_column(), ".lag")) == get(paste0(cur_column(), ".lead")) ~ get(paste0(cur_column(), ".lag")),
+      TRUE ~ .
+    )),
+    MLOCZIP = case_when(
+      year==1983 & substr(MLOCZIP, 1, 4) == 
+      substr(MLOCZIP.lag, nchar(MLOCZIP.lag) - 3, nchar(MLOCZIP.lag)) ~ MLOCZIP.lag,
+      year==1983 & substr(MLOCZIP, 1, 4) == 
+      substr(MLOCZIP.lead, nchar(MLOCZIP.lead) - 3, nchar(MLOCZIP.lead)) ~ MLOCZIP.lead,
+      year==1983 & is.na(MLOCZIP) ~ NA_character_,
+      TRUE ~ MLOCZIP
+    ))
+
 
 # Drop the extra columns and return to the original structure
 aha.final <- merged_data %>% select(names(aha.final.edit)) %>%
