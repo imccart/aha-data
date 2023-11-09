@@ -441,6 +441,14 @@ merged_data <- merged_data %>%
       TRUE ~ MLOCZIP
     ))
 
+# 4. Fill up missing values using future values
+merged_data <- merged_data %>%
+  arrange(ID, year) %>%
+  group_by(ID) %>%
+  fill(c(MLOCZIP, MLOCCITY, MSTATE, COMMTY, SERV,
+        LAT, LONG, HRRCODE, HRRNAME, HSACODE, HSANAME), .direction="updown") %>%
+  ungroup()
+
 
 # Drop the extra columns and return to the original structure
 aha.final <- merged_data %>% select(names(aha.final.edit)) %>%
