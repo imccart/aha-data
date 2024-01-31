@@ -307,19 +307,22 @@ changes.data <- read_csv('data/output/df_change.csv') %>%
 any.change <- changes.data %>%
   distinct(ID)
 
-aha.closures.historic <- read_csv('data/input/AHA Data/AHA Summary of Changes 1986-2006/closures.csv') %>%
+aha.closures.historic <- read_csv('data/input/AHA Data/AHA Summary of Changes 1986-2019/closures.csv') %>%
+  select(ID, year, reason, change_type) %>%
   mutate(year=year-1, ID=as.character(ID))
 
-aha.merger.historic <- read_csv('data/input/AHA Data/AHA Summary of Changes 1986-2006/mergers.csv') %>%
+aha.merger.historic <- read_csv('data/input/AHA Data/AHA Summary of Changes 1986-2019/mergers.csv') %>%
+  select(ID, year, reason, change_type) %>%
   group_by(ID, year) %>%
   filter(row_number()==1) %>%
   ungroup() %>%
   mutate(year=year-1, ID=as.character(ID))
 
-aha.new.historic <- read_csv('data/input/AHA Data/AHA Summary of Changes 1986-2006/new-hospitals.csv') %>%
+aha.new.historic <- read_csv('data/input/AHA Data/AHA Summary of Changes 1986-2019/new-hospitals.csv') %>%
   mutate(ID=as.character(ID))
   
-aha.other.historic <- read_csv('data/input/AHA Data/AHA Summary of Changes 1986-2006/other-changes.csv') %>%
+aha.other.historic <- read_csv('data/input/AHA Data/AHA Summary of Changes 1986-2019/other-changes.csv') %>%
+  select(ID, year, reason, change_type) %>%
   mutate(year=year-1, ID=as.character(ID))
 
 ## reshape to long
@@ -386,8 +389,8 @@ aha.all.changes.historic <- bind_rows(aha.closures.historic, aha.merger.historic
   ungroup() %>%
   mutate(change_source1="Summary of Changes")
 
-aha.changes <- bind_rows(aha.all.changes, aha.all.changes.historic)
-
+## aha.changes <- bind_rows(aha.all.changes, aha.all.changes.historic)
+aha.changes <- aha.all.changes.historic
 
 ## identify ID changes in AHA surveys
 aha.id.years <- aha.final %>% select(ID, year) %>%
