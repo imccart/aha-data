@@ -12,4 +12,4 @@ This repository houses code and other supporting documentation for importing and
             - `sum_of_change-y.R` generates R dataframe `sum_of_change` from the raw csv files of 'Summary of Changes'. It is assumed that the csv files for 'Summary of Changes' are already obtained (and stored in 'data/temp/') from 'pdf2table.ipynb'.
             - `tidy_sum_of_change.R` tidy the dataframe `sum_of_change`.
     - AHA summary of changes, 1980-2006:
-        - Data collected manually from the AHA annual surveys.
+        - Data collected manually from the AHA annual surveys
