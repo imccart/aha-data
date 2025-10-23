@@ -51,7 +51,7 @@ aha.historic <- aha.historic %>%
 aha.data.1994 <- read_csv('data/input/AHA Data/AHA FY 1994-2021/ANNUAL_SURVEY_HIST_1994_RECENT.csv') %>%
   select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
                     'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'MLOCAD1', 'MLOCAD2', 'FSTCD', 'FCNTYCD', 
-                    'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
+                    'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 'CBSANAME', 'CBSACODE', 'CBSATYPE',
                     'BDTOT', 'COMMTY'='CHC', 'EHLTH', 'CNTRL', 'SERV',
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
                     'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
@@ -76,7 +76,7 @@ aha.data.1994 <- read_csv('data/input/AHA Data/AHA FY 1994-2021/ANNUAL_SURVEY_HI
                     'FFDMHOS','MRIHOS','IMRIHOS','MSCTHOS','MSCTGHOS',
                     'PETHOS','PETCTHOS','SPECTHOS','ULTSNHOS','AMBSHOS',
                     'EMDEPHOS','ICLABHOS','ADTCHOS','CHTHHOS','CAOSHOS',
-                    'IMRTHOS', 'BROOMHOS','ESWLHOS','FITCHOS',
+                    'IMRTHOS', 'BROOMHOS','ESWLHOS','FITCHOS', 'CBSATYPE',
                     'IGRTHOS','SPORTHOS','WOMHCHOS','TRAUMHOS','PSYCAHOS',
                     'AIDSSHOS','PSYEDHOS','PSYEMHOS','PSYOPHOS','PSYPHHOS',
                     'ADULTHOS','HOSPCHOS','PATEDHOS','SOCWKHOS','VOLSVHOS',
@@ -86,9 +86,9 @@ aha.data.1994 <- read_csv('data/input/AHA Data/AHA FY 1994-2021/ANNUAL_SURVEY_HI
                     'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB',
                     'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
                     'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
-           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
+           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE', 'CBSACODE',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
-           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.)))  %>% 
+           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE','CBSANAME')), ~as.character(.)))  %>% 
     filter(YEAR<2007) %>%
     rename(year=YEAR) %>%
     mutate(COMMTY=case_when(
@@ -99,7 +99,7 @@ aha.data.1994 <- read_csv('data/input/AHA Data/AHA FY 1994-2021/ANNUAL_SURVEY_HI
 aha.data.1986 <- read_csv('data/input/AHA Data/AHA FY 1986-1993/ANNUAL_SURVEY_HIST_1986_1993.csv') %>% 
     select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
                     'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'MLOCAD1', 'MLOCAD2', 'FSTCD', 'FCNTYCD', 
-                    'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
+                    'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 'CBSANAME', 'CBSACODE', 'CBSATYPE',
                     'BDTOT', 'COMMTY'='CHC', 'EHLTH', 'CNTRL', 'SERV',
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
                     'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
@@ -124,7 +124,7 @@ aha.data.1986 <- read_csv('data/input/AHA Data/AHA FY 1986-1993/ANNUAL_SURVEY_HI
                     'FFDMHOS','MRIHOS','IMRIHOS','MSCTHOS','MSCTGHOS',
                     'PETHOS','PETCTHOS','SPECTHOS','ULTSNHOS','AMBSHOS',
                     'EMDEPHOS','ICLABHOS','ADTCHOS','CHTHHOS','CAOSHOS',
-                    'IMRTHOS','BROOMHOS','ESWLHOS','FITCHOS',
+                    'IMRTHOS','BROOMHOS','ESWLHOS','FITCHOS', 'CBSATYPE',
                     'IGRTHOS','SPORTHOS','WOMHCHOS','TRAUMHOS','PSYCAHOS',
                     'AIDSSHOS','PSYEDHOS','PSYEMHOS','PSYOPHOS','PSYPHHOS',
                     'ADULTHOS','HOSPCHOS','PATEDHOS','SOCWKHOS','VOLSVHOS',
@@ -134,9 +134,9 @@ aha.data.1986 <- read_csv('data/input/AHA Data/AHA FY 1986-1993/ANNUAL_SURVEY_HI
                     'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB',
                     'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
                     'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
-           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
+           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE', 'CBSACODE',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
-           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.))) %>%
+           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE', 'CBSANAME')), ~as.character(.))) %>%
     mutate(COMMTY=case_when(
       COMMTY==2 ~ "N",
       COMMTY==1 ~ "Y",
@@ -146,7 +146,7 @@ aha.data.1986 <- read_csv('data/input/AHA Data/AHA FY 1986-1993/ANNUAL_SURVEY_HI
 aha.data.1980 <- read_csv('data/input/AHA Data/AHA FY 1980-1985/ANNUAL_SURVEY_HIST_1980_1985.csv') %>% 
     select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
                     'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'MLOCAD1', 'MLOCAD2', 'FSTCD', 'FCNTYCD', 
-                    'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
+                    'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 'CBSANAME', 'CBSACODE', 'CBSATYPE',
                     'BDTOT', 'COMMTY'='CHC', 'EHLTH', 'CNTRL', 'SERV',
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
                     'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
@@ -171,7 +171,7 @@ aha.data.1980 <- read_csv('data/input/AHA Data/AHA FY 1980-1985/ANNUAL_SURVEY_HI
                     'FFDMHOS','MRIHOS','IMRIHOS','MSCTHOS','MSCTGHOS',
                     'PETHOS','PETCTHOS','SPECTHOS','ULTSNHOS','AMBSHOS',
                     'EMDEPHOS','ICLABHOS','ADTCHOS','CHTHHOS','CAOSHOS',
-                    'IMRTHOS','BROOMHOS','ESWLHOS','FITCHOS',
+                    'IMRTHOS','BROOMHOS','ESWLHOS','FITCHOS', 'CBSATYPE',
                     'IGRTHOS','SPORTHOS','WOMHCHOS','TRAUMHOS','PSYCAHOS',
                     'AIDSSHOS','PSYEDHOS','PSYEMHOS','PSYOPHOS','PSYPHHOS',
                     'ADULTHOS','HOSPCHOS','PATEDHOS','SOCWKHOS','VOLSVHOS',
@@ -181,9 +181,9 @@ aha.data.1980 <- read_csv('data/input/AHA Data/AHA FY 1980-1985/ANNUAL_SURVEY_HI
                     'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB',
                     'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
                     'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
-           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
+           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE', 'CBSACODE', 
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
-           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.))) %>%
+           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE', 'CBSANAME')), ~as.character(.))) %>%
       mutate(COMMTY=case_when(
         COMMTY==2 ~ "N",
         COMMTY==1 ~ "Y",
@@ -215,7 +215,7 @@ for (y in 2007:2019){
   aha.data <- read_csv(aha.path) %>%
     select(any_of(c('ID', 'SYSID', 'MCRNUM', 'NPINUM', 'MNAME', 'MTYPE', 'MLOS', 'DTBEG', 'DTEND', 'FISYR',
                     'LAT', 'LONG', 'MLOCCITY','MLOCZIP', 'MSTATE', 'FSTCD', 'FCNTYCD', 
-                    'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 
+                    'HRRNAME', 'HRRCODE', 'HSANAME', 'HSACODE', 'CBSANAME', 'CBSACODE', 'CBSATYPE',
                     'BDTOT', 'COMMTY'='CHC', 'EHLTH', 'CNTRL', 'SERV',
                     'MAPP1','MAPP2','MAPP3','MAPP4','MAPP5','MAPP6','MAPP7','MAPP8','MAPP9','MAPP10',
                     'MAPP11','MAPP12','MAPP13','MAPP14','MAPP15','MAPP16','MAPP17','MAPP18',
@@ -241,7 +241,7 @@ for (y in 2007:2019){
                     'FFDMHOS','MRIHOS','IMRIHOS','MSCTHOS','MSCTGHOS',
                     'PETHOS','PETCTHOS','SPECTHOS','ULTSNHOS','AMBSHOS',
                     'EMDEPHOS','ICLABHOS','ADTCHOS','CHTHHOS','CAOSHOS',
-                    'IMRTHOS','BROOMHOS','ESWLHOS','FITCHOS',
+                    'IMRTHOS','BROOMHOS','ESWLHOS','FITCHOS', 'CBSATYPE',
                     'IGRTHOS','SPORTHOS','WOMHCHOS','TRAUMHOS','PSYCAHOS',
                     'AIDSSHOS','PSYEDHOS','PSYEMHOS','PSYOPHOS','PSYPHHOS',
                     'ADULTHOS','HOSPCHOS','PATEDHOS','SOCWKHOS','VOLSVHOS',
@@ -251,9 +251,9 @@ for (y in 2007:2019){
                     'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB',
                     'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
                     'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
-           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE',
+           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE', 'CBSACODE', 
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
-           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE')), ~as.character(.))) %>%
+           across(any_of(c('DTBEG','DTEND','FISYR','MSTATE', 'CBSANAME')), ~as.character(.))) %>%
       mutate(COMMTY=case_when(
         COMMTY==2 ~ "N",
         COMMTY==1 ~ "Y",
