@@ -60,7 +60,7 @@ aha.data.1994 <- read_csv('data/input/AHA Data/AHA FY 1994-2021/ANNUAL_SURVEY_HI
                     'REDSHOS', 'CTSCNHOS', 'DRADFHOS', 'EBCTHOS', 'FFDMHOS', 'MRIHOS', 'IMRIHOS',
                     'MSCTHOS', 'MSCTGHOS', 'PETHOS', 'PETCTHOS', 'SPECTHOS', 'ULTSNHOS',
                     'AMBSHOS', 'EMDEPHOS', 'ICLABHOS', 'ADTCHOS', 'ADTEHOS', 'CHTHHOS', 'CAOSHOS',
-                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
+                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD', 'OBBD',
                     'BROOMHOS', 'ACLABHOS', 'CARIC', 'CTSCNHOS', 'DRADFHOS', 'ESWLHOS', 'FITCHOS',
                     'ADTCHOS', 'PETHOS', 'IGRTHOS', 'IMRTHOS', 'SPECTHOS', 'SPORTHOS', 'ULTSNHOS', 
                     'WOMHCHOS', 'ALCHBD', 'BRNBD', 'PSYBD', 'TRAUMHOS', 'PSYCAHOS', 'EMDEPHOS', 
@@ -86,7 +86,7 @@ aha.data.1994 <- read_csv('data/input/AHA Data/AHA FY 1994-2021/ANNUAL_SURVEY_HI
                     'CAH','RRCTR','SCPROV','SERV','COMMTY','MLOS','MHSMEMB',
                     'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
                     'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
-           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE', 'CBSACODE',
+           across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'OBBD', 'HSACODE', 'CBSACODE',
                            'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
            across(any_of(c('DTBEG','DTEND','FISYR','MSTATE','CBSANAME')), ~as.character(.)))  %>% 
     filter(YEAR<2007) %>%
@@ -108,7 +108,7 @@ aha.data.1986 <- read_csv('data/input/AHA Data/AHA FY 1986-1993/ANNUAL_SURVEY_HI
                     'REDSHOS', 'CTSCNHOS', 'DRADFHOS', 'EBCTHOS', 'FFDMHOS', 'MRIHOS', 'IMRIHOS',
                     'MSCTHOS', 'MSCTGHOS', 'PETHOS', 'PETCTHOS', 'SPECTHOS', 'ULTSNHOS',
                     'AMBSHOS', 'EMDEPHOS', 'ICLABHOS', 'ADTCHOS', 'ADTEHOS', 'CHTHHOS', 'CAOSHOS',
-                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
+                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD', 'OBBD',
                     'BROOMHOS', 'ACLABHOS', 'CARIC', 'CTSCNHOS', 'DRADFHOS', 'ESWLHOS', 'FITCHOS',
                     'ADTCHOS', 'PETHOS', 'IGRTHOS', 'IMRTHOS', 'SPECTHOS', 'SPORTHOS', 'ULTSNHOS', 
                     'WOMHCHOS', 'ALCHBD', 'BRNBD', 'PSYBD', 'TRAUMHOS', 'PSYCAHOS', 'EMDEPHOS', 
@@ -135,7 +135,7 @@ aha.data.1986 <- read_csv('data/input/AHA Data/AHA FY 1986-1993/ANNUAL_SURVEY_HI
                     'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
                     'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
            across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE', 'CBSACODE',
-                           'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
+                           'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD', 'OBBD')), ~ as.numeric(.)),
            across(any_of(c('DTBEG','DTEND','FISYR','MSTATE', 'CBSANAME')), ~as.character(.))) %>%
     mutate(COMMTY=case_when(
       COMMTY==2 ~ "N",
@@ -155,7 +155,7 @@ aha.data.1980 <- read_csv('data/input/AHA Data/AHA FY 1980-1985/ANNUAL_SURVEY_HI
                     'REDSHOS', 'CTSCNHOS', 'DRADFHOS', 'EBCTHOS', 'FFDMHOS', 'MRIHOS', 'IMRIHOS',
                     'MSCTHOS', 'MSCTGHOS', 'PETHOS', 'PETCTHOS', 'SPECTHOS', 'ULTSNHOS',
                     'AMBSHOS', 'EMDEPHOS', 'ICLABHOS', 'ADTCHOS', 'ADTEHOS', 'CHTHHOS', 'CAOSHOS',
-                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
+                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD', 'OBBD',
                     'BROOMHOS', 'ACLABHOS', 'CARIC', 'CTSCNHOS', 'DRADFHOS', 'ESWLHOS', 'FITCHOS',
                     'ADTCHOS', 'PETHOS', 'IGRTHOS', 'IMRTHOS', 'SPECTHOS', 'SPORTHOS', 'ULTSNHOS', 
                     'WOMHCHOS', 'ALCHBD', 'BRNBD', 'PSYBD', 'TRAUMHOS', 'PSYCAHOS', 'EMDEPHOS', 
@@ -182,7 +182,7 @@ aha.data.1980 <- read_csv('data/input/AHA Data/AHA FY 1980-1985/ANNUAL_SURVEY_HI
                     'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
                     'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
            across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE', 'CBSACODE', 
-                           'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
+                           'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD', 'OBBD')), ~ as.numeric(.)),
            across(any_of(c('DTBEG','DTEND','FISYR','MSTATE', 'CBSANAME')), ~as.character(.))) %>%
       mutate(COMMTY=case_when(
         COMMTY==2 ~ "N",
@@ -224,7 +224,7 @@ for (y in 2007:2019){
                     'REDSHOS', 'CTSCNHOS', 'DRADFHOS', 'EBCTHOS', 'FFDMHOS', 'MRIHOS', 'IMRIHOS',
                     'MSCTHOS', 'MSCTGHOS', 'PETHOS', 'PETCTHOS', 'SPECTHOS', 'ULTSNHOS',
                     'AMBSHOS', 'EMDEPHOS', 'ICLABHOS', 'ADTCHOS', 'ADTEHOS', 'CHTHHOS', 'CAOSHOS',
-                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD',
+                    'ONCOLHO', 'RASTHOS', 'IMRTHOS', 'CICBD', 'NICBD', 'NINTBD', 'PEDICBD', 'OBBD',
                     'BROOMHOS', 'ACLABHOS', 'CARIC', 'CTSCNHOS', 'DRADFHOS', 'ESWLHOS', 'FITCHOS',
                     'ADTCHOS', 'PETHOS', 'IGRTHOS', 'IMRTHOS', 'SPECTHOS', 'SPORTHOS', 'ULTSNHOS', 
                     'WOMHCHOS', 'ALCHBD', 'BRNBD', 'PSYBD', 'TRAUMHOS', 'PSYCAHOS', 'EMDEPHOS', 
@@ -252,7 +252,7 @@ for (y in 2007:2019){
                     'ROBOHOS', 'ROBOSYS', 'ROBONET', 'ROBOVEN', 'PTONHOS', 'PTONSYS', 'PTONNET', 'PTONVEN',
                     'SRADHOS', 'SRADSYS', 'SRADNET', 'SRADVEN')), ~ as_factor(.)),
            across(any_of(c('LAT','LONG','SYSTELN','CICBD','NICBD', 'HSACODE', 'CBSACODE', 
-                           'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD')), ~ as.numeric(.)),
+                           'NINTBD','PEDICBD','ALCHBD','BRNBD','PSYBD','OBBD')), ~ as.numeric(.)),
            across(any_of(c('DTBEG','DTEND','FISYR','MSTATE', 'CBSANAME')), ~as.character(.))) %>%
       mutate(COMMTY=case_when(
         COMMTY==2 ~ "N",
