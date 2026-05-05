@@ -110,18 +110,22 @@ aha.combine <- aha.final %>%
 
 
 # Write outputs --------------------------------------------------------
+# Filenames carry their year coverage. Future refreshes that change the
+# year range get a new filename; legacy files (aha_data.csv, aha_geo.csv,
+# df_change.csv) stay in place untouched for downstream symlinks.
 
-dir.create("data/output/update-2026", showWarnings = FALSE, recursive = TRUE)
+aha_suffix <- paste0(min(aha.combine$year), "-", max(aha.combine$year))
+it_suffix  <- paste0(min(aha.it$year), "-", max(aha.it$year))
 
-write_csv(aha.combine, "data/output/update-2026/aha_data.csv")
+write_csv(aha.combine, paste0("data/output/aha_data_", aha_suffix, ".csv"))
 
 aha.combine %>%
   select(ID, SYSID, MCRNUM, NPINUM, LAT, LONG, FCNTYCD, FSTCD,
          MLOCCITY, MLOCZIP, MSTATE, MLOCAD1, MLOCAD2, year,
          own_type, critical_access, change_type) %>%
-  write_csv("data/output/update-2026/aha_geo.csv")
+  write_csv(paste0("data/output/aha_geo_", aha_suffix, ".csv"))
 
-write_csv(aha.it, "data/output/update-2026/aha_it.csv")
+write_csv(aha.it, paste0("data/output/aha_it_", it_suffix, ".csv"))
 
-message("Wrote ", nrow(aha.combine), " rows to data/output/update-2026/aha_data.csv (", min(aha.combine$year), "-", max(aha.combine$year), ")")
-message("Wrote ", nrow(aha.it), " rows to data/output/update-2026/aha_it.csv (", min(aha.it$year), "-", max(aha.it$year), ")")
+message("Wrote ", nrow(aha.combine), " rows to data/output/aha_data_", aha_suffix, ".csv")
+message("Wrote ", nrow(aha.it), " rows to data/output/aha_it_", it_suffix, ".csv")
