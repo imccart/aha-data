@@ -1,0 +1,2 @@
+# Restrict Claude's access to sensitive or large data files.
+# Add patterns here as datasets are added to data/input/.

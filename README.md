@@ -1,15 +1,25 @@
 # AHA Data
 
-This repository houses code and other supporting documentation for importing and cleaning data from the AHA annual surveys, as well as information on hospital mergers and closures based on the AHA summary of changes files. The directory structure and description is listed below:
+Code and supporting documentation for importing and cleaning data from the AHA Annual Survey, the AHA Summary of Changes, and (new) the AHA IT Supplement.
 
-- **data**: includes descriptions of datasets used and links to raw sources where possible. This folder is separated into "inputs" (raw data) and "outputs" (clean data files available for analysis). There is also a "temp" subdirectory within the "outputs" folder to track intermediate outputs.
+## Two pipelines
 
-- **data-code**: code files and supporting documentation for all data wrangling, cleaning, and management. 
-    - AHA summary of changes, 2007-2019
-        - `pdf2table.ipynb` transforms the tables in the 'summary of changes' pdf into csv files. The result might depend on the version of the packages used (especially `tabula.io`). This code is unnecessary if you already have 'change_{ }.csv' files in 'output/temp' folder.
-        - `hardcoding.py` contains some objects and user-defined functions called in the `pdf2table.ipynb` file.
-        - `_build-changes-data.R` generates 'df_change.csv' into 'output' directory.
-            - `sum_of_change-y.R` generates R dataframe `sum_of_change` from the raw csv files of 'Summary of Changes'. It is assumed that the csv files for 'Summary of Changes' are already obtained (and stored in 'data/temp/') from 'pdf2table.ipynb'.
-            - `tidy_sum_of_change.R` tidy the dataframe `sum_of_change`.
-    - AHA summary of changes, 1980-2006:
-        - Data collected manually from the AHA annual surveys
+- **Legacy** — `data-code/_aha-data.R` and `data-code/_build-changes-data.R`. Produces frozen outputs at `data/output/{aha_data,aha_geo,df_change}.csv` covering 1980-2019. Multiple downstream projects symlink directly to those files; the frozen versions are preserved bit-for-bit for reproducibility of submitted manuscripts.
+
+- **Update 2026** — `code/_build.R` + numbered sub-scripts (`code/1-historic.R` through `code/6-merge.R`). Produces refreshed outputs at `data/output/update-2026/{aha_data,aha_geo,aha_it}.csv` covering 1980-2024 plus a new IT Supplement panel.
+
+## Folder layout
+
+- **data/** — inputs (raw, symlinked from `D:/research-data/aha/`) and outputs (cleaned). `data/*` is gitignored.
+- **data-code/** — legacy pipeline scripts (frozen).
+    - `_aha-data.R` builds the legacy panel.
+    - `_build-changes-data.R` + `sum_of_change-y.R` + `tidy_sum_of_change.R` + `pdf2table.ipynb` + `hardcoding.py` build `df_change.csv` from the 2007-2019 Summary of Changes PDFs. Currently produced but not used by `_aha-data.R`, which relies on the manually-collected 1986-2019 changes data.
+- **code/** — refreshed pipeline. Driver `_build.R` loads packages and sources sub-scripts in order. Runs end-to-end in a few minutes against system R.
+
+## Running the new pipeline
+
+```r
+source("code/_build.R")
+```
+
+Outputs land in `data/output/update-2026/`.
