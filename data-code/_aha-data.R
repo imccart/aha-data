@@ -7,43 +7,7 @@
 
 # Preliminaries -----------------------------------------------------------
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(data.table, tidyverse, janitor, here, readstata13)
-
-
-# Import historic AHA data ------------------------------------------------
-
-aha.historic <- tibble()
-for (y in 1980:2006) {
-  aha.data <- read.dta13(paste0('data/input/AHA Data/NBER AHA Data (from C. DePasquale)/aha_extract',y,'.dta')) %>%
-    mutate(year=y) %>%
-    mutate(across(any_of(c('mngt','radmchi','msic82','mcounty','ppo','mhsmemb','subs','sysid',
-                           'fcounty','fstcd','fcntycd','netstcd','mngtstcd',
-                           'reg','stcd','chc','los','serv')), ~ as_factor(.)),
-           across(any_of(c('genbd','pedbd','obbd','msicbd','cicbd','pedicbd','nicbd','nintbd',
-                           'brnbd','othicbd','rehabbd','othbd','othbdtot','hospbd',
-                           'bdh','admh','ipdh','npaybenh','spcicbd','mcrdch',
-                           'mcripdh','mcddch','mcdipdh','mcrdclt','mcripdlt',
-                           'mcddclt','mcdipdlt','npayben','hsacode','lat','lon')), ~ as.numeric(.)),
-           across(any_of(c('dtbeg','dtend','fyr','dbegd','dbegy','dendm','dbegm','dendd',
-                           'dendy')), ~as.character(.)))
-      
-  aha.historic <- bind_rows(aha.historic, aha.data)
-}
-
-## for now...
-## only pull critical variables on hospital location/ID, ownership type, bed size, type, and FTEs
-## consider pulling info on specific services, bed types, and physician arrangements
-aha.historic <- aha.historic %>%
-  select(id, sysid, hospno, mcrnum, mtype, mlos=los, dtbeg, dtend, fisyr=fyr,
-         lat, long=lon, mstate, fstcd, fcntycd,
-         bdtot, commty=chc, cntrl, serv,
-         starts_with('mapp'),
-         hsaname, hsacode,
-         mhsmemb, ftemd, ftern, ftelpn, year) %>%
-  rename_with(toupper) %>%
-  rename(year=YEAR)
-
-
+pacman::p_load(data.table, tidyverse, janitor, here)
 
 
 # Import WRDS AHA data ----------------------------------------------------
