@@ -3,7 +3,18 @@
 # 2007-2013 comes from per-year files in 2-yearly.R, 2014+ from 3-modern.R).
 
 read_wrds <- function(path, year_filter = NULL) {
-  d <- read_csv(path, show_col_types = FALSE, progress = FALSE) %>%
+  d <- read_csv(path, show_col_types = FALSE, progress = FALSE)
+
+  # Older WRDS vintages (1980-1985, 1986-1993) ship cath / open-heart /
+  # cardiac-ICU as CCLAB82 / OHSURG82 / CARDIC82. The "82" is a legacy
+  # AHA naming artifact, not a year stamp -- the column is annual.
+  # Rename to the unified 1994+ names so downstream code sees one column
+  # per service.
+  if ("CCLAB82"  %in% names(d)) d <- rename(d, CCLABHOS = CCLAB82)
+  if ("OHSURG82" %in% names(d)) d <- rename(d, OHSRGHOS = OHSURG82)
+  if ("CARDIC82" %in% names(d)) d <- rename(d, CICHOS   = CARDIC82)
+
+  d <- d %>%
     select(any_of(aha_keep)) %>%
     mutate(
       across(any_of(aha_factor), as_factor),

@@ -10,6 +10,15 @@ aha_keep <- c(
   paste0("MAPP", 1:18),
   "MHSMEMB", "FTEMD", "FTERES", "ADMTOT", "IPDTOT", "MCDDC", "MCRDC", "EXPTOT", "PAYTOT",
   "FTERN", "FTELPN", "FTEH", "NAMMSHOS", "ACLABHOS", "ENDOCHOS", "ENDOUHOUS",
+  # Cardiology services. CCLABHOS / OHSRGHOS / CICHOS exist as such in
+  # the 1994-2021 WRDS file; older WRDS vintages provide them as
+  # CCLAB82 / OHSURG82 / CARDIC82 (renamed in 1-historic.R). The
+  # 2014-2024 modern survey drops CCLAB and OHSRG but keeps the adult/
+  # pediatric cardiac service indicators.
+  "CCLABHOS", "CCLABSYS", "CCLABNET", "CCLABVEN",
+  "OHSRGHOS", "OHSRGSYS", "OHSRGNET", "OHSRGVEN",
+  "CICHOS", "ACARDHOS", "ACARDSYS", "ACARDNET", "ACARDVEN",
+  "PCARDHOS", "PCARDSYS", "PCARDNET", "PCARDVEN",
   "REDSHOS", "CTSCNHOS", "DRADFHOS", "EBCTHOS", "FFDMHOS", "MRIHOS", "IMRIHOS",
   "MSCTHOS", "MSCTGHOS", "PETHOS", "PETCTHOS", "SPECTHOS", "ULTSNHOS",
   "AMBSHOS", "EMDEPHOS", "ICLABHOS", "ADTCHOS", "ADTEHOS", "CHTHHOS", "CAOSHOS",
@@ -28,7 +37,9 @@ aha_keep <- c(
 )
 
 aha_factor <- c(
-  "EHLTH", "ACLABHOS", "CTSCNHOS", "DRADFHOS", "EBCTHOS",
+  "EHLTH", "ACLABHOS",
+  "CCLABHOS", "OHSRGHOS", "CICHOS", "ACARDHOS", "PCARDHOS",
+  "CTSCNHOS", "DRADFHOS", "EBCTHOS",
   "FFDMHOS", "MRIHOS", "IMRIHOS", "MSCTHOS", "MSCTGHOS",
   "PETHOS", "PETCTHOS", "SPECTHOS", "ULTSNHOS", "AMBSHOS",
   "EMDEPHOS", "ICLABHOS", "ADTCHOS", "CHTHHOS", "CAOSHOS",
