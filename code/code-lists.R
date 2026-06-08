@@ -3,7 +3,7 @@
 # column subset across data sources.
 
 aha_keep <- c(
-  "ID", "SYSID", "MCRNUM", "NPINUM", "MNAME", "MTYPE", "MLOS", "DTBEG", "DTEND", "FISYR",
+  "ID", "SYSID", "SYSNAME", "MCRNUM", "NPINUM", "MNAME", "MTYPE", "MLOS", "DTBEG", "DTEND", "FISYR",
   "LAT", "LONG", "MLOCCITY", "MLOCZIP", "MSTATE", "MLOCAD1", "MLOCAD2", "FSTCD", "FCNTYCD",
   "HRRNAME", "HRRCODE", "HSANAME", "HSACODE", "CBSANAME", "CBSACODE", "CBSATYPE",
   "BDTOT", "COMMTY" = "CHC", "EHLTH", "CNTRL", "SERV",
