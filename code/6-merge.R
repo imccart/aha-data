@@ -27,7 +27,10 @@ aha.final <- bind_rows(aha.historic, aha.modern.yearly, aha.modern.new) %>%
       MAPP3 == 1 | MAPP5 == 1 | MAPP8 == 1 | MAPP12 == 1 | MAPP13 == 1 ~ 1,
       TRUE ~ 0
     ),
-    system = ifelse(!is.na(SYSID) | MHSMEMB == 1, 1, 0)
+    ## MHSMEMB is coded 1/0 through 2003 and 1/blank from 2004, so including it
+    ## made every non-member missing from 2004 on; SYSID is coded the same way
+    ## in every year and matches MHSMEMB exactly from 2004.
+    system = ifelse(!is.na(SYSID), 1, 0)
   ) %>%
   filter(!is.na(ID), ID != "", ID != "1111111") %>%
   select(-c(CAH, MAPP18))
